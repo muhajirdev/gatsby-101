@@ -89,24 +89,29 @@ const posts = [
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Airbnb Engineering & Data Science</h1>
-    <h4>
-      Creative engineers and data scientists building a world where you can
-      belong anywhere
-    </h4>
-    <div>
-      <Card
-        big
-        src="https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg"
-      />
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        background:
+          "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+        position: "absolute",
+        zIndex: 100
+      }}
+    >
     </div>
-    <div style={{ display: "flex", marginLeft: -20, marginRight: -20 }}>
-      {posts.map(post => (
-        <div key={post.title} style={{ width: "25%", paddingLeft: 20, paddingRight: 20 }}>
-          <Card src={post.img} title={post.title} author={post.author} />
-        </div>
-      ))}
-    </div>
+    <div
+      style={{
+        position: "relative",
+        backgroundImage:
+          "url(https://syriaproducts.de/assets/img/brooklyn-bridge.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        height: "100%",
+        width: "100%"
+      }}
+    >
+   </div>
   </Layout>
 );
 
