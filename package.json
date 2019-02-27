@@ -21,7 +21,7 @@
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-plugin-styled-components": "^3.0.5",
-    "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-remark": "^2.2.6",
     "gatsby-transformer-sharp": "^2.1.13",
     "graphql": "^14.1.1",

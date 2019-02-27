@@ -15,18 +15,6 @@ const BigButton = styled.button`
 `;
 
 
-const redBoxStyle = {
-  backgroundColor: "red",
-  width: 50,
-  height: 50
-};
-
-const RedBox = props => (
-  <div style={redBoxStyle}>
-    <h1>{props.text}</h1>
-  </div>
-);
-
 function BlueBox(props) {
   return (
     <div style={{ backgroundColor: "blue", width: 50, height: 50 }}>
@@ -88,18 +76,29 @@ const posts = [
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="BOOST" keywords={[`gatsby`, `application`, `react`]} />
     <div
       style={{
         height: "100%",
         width: "100%",
+        background: "rgba(0, 0, 0, 0.3)",
+        position: "absolute",
+        zIndex: 300
+      }}
+      >
+      </div>
+     <div
+      style={{
+        height: "100%",
+        width: "100%",
         background:
-          "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
         position: "absolute",
         zIndex: 100
       }}
     >
     </div>
+    
     <div
       style={{
         position: "relative",
