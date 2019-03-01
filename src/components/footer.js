@@ -187,7 +187,7 @@ const Header = props => {
               </Button>
             </StyledLink>
           </div>
-          <div style={{ display: "flex", justifyItems: "center" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", flexGrow: "1", justifyItems: "center" }}>
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
@@ -197,7 +197,7 @@ const Header = props => {
               </Button>
             </StyledLink>
           </div>
-          <div style={{ display: "flex", justifyItems: "center" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", flexGrow: "1", justifyItems: "center" }}>
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
@@ -207,9 +207,15 @@ const Header = props => {
               </Button>
             </StyledLink>
           </div>
+          <div style={{ display: "flex",   flexWrap: "wrap", flexGrow: "2", justifyItems: "center", fontSize: 10 }}>
+              © {new Date().getFullYear()}, Built with love
+                {` `}
+                <a href="https://www.XXX">XXX</a>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
+    
   );
 };
 
