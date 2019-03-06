@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -15,27 +15,33 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import MenuIcon from "../icons/menuIcon";
 import CuboIcon from "../icons/cuboIcon";
 
-
-
 const HeaderContainer = styled.header`
   padding: 20px;
   display: flex;
   max-width: 1400px;
   justify-content: space-between;
   margin: 0 auto;
-  backgroundColor: theme.palette.primary.main; 
-  color: #fff
+  backgroundcolor: ${props => props.theme.palette.primary.main};
+  color: #fff;
 `;
 
 const StyledLink = styled(Link)`
   font-size: 4;
-  text-decoration: none; 
-  color: #fff;
-`
+  text-decoration: none;
+  color: ${props => props.color};
+`;
 
 const styles = {
+  header: {
+    backgroundColor: "transparent",
+    boxShadow: "none"
+  },
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    position: "fixed",
+    width: "100%",
+    zIndex: 200,
+    top: 0
   },
   grow: {
     flexGrow: 1
@@ -49,7 +55,6 @@ const styles = {
     fontWeight: 700
   }
 };
-
 
 const DivStyled = styled.div`
   height: 100% !important;
@@ -118,12 +123,12 @@ const TextLogo = styled(Typography)`
   }
 `;
 
-
 const Header = props => {
   const { classes } = props;
+  const isHome = props.type === "home";
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.header}>
         <Toolbar>
           <IconButton
             className={classes.menuButton}
@@ -141,9 +146,19 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Angebot
+                Angebot
+              </Button>
+            </StyledLink>
+          </div>
+          <div style={{ display: "flex", justifyItems: "center" }}>
+            <SvgIcon>
+              <CuboIcon />
+            </SvgIcon>
+            <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
+              <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
+                Sections
               </Button>
             </StyledLink>
           </div>
@@ -153,7 +168,7 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2">
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Sections
+                Anlagekonzept
               </Button>
             </StyledLink>
           </div>
@@ -163,7 +178,7 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2">
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Anlagekonzept
+                Kosten
               </Button>
             </StyledLink>
           </div>
@@ -173,7 +188,7 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2">
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Kosten
+                Sicherheit
               </Button>
             </StyledLink>
           </div>
@@ -183,7 +198,7 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2">
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Sicherheit
+                Unternehmen
               </Button>
             </StyledLink>
           </div>
@@ -191,19 +206,9 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/subscribe">
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Unternehmen
-              </Button>
-            </StyledLink>
-          </div>
-          <div style={{ display: "flex", justifyItems: "center" }}>
-            <SvgIcon>
-              <CuboIcon />
-            </SvgIcon>
-            <StyledLink to="/page-2">
-              <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-              Newsletter
+                Newsletter
               </Button>
             </StyledLink>
           </div>
@@ -241,13 +246,12 @@ const Links = () => (
   </div>
 );
 
-
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
 export default withStyles(styles)(Header);

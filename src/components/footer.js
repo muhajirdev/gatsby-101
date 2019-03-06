@@ -7,19 +7,41 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 /* material-ui */
 import { withStyles } from "@material-ui/core/styles";
-import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigation from "@material-ui/core/BottomNavigation";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-/* Icons */
 
+import CuboIcon from "../icons/cuboIcon";
+import Icon from '../components/icon'
+/* Icons */
 
 const StyledLink = styled(Link)`
   font-size: 4;
-  text-decoration: none; 
+  text-decoration: none;
   color: #fff;
-`
+`;
 
 const styles = {
+  heading: {
+    color: "#fff"
+  },
+  copyright: {
+    color: "#fff",
+    textAlign: "center"
+  },
+  link: {
+    color: "#FF8000",
+    textDecoration: "none"
+  },
+  container: {
+    width: "100%",
+    display: "flex",
+    height: "20rem",
+    maxWidth: "75%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    background: "#353535"
+  },
   root: {
     flexGrow: 1
   },
@@ -36,63 +58,91 @@ const styles = {
   }
 };
 
-
 const FooterContainer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 60%;
+  width: 100%;
   height: 300px;
   margin: auto;
-  background: #353535;
 `;
 
 const DivFooterStyled = styled.div`
-    /*
+  /*
     1/3  - 3 columns per row
     10px - spacing between columns 
     */
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    width: calc(1/3*100% - (1 - 1/3)*10px);
-    background: #353535;
-    padding: 10px;
-    color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  width: calc(1 / 3 * 100% - (1 - 1 / 3) * 10px);
+  background: #353535;
+  padding: 10px;
+  color: #fff;
 `;
-
-
 
 class Footer extends Component {
   render() {
+    const { classes } = this.props;
+    const dt = new Date();
+    const year = dt.getFullYear();
     return (
+      <div
+        style={{
+          width: "100%",
+          background: "#353535",
+          paddingBottom: "1rem"
+        }}
+      >
+        <BottomNavigation className={classes.container}>
+          <DivFooterStyled>
+            <Typography
+              variant="display3"
+              gutterBottom
+              className={classes.heading}
+            >
+              Footer Text
+            </Typography>
+            <h5>Footer Text</h5>
+            <h5>Footer Text</h5>
+          </DivFooterStyled>
 
-      <BottomNavigation>
-        <FooterContainer> 
-        
-        <DivFooterStyled>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        </DivFooterStyled>
-      
+          <DivFooterStyled>
+            <h5>Footer Text</h5>
+            <h5>Footer Text</h5>
+            <h5>Footer Text</h5>
+          </DivFooterStyled>
 
-        <DivFooterStyled>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        </DivFooterStyled>
+          <DivFooterStyled>
+            <h5>Footer Text</h5>
+            <h5>Footer Text</h5>
+          </DivFooterStyled>
 
-        <DivFooterStyled>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        <h5>Footer Text</h5>
-        </DivFooterStyled>
-
-        </FooterContainer>
-    
-
-      </BottomNavigation>
+          <DivFooterStyled>
+            <h5>Icons</h5>
+            <Icon source={require('../icons/twitter.svg')}/>
+          </DivFooterStyled>
+        </BottomNavigation>
+        <div
+          style={{
+            maxWidth: "75%",
+            marginLeft: "auto",
+            marginRight: "auto"
+          }}
+        >
+          <Typography
+            variant="subheading"
+            gutterBottom
+            className={classes.copyright}
+          >
+            Copyright © {year} STOCKBOOST All Rights Reserved. | Impressum |{" "}
+            <a className={classes.link} href="#">
+              Datenschutz
+            </a>{" "}
+            | Risikohinweis | Wiederrufsbelehrung
+          </Typography>
+        </div>
+      </div>
     );
   }
 }
