@@ -33,7 +33,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#000',
+      main: '#FFFFFF',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -100,11 +100,9 @@ const Layout = ({ children }) => (
           <Header siteTitle={data.site.siteMetadata.title} />
           <GlobalStyle />
           <div>
-            <main style={{ height: "100vh" }}>{children}</main>
-            <footer>
-              <Footer />
-            </footer>
+            <main style={{ height: "100vh" }}>{children}</main>         
           </div>
+          <Footer />    
         </MuiThemeProvider>
       </>
     )}
