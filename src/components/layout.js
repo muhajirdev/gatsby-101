@@ -55,7 +55,7 @@ const theme = createMuiTheme({
     MuiDrawer: {
       paper: {
         background: '#18202c',
-        backgroundColor: "transparent",
+        backgroundColor: "#18202c",
         boxShadow: "none",
         overflow: "hidden",
       // this is where magic happens
