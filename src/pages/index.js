@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import Image from "../components/image";
+import SEO from "../components/seo";
 
 import styled from "styled-components";
 
@@ -14,7 +14,6 @@ const BigButton = styled.button`
   padding: 5px;
 `;
 
-
 function BlueBox(props) {
   return (
     <div style={{ backgroundColor: "blue", width: 50, height: 50 }}>
@@ -24,8 +23,8 @@ function BlueBox(props) {
 }
 
 const Card = props => {
-  const imageUrl  = `url(https://cdn-images-1.medium.com/max/500//0*U1UDCKJqqm2KJT-2)`
-  console.log(imageUrl)
+  const imageUrl = `url(https://cdn-images-1.medium.com/max/500//0*U1UDCKJqqm2KJT-2)`;
+  console.log(imageUrl);
   return (
     <div>
       <div
@@ -75,7 +74,7 @@ const posts = [
 ];
 
 const IndexPage = () => (
-  <Layout>
+  <Layout type="home">
     <SEO title="BOOST" keywords={[`gatsby`, `application`, `react`]} />
     <div
       style={{
@@ -83,22 +82,25 @@ const IndexPage = () => (
         width: "100%",
         background: "rgba(0, 0, 0, 0.3)",
         position: "absolute",
-        zIndex: 300
+        zIndex: 100
       }}
-      >
-      </div>
-     <div
+    />
+    <div
       style={{
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: 'center',
         height: "100%",
         width: "100%",
         background:
-        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+          "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
         position: "absolute",
         zIndex: 100
       }}
     >
+      <h1>Title</h1>
     </div>
-    
+
     <div
       style={{
         position: "relative",
@@ -109,8 +111,7 @@ const IndexPage = () => (
         height: "100%",
         width: "100%"
       }}
-    >
-   </div>
+    />
   </Layout>
 );
 
