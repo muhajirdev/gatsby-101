@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
-
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
-
+import Icon from '../components/icon'
 import styled from "styled-components";
 
 const BigButton = styled.button`
@@ -21,6 +22,12 @@ function BlueBox(props) {
     </div>
   );
 }
+
+const StyledLink = styled(Link)`
+  font-size: 9;
+  text-decoration: none;
+  color: #FF8000;
+`;
 
 const Card = props => {
   const imageUrl = `url(https://cdn-images-1.medium.com/max/500//0*U1UDCKJqqm2KJT-2)`;
@@ -75,7 +82,7 @@ const posts = [
 
 const IndexPage = () => (
   <Layout type="home">
-    <SEO title="BOOST" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
     <div
       style={{
         height: "100%",
@@ -88,6 +95,8 @@ const IndexPage = () => (
     <div
       style={{
         display: "flex",
+        flexDirection: "column",
+        alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
         height: "100%",
@@ -95,17 +104,20 @@ const IndexPage = () => (
         background:
           "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
         position: "absolute",
+        textAlign: 'center',
         zIndex: 100
       }}
     >
-      <h1>Title</h1>
+      <Typography variant="display2" style={{ color: "#fff", maxWidth:"20em"}}>Wie man systematisch & entspannt in Aktien investiert - Boost</Typography>
+      <Typography variant="subheading" style={{ color: "#FF8000" }}><StyledLink to="/page-2">Mehr erfahren</StyledLink></Typography>
+      <StyledLink to="/page-2"><Icon source={require('../icons/bulb.svg')} /></StyledLink>
     </div>
-
     <div
+      source={require('../images/brooklyn-bridge.jpg')}         
       style={{
         position: "relative",
         backgroundImage:
-          "url(https://syriaproducts.de/assets/img/brooklyn-bridge.jpg)",
+        "url(../images/brooklyn-bridge.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         height: "100%",

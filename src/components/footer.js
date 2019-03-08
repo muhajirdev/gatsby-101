@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
 
 const styles = {
   heading: {
-    color: "#fff"
+    color: "#fff"    
   },
   copyright: {
     color: "#fff",
@@ -40,7 +40,7 @@ const styles = {
     maxWidth: "75%",
     marginLeft: "auto",
     marginRight: "auto",
-    background: "#353535"
+    background: "#353535",
   },
   root: {
     flexGrow: 1
@@ -91,58 +91,90 @@ class Footer extends Component {
         style={{
           width: "100%",
           background: "#353535",
-          paddingBottom: "1rem"
+          paddingBottom: "0.5em",
+          paddingTop: "1em"
         }}
       >
         <BottomNavigation className={classes.container}>
           <DivFooterStyled>
             <Typography
-              variant="display3"
+              variant="headline"
+              gutterBottom
+              className={classes.heading}
+            >Hello World!</Typography>
+            <h6>Angebot</h6>
+            <h6>Anlagekonzept</h6>
+            <h6>Kosten</h6>
+            <h6>Wertentwicklung</h6>
+            <h6>sicherheit</h6>
+            <h6>Wissen</h6>
+          </DivFooterStyled>
+
+          <DivFooterStyled>
+            <Typography
+              variant="headline"
+              gutterBottom
+              className={classes.heading}
+            >Service</Typography>
+            <h6>Blog</h6>
+            <h6>Presse</h6>
+            <h6>Kontakt</h6>
+          </DivFooterStyled>
+
+          <DivFooterStyled>
+            <Typography
+              variant="headline"
+              gutterBottom
+              className={classes.heading}
+            >Rechtliches</Typography>
+            <h6>Rechtliche Hinweise</h6>
+            <h6>Datenschutzhinweise</h6>
+            <h6>Impressum</h6>
+            <h6>FAQ</h6>
+          </DivFooterStyled>
+
+          <DivFooterStyled>
+            <Typography
+              variant="headline"
               gutterBottom
               className={classes.heading}
             >
-              Footer Text
+            <a className={classes.link} href="/subscribe">        
+            Subscribe</a>
             </Typography>
-            <h5>Footer Text</h5>
-            <h5>Footer Text</h5>
-          </DivFooterStyled>
-
-          <DivFooterStyled>
-            <h5>Footer Text</h5>
-            <h5>Footer Text</h5>
-            <h5>Footer Text</h5>
-          </DivFooterStyled>
-
-          <DivFooterStyled>
-            <h5>Footer Text</h5>
-            <h5>Footer Text</h5>
-          </DivFooterStyled>
-
-          <DivFooterStyled>
-            <h5>Icons</h5>
-            <Icon source={require('../icons/twitter.svg')}/>
+            <Icon source={require('../icons/twitter.svg')} />
+            <Icon source={require('../icons/facebook.svg')} />
+            <Icon source={require('../icons/instagram.svg')} />
+            <Icon source={require('../icons/github.svg')} />
           </DivFooterStyled>
         </BottomNavigation>
-        <div
-          style={{
-            maxWidth: "75%",
-            marginLeft: "auto",
-            marginRight: "auto"
-          }}
+      
+     
+      <div
+        style={{
+          maxWidth: "75%",
+          margin: "2em",
+          marginLeft: "auto",
+          marginRight: "auto",
+          padding: "0.1em",
+          borderTop: "1px solid #fff"
+        }}
+      >
+        <Typography
+          variant="caption"
+          gutterBottom
+          className={classes.copyright}
         >
-          <Typography
-            variant="subheading"
-            gutterBottom
-            className={classes.copyright}
-          >
-            Copyright © {year} STOCKBOOST All Rights Reserved. | Impressum |{" "}
-            <a className={classes.link} href="#">
-              Datenschutz
+          Copyright © {year} BOOST All Rights Reserved. | Impressum |{" "}
+          <a className={classes.link} href="/datenschutz">
+            Datenschutz
             </a>{" "}
-            | Risikohinweis | Wiederrufsbelehrung
+          | Risikohinweis | Wiederrufsbelehrung
           </Typography>
-        </div>
-      </div>
+          </div> 
+
+           
+    </div >   
     );
   }
 }

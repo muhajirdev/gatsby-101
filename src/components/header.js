@@ -130,6 +130,7 @@ const Header = props => {
     <div className={classes.root}>
       <AppBar position="static" className={classes.header}>
         <Toolbar>
+          <StyledLink to="/">       
           <IconButton
             className={classes.menuButton}
             color="inherit"
@@ -139,6 +140,7 @@ const Header = props => {
               <MenuIcon />
             </SvgIcon>
           </IconButton>
+          </StyledLink>
           <DivStyled>
             <TextLogo className={classes.logo}>BOOST</TextLogo>
           </DivStyled>
@@ -148,7 +150,17 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Angebot
+              Anlagekonzept
+              </Button>
+            </StyledLink>
+          </div>
+          <div style={{ display: "flex", justifyItems: "center" }}>
+            <SvgIcon>
+              <CuboIcon />
+            </SvgIcon>
+            <StyledLink to="/vorteile" color={isHome ? "#fff" : "#000"}>
+              <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
+                Vorteile
               </Button>
             </StyledLink>
           </div>
@@ -158,7 +170,7 @@ const Header = props => {
             </SvgIcon>
             <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Sections
+                Team
               </Button>
             </StyledLink>
           </div>
@@ -166,9 +178,9 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Anlagekonzept
+                Kundenbereich
               </Button>
             </StyledLink>
           </div>
@@ -176,9 +188,9 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Kosten
+                BLOG
               </Button>
             </StyledLink>
           </div>
@@ -186,9 +198,9 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/subscribe" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Sicherheit
+              Newsletter
               </Button>
             </StyledLink>
           </div>
@@ -196,19 +208,9 @@ const Header = props => {
             <SvgIcon>
               <CuboIcon />
             </SvgIcon>
-            <StyledLink to="/page-2">
+            <StyledLink to="/subscribe" color={isHome ? "#fff" : "#000"}>
               <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Unternehmen
-              </Button>
-            </StyledLink>
-          </div>
-          <div style={{ display: "flex", justifyItems: "center" }}>
-            <SvgIcon>
-              <CuboIcon />
-            </SvgIcon>
-            <StyledLink to="/subscribe">
-              <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                Newsletter
+                Kaufen
               </Button>
             </StyledLink>
           </div>
