@@ -89,70 +89,71 @@ class Vorteile extends Component {
       <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
         flexWrap: 'wrap',
         backgroundColor: "#FF8000",
         height: "100%",
-        display: "flex",
         justifyContent: "center",
         alignItems: "center"
       }}
     >
 
-    <Table style={{ maxWidth: '50%', marginTop: 'theme.spacing.unit * 3', overflowX: 'auto', margin: "0 auto" }}>
+<div style={{overflowX: 'scroll'}}>
 
-      <TableHead>
+      <Table style={{ maxWidth: '50%', marginTop: 'theme.spacing.unit * 3', overflowX: 'auto', margin: "0 auto" }}>
 
-        <TableCell><Typography variant="headline"> Boost bietet dir:</Typography> </TableCell>
-        <TableCell align="left"><Typography variant="headline">Deine Vorteile:</Typography> </TableCell>
+        <TableHead>
 
-      </TableHead>
+          <TableCell><Typography variant="headline"> Boost bietet dir:</Typography> </TableCell>
+          <TableCell align="left"><Typography variant="headline">Deine Vorteile:</Typography> </TableCell>
 
-      <TableBody>
-        <TableRow>
-          <TableCell>Seine Aktienstrategie mit quantitativem Ansatz. Diversifiziere dein Depot mit System oder verwende StockBoost als aktive Komponente für passiv ausgerichtete ETF-Portfolios.</TableCell>
-          <TableCell>nutze Boost als Beimischung - egal ob als Investor oder Trader</TableCell>
-        </TableRow>
+        </TableHead>
 
-        <TableRow>
-          <TableCell>ein systematisches Regelwerk um mittelgroße US-Aktien mit hohem Kurspotential auszuwählen.</TableCell>
-          <TableCell>erhalte liquide Werte mit Substanz und Wachstumspotential ohne eigenen aufwendigen Auswahlprozess</TableCell>
-        </TableRow>
+        <TableBody>
+          <TableRow>
+            <TableCell>Seine Aktienstrategie mit quantitativem Ansatz. Diversifiziere dein Depot mit System oder verwende StockBoost als aktive Komponente für passiv ausgerichtete ETF-Portfolios.</TableCell>
+            <TableCell>nutze Boost als Beimischung - egal ob als Investor oder Trader</TableCell>
+          </TableRow>
 
-        <TableRow>
-          <TableCell>ausschließlich Aktien und verwendet keinen Hebel.</TableCell>
-          <TableCell>eine einfache Risikobewertung & ausgewogene Sektor Diversifikation</TableCell>
-        </TableRow>
+          <TableRow>
+            <TableCell>ein systematisches Regelwerk um mittelgroße US-Aktien mit hohem Kurspotential auszuwählen.</TableCell>
+            <TableCell>erhalte liquide Werte mit Substanz und Wachstumspotential ohne eigenen aufwendigen Auswahlprozess</TableCell>
+          </TableRow>
 
-        <TableRow>
-          <TableCell>klare Regeln und 1x pro Woche konkrete Information zu den Anpassungen im Depot (Käufe/Verkäufe). </TableCell>
-          <TableCell>einfache Handhabung, da alle Ein- und Ausstiege per Market Order in liquiden Werten umsetzbar sind.</TableCell>
-        </TableRow>
+          <TableRow>
+            <TableCell>ausschließlich Aktien und verwendet keinen Hebel.</TableCell>
+            <TableCell>eine einfache Risikobewertung & ausgewogene Sektor Diversifikation</TableCell>
+          </TableRow>
 
-  
+          <TableRow>
+            <TableCell>klare Regeln und 1x pro Woche konkrete Information zu den Anpassungen im Depot (Käufe/Verkäufe). </TableCell>
+            <TableCell>einfache Handhabung, da alle Ein- und Ausstiege per Market Order in liquiden Werten umsetzbar sind.</TableCell>
+          </TableRow>
 
-        <TableRow>
-          <TableCell>bei positivem Marktumfeld eine zweite Swing Strategie als Depot-Boost. Ihr erhaltet die Information zu diesen zusätzlichen Ein- & Ausstiegen immer direkt (max. 1 Mail/Tag)</TableCell>
-          <TableCell>erhalte trendstarke Aktien zum richtigen Zeitpunkt. Die Umsetzung ist identisch zu den wöchentlichen Umschichtungen.</TableCell>
-        </TableRow>
+    
 
-        <TableRow>
-          <TableCell>Die Aktienquote liegt zwischen 66% bis 100% (unter Berücksichtigung des Marktumfelds)</TableCell>
-          <TableCell>dein Depot unterliegt geringeren Schwankungen bei Marktrücksetzern</TableCell>
-        </TableRow>
+          <TableRow>
+            <TableCell>bei positivem Marktumfeld eine zweite Swing Strategie als Depot-Boost. Ihr erhaltet die Information zu diesen zusätzlichen Ein- & Ausstiegen immer direkt (max. 1 Mail/Tag)</TableCell>
+            <TableCell>erhalte trendstarke Aktien zum richtigen Zeitpunkt. Die Umsetzung ist identisch zu den wöchentlichen Umschichtungen.</TableCell>
+          </TableRow>
 
-        <TableRow>
-          <TableCell>eine detaillierte Liveumsetzung mit ausgewerteten Track Record unseres Echtgelddepots</TableCell>
-          <TableCell>keine leeren Versprechungen und die langfristige Entwicklung ist nachvollziehbar</TableCell>
-        </TableRow>
-        
-        <TableRow>
-          <TableCell>eine unkomplizierte und zeitschonende Umsetzung</TableCell>
-          <TableCell>nur ca. 15 Minuten Zeitaufwand pro Woche</TableCell>
-        </TableRow>
+          <TableRow>
+            <TableCell>Die Aktienquote liegt zwischen 66% bis 100% (unter Berücksichtigung des Marktumfelds)</TableCell>
+            <TableCell>dein Depot unterliegt geringeren Schwankungen bei Marktrücksetzern</TableCell>
+          </TableRow>
 
-      </TableBody>
-    </Table>
+          <TableRow>
+            <TableCell>eine detaillierte Liveumsetzung mit ausgewerteten Track Record unseres Echtgelddepots</TableCell>
+            <TableCell>keine leeren Versprechungen und die langfristige Entwicklung ist nachvollziehbar</TableCell>
+          </TableRow>
+          
+          <TableRow>
+            <TableCell>eine unkomplizierte und zeitschonende Umsetzung</TableCell>
+            <TableCell>nur ca. 15 Minuten Zeitaufwand pro Woche</TableCell>
+          </TableRow>
+
+        </TableBody>
+      </Table>
+    </div>
     </div>
   </Layout>
 

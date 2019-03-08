@@ -21,6 +21,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 rel: "stylesheet",
                 href: "https://use.typekit.net/kyz6byc.css"
+              },
+              {
+                rel: "stylesheet",
+                href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
               }
             ]}
             meta={[

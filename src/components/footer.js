@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 /* material-ui */
 import { withStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
@@ -23,7 +22,10 @@ const StyledLink = styled(Link)`
 
 const styles = {
   heading: {
-    color: "#fff"    
+    color: "#fff",
+    marginBottom: '1rem',
+    fontSize: '1.2857142857142856rem',
+    fontWeight: 'normal'
   },
   copyright: {
     color: "#fff",
@@ -31,12 +33,11 @@ const styles = {
   },
   link: {
     color: "#FF8000",
-    textDecoration: "none"
+    textDecoration: "none",
   },
   container: {
     width: "100%",
     display: "flex",
-    height: "20rem",
     maxWidth: "75%",
     marginLeft: "auto",
     marginRight: "auto",
@@ -95,7 +96,7 @@ class Footer extends Component {
           paddingTop: "1em"
         }}
       >
-        <BottomNavigation className={classes.container}>
+        <div className={classes.container}>
           <DivFooterStyled>
             <Typography
               variant="headline"
@@ -139,15 +140,17 @@ class Footer extends Component {
               gutterBottom
               className={classes.heading}
             >
-            <a className={classes.link} href="/subscribe">        
-            Subscribe</a>
+            <a>
+              <h1 className={ "animated infinite bounce delay-2s " + classes.heading }>Subscribe</h1>
+            </a>
+
             </Typography>
             <Icon source={require('../icons/twitter.svg')} />
             <Icon source={require('../icons/facebook.svg')} />
             <Icon source={require('../icons/instagram.svg')} />
             <Icon source={require('../icons/github.svg')} />
           </DivFooterStyled>
-        </BottomNavigation>
+        </div>
       
      
       <div

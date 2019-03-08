@@ -94,6 +94,17 @@ const IndexPage = () => (
     />
     <div
       style={{
+        height: "100%",
+        width: "100%",
+        backgroundImage: "url(/brooklyn-bridge.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        position: "absolute",
+        zIndex: 100
+      }}
+    />
+    <div
+      style={{
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
@@ -112,18 +123,6 @@ const IndexPage = () => (
       <Typography variant="subheading" style={{ color: "#FF8000" }}><StyledLink to="/page-2">Mehr erfahren</StyledLink></Typography>
       <StyledLink to="/page-2"><Icon source={require('../icons/bulb.svg')} /></StyledLink>
     </div>
-    <div
-      source={require('../images/brooklyn-bridge.jpg')}         
-      style={{
-        position: "relative",
-        backgroundImage:
-        "url(../images/brooklyn-bridge.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        height: "100%",
-        width: "100%"
-      }}
-    />
   </Layout>
 );
 

@@ -101,7 +101,7 @@ const Layout = ({ children, type }) => (
           <Header siteTitle={data.site.siteMetadata.title} type={type} />
           <GlobalStyle />
           <div>
-            <main style={{ height: "100vh" }}>{children}</main>
+            <main style={{ minHeight: "100vh" }}>{children}</main>
           </div>
           <div style={{ height: "5rem" }} />
           <Footer />
