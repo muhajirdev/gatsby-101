@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "gatsby";
 import { Component } from "react";
 
+/* SubscribeCSS */ 
 import Layout from "../components/layout";
+
 import SEO from "../components/seo";
 import SubscribeForm from "../components/subscribeForm";
 import Icon from "../components/icon";
