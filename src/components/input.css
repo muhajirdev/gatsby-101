@@ -1,0 +1,41 @@
+.label-subscribe-form {
+  display: block;
+  padding: 30px 1px 1px 30px;
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+}
+
+.input-checkbox {
+  opacity: 0;
+  position: absolute;
+  left: 0.75em;
+  top: 0.75em;
+}
+
+.subscribe-svg-path {
+  transition: stroke-dashoffset 0.4s linear;
+}
+
+.input-checkbox:checked ~ label svg {
+  border-color: #111;
+}
+
+.input-checkbox:checked ~ label svg path {
+  stroke-dashoffset: 0;
+  stroke: currentColor;
+}
+
+.input-checkbox ~ label svg path {
+  stroke: #eee;
+}
+
+.input-checkbox:checked ~ label {
+  /*color: #FFFF00; */
+  /* text-decoration: line-through; */
+  color: #000;
+}
+
+.input-checkbox:focus ~ label {
+  outline: 2px solid black;
+}

@@ -116,7 +116,7 @@ const Subscribe = () => (
         >
           Wie man systematisch & entspannt in Aktien investiert - Boost
         </Typography>
-        <Typography variant="subheading" style={{ color: "#FF8000" }}>
+        <Typography variant="heading" style={{ color: "white" }}>
           Wir möchten, dass Sie als Erster Neuigkeiten, besondere Angebote und
           Einladungen erhalten. Füllen Sie zur Registrierung das Formular aus.
         </Typography>

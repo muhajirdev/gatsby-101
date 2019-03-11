@@ -2,11 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import Header from "./header";
 import Footer from "./footer";
 import "./layout.css";
+
+const styledComponentsTheme = {
+  brand: "#ff8000"
+};
 
 const yellow = {
   50: "#3ea5d7",
@@ -97,15 +101,17 @@ const Layout = ({ children, type }) => (
     `}
     render={data => (
       <>
-        <MuiThemeProvider theme={theme}>
-          <Header siteTitle={data.site.siteMetadata.title} type={type} />
-          <GlobalStyle />
-          <div>
-            <main style={{ minHeight: "100vh" }}>{children}</main>
-          </div>
-          <div style={{ height: "5rem" }} />
-          <Footer />
-        </MuiThemeProvider>
+        <ThemeProvider theme={styledComponentsTheme}>
+          <MuiThemeProvider theme={theme}>
+            <Header siteTitle={data.site.siteMetadata.title} type={type} />
+            <GlobalStyle />
+            <div>
+              <main style={{ minHeight: "100vh" }}>{children}</main>
+            </div>
+            <div style={{ height: "5rem" }} />
+            <Footer />
+          </MuiThemeProvider>
+        </ThemeProvider>
       </>
     )}
   />

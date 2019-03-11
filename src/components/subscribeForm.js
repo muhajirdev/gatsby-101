@@ -5,15 +5,38 @@ import Input from "./input";
 /* Icons */
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Icon from "../components/icon";
+import TextField from "@material-ui/core/TextField";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Link from "./link";
 
-
-
-
+import "./input.css";
+import SVGCheckbox from "./svg-checkbox";
 
 export default () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [datenschutz, setDatenschutz] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [botVal, setBotVal] = useState("");
+
+  const shouldWarnEmail = submitted && email.length < 3;
+  const shouldWarnFirstName = submitted && firstName.length < 3;
+  const shouldWarnLastName = submitted && lastName.length < 3;
+  const shouldWarnCheck = submitted && datenschutz === false;
+
+  const isBot = botVal.length > 0;
+
+  const isSafe = submitted && datenschutz === true;
+
+  const outlineStyle = {
+    outline: shouldWarnCheck
+      ? "2px solid red"
+      : isSafe
+      ? "2px solid black"
+      : null
+  };
 
   const [firstNameError, setFirstNameError] = useState(false);
 
@@ -29,6 +52,9 @@ export default () => {
       })
       .then(function(response) {
         console.log(response);
+        window.location.replace(
+          "https://syriaproducts.de/sites/almost-finished.html"
+        );
       })
       .catch(function(error) {
         console.log(error);
@@ -37,9 +63,13 @@ export default () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setSubmitted(true);
+
+    if (isBot) return;
 
     if (firstName.length < 3) return;
     if (lastName.length < 3) return;
+    if (!datenschutz) return;
 
     sendConfirmation(email, firstName, lastName);
   };
@@ -55,6 +85,7 @@ export default () => {
     >
       <div style={{ marginBottom: "1rem", width: "100%" }}>
         <Input
+          error={shouldWarnEmail}
           type="email"
           placeholder="Your email"
           value={email}
@@ -62,8 +93,17 @@ export default () => {
           style={{ width: "100%" }}
         />
       </div>
+      <div>
+        <input
+          type="text"
+          value={botVal}
+          onChange={event => setBotVal(event.target.value)}
+          style={{ display: "none" }}
+        />
+      </div>
       <div style={{ marginBottom: "1rem", width: "100%" }}>
         <Input
+          error={shouldWarnFirstName}
           type="text"
           placeholder="First Name"
           value={firstName}
@@ -73,40 +113,39 @@ export default () => {
       </div>
       <div style={{ marginBottom: "1rem", width: "100%" }}>
         <Input
+          error={shouldWarnLastName}
           type="text"
           placeholder="Last Name"
           value={lastName}
           onChange={event => setLastName(event.target.value)}
         />
-      </div>     
-      <div>
+      </div>
+      <div style={{ marginBottom: "1.5rem" }}>
         <input
+          className="input-checkbox"
           type="checkbox"
           id="option"
           name="checkbox"
           display="hidden"
-        
+          onClick={() => setDatenschutz(!datenschutz)}
         />
-        <label className="checkbox subfield" for="option">
-        <svg viewBox="0 0 60 40" aria-hidden="true" focusable="false"> 
-        <path d="M21,2 C13.4580219,4.16027394 1.62349378,18.3117469 3,19 C9.03653312,22.0182666 25.2482171,10.3758914 30,8 C32.9363621,6.53181896 41.321398,1.67860195 39,4 C36.1186011,6.8813989 3.11316157,27.1131616 5,29 C10.3223659,34.3223659 30.6434647,19.7426141 35,18 C41.2281047,15.5087581 46.3445303,13.6554697 46,14 C42.8258073,17.1741927 36.9154967,19.650702 33,22 C30.3136243,23.6118254 17,31.162498 17,34 C17,40.4724865 54,12.4064021 54,17 C54,23.7416728 34,27.2286213 34,37" stroke-width="4" fill="none" stroke-dasharray="270" stroke-dashoffset="270">
-        </path>
-       </svg>
-
-          <h5>
+        <label
+          style={outlineStyle}
+          className="checkbox subfield label-subscribe-form"
+          for="option"
+        >
+          <SVGCheckbox />
+          <h5 style={{ color: "white" }}>
             <strong>
               Ja, ich akzeptiere die{" "}
-              <a target="_blank" href="../sites/AGB.html">
+              <Link target="_blank" href="../sites/AGB.html">
                 Datenschutzrichtlinie!&nbsp;
-              </a>
+              </Link>
               Die Hinweise habe ich gelesen!
             </strong>
           </h5>
         </label>
-      </div> 
-     
-  
-
+      </div>
 
       <div>
         <button
