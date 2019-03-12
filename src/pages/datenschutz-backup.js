@@ -32,35 +32,17 @@ import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 
-import { Box } from "rebass";
-
-const styles = theme => ({
-  heading: {
-    color: "#fff",
-    marginBottom: "1rem",
-    fontWeight: "normal",
-    padding: "1em 5em 1em 0em",
-    border: "2px solid #FF8000"
-  },
-  blocksatz: {
-    padding: "5px 0px 5px 0px"
-  },
-  copyright: {
-    color: "#fff",
-    textAlign: "center"
-  },
-  link: {
-    color: "#FF8000",
-    textDecoration: "none"
-  },
-  logo: {
-    fontWeight: 700
-  }
-});
+const styles = {
+  heading: "",
+  blocksatz: "",
+  copyright: "",
+  link: "",
+  logo: ""
+};
 
 class Datenschutz extends Component {
   render() {
-    const { classes } = this.props;
+    const classes = styles;
     const dt = new Date();
     const year = dt.getFullYear();
     return (
@@ -78,10 +60,7 @@ class Datenschutz extends Component {
           }}
         />
 
-        <Box
-          className={classes.textContainer}
-          // bg={['red', 'blue']}
-          width={["100%", '75%', '60%']}
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -89,8 +68,10 @@ class Datenschutz extends Component {
             justifyContent: "flexStart",
             alignItems: "left",
             alignText: "left",
-            marginLeft: "auto",
-            marginRight: "auto"
+            marginTop: "1em",
+            marginLeft: "20em",
+            marginRight: "20em",
+            marginBottom: "1em"
           }}
         >
           <Typography variant="display2">Datenschutzerklärung</Typography>
@@ -1683,10 +1664,10 @@ class Datenschutz extends Component {
               </LinkBrand>
             </Typography>
           </div>
-        </Box>
+        </div>
       </Layout>
     );
   }
 }
 
-export default withStyles(styles)(Datenschutz);
+export default Datenschutz;
