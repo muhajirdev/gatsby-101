@@ -140,8 +140,8 @@ class Footer extends Component {
               gutterBottom
               className={classes.heading}
             >
-            <a>
-              <h1 className={ "animated infinite bounce delay-2s " + classes.heading }>Subscribe</h1>
+            <a href="/subscribe" alt="Subscribe">
+              <h1 style={{fontFamily:"inherit"}} className={ "animated infinite bounce delay-2s " + classes.heading }>Subscribe</h1>
             </a>
 
             </Typography>

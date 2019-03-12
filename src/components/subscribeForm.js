@@ -8,7 +8,7 @@ import Icon from "../components/icon";
 import TextField from "@material-ui/core/TextField";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Link from "./link";
+import LinkBrand from "./linkBrand";
 
 import "./input.css";
 import SVGCheckbox from "./svg-checkbox";
@@ -53,7 +53,7 @@ export default () => {
       .then(function(response) {
         console.log(response);
         window.location.replace(
-          "https://syriaproducts.de/sites/almost-finished.html"
+          "https://squote.uber.space/static/assets/html/almost-finished.html"
         );
       })
       .catch(function(error) {
@@ -87,7 +87,7 @@ export default () => {
         <Input
           error={shouldWarnEmail}
           type="email"
-          placeholder="Your email"
+          placeholder="du@example.de"
           value={email}
           onChange={event => setEmail(event.target.value)}
           style={{ width: "100%" }}
@@ -105,7 +105,7 @@ export default () => {
         <Input
           error={shouldWarnFirstName}
           type="text"
-          placeholder="First Name"
+          placeholder="Vorname"
           value={firstName}
           onChange={event => setFirstName(event.target.value)}
           style={{ borderColor: firstNameError ? "red" : null }}
@@ -115,7 +115,7 @@ export default () => {
         <Input
           error={shouldWarnLastName}
           type="text"
-          placeholder="Last Name"
+          placeholder="Nachname"
           value={lastName}
           onChange={event => setLastName(event.target.value)}
         />
@@ -138,9 +138,9 @@ export default () => {
           <h5 style={{ color: "white" }}>
             <strong>
               Ja, ich akzeptiere die{" "}
-              <Link target="_blank" href="../sites/AGB.html">
+              <LinkBrand href="/datenschutz">
                 Datenschutzrichtlinie!&nbsp;
-              </Link>
+              </LinkBrand>
               Die Hinweise habe ich gelesen!
             </strong>
           </h5>
@@ -156,7 +156,7 @@ export default () => {
           }}
           type="submit"
         >
-          Subscribe
+          ANMELDEN
         </button>
       </div>
     </form>

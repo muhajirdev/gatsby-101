@@ -114,7 +114,7 @@ const Subscribe = () => (
           variant="display2"
           style={{ color: "#fff", maxWidth: "20em" }}
         >
-          Wie man systematisch & entspannt in Aktien investiert - Boost
+          MELDEN SIE SICH AN, UM UPDATES ZU ERHALTEN
         </Typography>
         <Typography variant="heading" style={{ color: "white" }}>
           Wir möchten, dass Sie als Erster Neuigkeiten, besondere Angebote und
