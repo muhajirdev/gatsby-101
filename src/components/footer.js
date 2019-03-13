@@ -11,7 +11,9 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 import CuboIcon from "../icons/cuboIcon";
-import Icon from '../components/icon'
+import Icon from "../components/icon";
+import { Flex, Box } from "rebass";
+import HoverSubscribe from "./hoverSubscribe";
 /* Icons */
 
 const StyledLink = styled(Link)`
@@ -23,9 +25,9 @@ const StyledLink = styled(Link)`
 const styles = {
   heading: {
     color: "#fff",
-    marginBottom: '1rem',
-    fontSize: '1.2857142857142856rem',
-    fontWeight: 'normal'
+    marginBottom: "1rem",
+    fontSize: "1.2857142857142856rem",
+    fontWeight: "normal"
   },
   copyright: {
     color: "#fff",
@@ -33,15 +35,14 @@ const styles = {
   },
   link: {
     color: "#FF8000",
-    textDecoration: "none",
+    textDecoration: "none"
   },
   container: {
     width: "100%",
     display: "flex",
     maxWidth: "75%",
     marginLeft: "auto",
-    marginRight: "auto",
-    background: "#353535",
+    marginRight: "auto"
   },
   root: {
     flexGrow: 1
@@ -76,11 +77,35 @@ const DivFooterStyled = styled.div`
     */
   box-sizing: border-box;
   margin-bottom: 10px;
-  width: calc(1 / 3 * 100% - (1 - 1 / 3) * 10px);
+  width: 25%;
   background: #353535;
   padding: 10px;
   color: #fff;
 `;
+
+const columns = [
+  {
+    title: "Hello World",
+    items: [
+      { name: "Angebot", url: "https://www.google.com" },
+      { name: "Kosten", url: "https://www.facebook.com" }
+    ]
+  },
+  {
+    title: "Hello World3",
+    items: [
+      { name: "Angebot", url: "https://www.google.com" },
+      { name: "Kosten", url: "https://www.facebook.com" }
+    ]
+  },
+  {
+    title: "Hello World2",
+    items: [
+      { name: "Angebot", url: "https://www.google.com" },
+      { name: "Kosten", url: "https://www.facebook.com" }
+    ]
+  }
+];
 
 class Footer extends Component {
   render() {
@@ -96,87 +121,78 @@ class Footer extends Component {
           paddingTop: "1em"
         }}
       >
-        <div className={classes.container}>
-          <DivFooterStyled>
-            <Typography
-              variant="headline"
-              gutterBottom
-              className={classes.heading}
-            >Hello World!</Typography>
-            <h6>Angebot</h6>
-            <h6><a className={classes.link} href="/anlagekonzept">Anlagekonzept</a></h6>
-            <h6><a className={classes.link} href="/abonnement">Kosten</a></h6>
-            <h6>Wertentwicklung</h6>
-            <h6>sicherheit</h6>
-            <h6>Wissen</h6>
-          </DivFooterStyled>
-
-          <DivFooterStyled>
-            <Typography
-              variant="headline"
-              gutterBottom
-              className={classes.heading}
-            >Service</Typography>
-            <h6>Blog</h6>
-            <h6>Presse</h6>
-            <h6>Kontakt</h6>
-          </DivFooterStyled>
-
-          <DivFooterStyled>
-            <Typography
-              variant="headline"
-              gutterBottom
-              className={classes.heading}
-            >Rechtliches</Typography>
-            <h6>Risikohinweis</h6>
-            <h6><a className={classes.link} href="/datenschutz">Datenschutzhinweise</a></h6>
-            <h6><a className={classes.link} href="/AGB">AGB</a></h6>
-            <h6><a className={classes.link} href="/impressum">Impressum</a></h6>
-            <h6>FAQ</h6>
-          </DivFooterStyled>
-          <DivFooterStyled>
+        <Flex flexDirection={["column", "row", "row"]}>
+          {columns.map(column => (
+            <Flex
+              width={["100%", "25%"]}
+              mx="auto"
+              pt="2rem"
+              flexDirection={"column"}
+              px="4"
+            >
+              <Typography
+                variant="headline"
+                gutterBottom
+                className={classes.heading}
+              >
+                {column.title}
+              </Typography>
+              {column.items.map(item => (
+                <h6>
+                  <a className={classes.link} href={item.url}>
+                    {item.name}
+                  </a>
+                </h6>
+              ))}
+            </Flex>
+          ))}
+          <Flex
+            width={["100%", "25%"]}
+            mx="auto"
+            flexDirection={"column"}
+            px="4"
+          >
             <Typography
               variant="headline"
               gutterBottom
               className={classes.heading}
             >
-            <a href="/subscribe" alt="Subscribe">
-              <h1 style={{fontFamily:"inherit"}} className={ "animated infinite bounce delay-2s " + classes.heading }>Subscribe</h1>
-            </a>
+              <HoverSubscribe>Subscribe</HoverSubscribe>
             </Typography>
-            <Icon source={require('../icons/twitter.svg')} />
-            <Icon source={require('../icons/facebook.svg')} />
-            <Icon source={require('../icons/instagram.svg')} />
-            <Icon source={require('../icons/github.svg')} />
-          </DivFooterStyled>
-        </div>
-      
-     
-      <div
-        style={{
-          maxWidth: "75%",
-          margin: "2em",
-          marginLeft: "auto",
-          marginRight: "auto",
-          padding: "0.1em",
-          borderTop: "1px solid #fff"
-        }}
-      >
-        <Typography
-          variant="caption"
-          gutterBottom
-          className={classes.copyright}
-        >
-          Copyright © {year} BOOST All Rights Reserved. | <a className={classes.link} href="/impressum">Impressum </a>|{" "}
-          <a className={classes.link} href="/datenschutz">
-            Datenschutz
-            </a>{" "}
-          | Risikohinweis | Wiederrufsbelehrung
-          </Typography>
-          </div> 
+            <Icon source={require("../icons/twitter.svg")} />
+            <Icon source={require("../icons/facebook.svg")} />
+            <Icon source={require("../icons/instagram.svg")} />
+            <Icon source={require("../icons/github.svg")} />
+          </Flex>
+        </Flex>
 
-           
-    </div >   
+        <div
+          style={{
+            maxWidth: "75%",
+            margin: "2em",
+            marginLeft: "auto",
+            marginRight: "auto",
+            padding: "0.1em",
+            borderTop: "1px solid #fff"
+          }}
+        >
+          <Typography
+            variant="caption"
+            gutterBottom
+            className={classes.copyright}
+          >
+            Copyright © {year} BOOST All Rights Reserved. |{" "}
+            <a className={classes.link} href="/impressum">
+              Impressum{" "}
+            </a>
+            |{" "}
+            <a className={classes.link} href="/datenschutz">
+              Datenschutz
+            </a>{" "}
+            | Risikohinweis | Wiederrufsbelehrung
+          </Typography>
+        </div>
+      </div>
     );
   }
 }

@@ -44,8 +44,8 @@ const StyledLink = styled(Link)`
 
 const styles = {
   header: {
-    backgroundColor: "transparent",
-    boxShadow: "none"
+    boxShadow: "none",
+    height: '10rem'
   },
   root: {
     flexGrow: 1,
@@ -142,7 +142,7 @@ const SideList = () => {
     },
     {
       text: "b",
-      icon: <MailIcon/>
+      icon: <MailIcon />
     }
   ];
   return (
@@ -170,9 +170,47 @@ const SideList = () => {
   );
 };
 
+const links = [
+  {
+    name: "Anlagekonzept",
+    url: "/anlagekonzept"
+  },
+  {
+    name: "Vorteile",
+    url: "/vorteile"
+  },
+  {
+    name: "Team",
+    url: "/vorteile"
+  },
+  {
+    name: "Kundenbereich",
+    url: "/vorteile"
+  },
+  {
+    name: "Team",
+    url: "/vorteile"
+  },
+  {
+    name: "Blog",
+    url: "/vorteile"
+  },
+  {
+    name: "Newsletter",
+    url: "/vorteile"
+  }
+];
+
 const Header = props => {
   const { classes } = props;
-  const isHome = props.type === "home";
+
+  // || => means "OR"
+  // In this case, if props.backgroundColor is not specified.
+  // It will be transparent
+  const backgroundColor =
+    props.backgroundColor ||'transparent'
+  const textColor = props.textColor || "#fff";
+
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   return (
     <div className={classes.root}>
@@ -192,7 +230,11 @@ const Header = props => {
           </div>
         </Drawer>
       </div>
-      <AppBar position="static" className={classes.header}>
+      <AppBar
+        position="static"
+        className={classes.header}
+        style={{ background: backgroundColor }}
+      >
         <Toolbar>
           <StyledLink to="/">
             <IconButton
@@ -222,72 +264,30 @@ const Header = props => {
             </div>
           </Hidden>
           <Hidden mdDown>
+            {links.map(link => (
+              <div style={{ display: "flex", justifyItems: "center" }}>
+                <StyledLink to={link.url} color={textColor}>
+                  <Button
+                    style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
+                    color="inherit"
+                  >
+                    {link.name}
+                  </Button>
+                </StyledLink>
+              </div>
+            ))}
+
             <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/anlagekonzept" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  Anlagekonzept
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/vorteile" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  Vorteile
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  Team
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  Kundenbereich
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  BLOG
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/subscribe" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
-                  Newsletter
-                </Button>
-              </StyledLink>
-            </div>
-            <div style={{ display: "flex", justifyItems: "center" }}>
-              <SvgIcon>
-                <CuboIcon />
-              </SvgIcon>
-              <StyledLink to="/abonnement" color={isHome ? "#fff" : "#000"}>
-                <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
+              <StyledLink to="/abonnement" color={textColor}>
+                <Button
+                  variant="outlined"
+                  style={{
+                    fontFamily: "acumin-pro",
+                    borderRadius: 0,
+                    fontWeight: 700
+                  }}
+                  color="inherit"
+                >
                   Kaufen
                 </Button>
               </StyledLink>

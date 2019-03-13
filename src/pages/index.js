@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
-import Icon from '../components/icon'
+import Icon from "../components/icon";
 import styled from "styled-components";
 
 const BigButton = styled.button`
@@ -26,7 +26,7 @@ function BlueBox(props) {
 const StyledLink = styled(Link)`
   font-size: 9;
   text-decoration: none;
-  color: #FF8000;
+  color: #ff8000;
 `;
 
 const Card = props => {
@@ -81,7 +81,10 @@ const posts = [
 ];
 
 const IndexPage = () => (
-  <Layout type="home">
+  <Layout
+    backgroundColor="linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))"
+    textColor="white"
+  >
     <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
     <div
       style={{
@@ -99,46 +102,56 @@ const IndexPage = () => (
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
         height: "100%",
         width: "100%",
         background:
           "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
         position: "absolute",
-        textAlign: 'center',
+        textAlign: "center",
         zIndex: 0
       }}
-    >
-    </div>
+    />
     <div
       style={{
         height: "100%",
         width: "100%",
         background: "rgba(0, 0, 0, 0.3)",
         position: "absolute",
-        textAlign: 'center',
+        textAlign: "center",
         zIndex: 0
       }}
-    >  
-    </div>
-    <div 
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignSelf: "center",
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: "100%",
-      width: "100%",
-      position: "absolute",
-      textAlign: 'center',
-      zIndex: 0
-    }}
+    />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignSelf: "center",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+        position: "absolute",
+        textAlign: "center",
+        zIndex: 0
+      }}
     >
-      <Typography variant="display2" style={{ color: "#fff", maxWidth:"20em"}}>Wie man systematisch & entspannt in Aktien investiert - Boost</Typography>
-      <Typography variant="heading" style={{ color: "#FF8000" , fontWeight:"bold"}}><StyledLink to="/page-2">Mehr erfahren</StyledLink></Typography>
-      <StyledLink to="/page-2"><Icon source={require('../icons/bulb.svg')} /></StyledLink>
+      <Typography
+        variant="display2"
+        style={{ color: "#fff", maxWidth: "20em" }}
+      >
+        Wie man systematisch & entspannt in Aktien investiert - Boost
+      </Typography>
+      <Typography
+        variant="heading"
+        style={{ color: "#FF8000", fontWeight: "bold" }}
+      >
+        <StyledLink to="/page-2">Mehr erfahren</StyledLink>
+      </Typography>
+      <StyledLink to="/page-2">
+        <Icon source={require("../icons/bulb.svg")} />
+      </StyledLink>
     </div>
   </Layout>
 );

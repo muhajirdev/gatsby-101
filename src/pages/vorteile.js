@@ -67,7 +67,7 @@ class Vorteile extends Component {
 
     return (
 
-  <Layout>
+  <Layout backgroundColor="#fdf22f">
     <SEO title="VORTEILE" />
     <div
       style={{

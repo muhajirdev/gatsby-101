@@ -88,7 +88,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, type }) => (
+const Layout = ({ children, backgroundColor, textColor }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -103,7 +103,11 @@ const Layout = ({ children, type }) => (
       <>
         <ThemeProvider theme={styledComponentsTheme}>
           <MuiThemeProvider theme={theme}>
-            <Header siteTitle={data.site.siteMetadata.title} type={type} />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              backgroundColor={backgroundColor}
+              textColor={textColor}
+            />
             <GlobalStyle />
             <div>
               <main style={{ minHeight: "100vh" }}>{children}</main>
