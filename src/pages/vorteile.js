@@ -31,6 +31,8 @@ import Paper from '@material-ui/core/Paper';
 /* Components */
 import Icon from '../components/icon'
 
+// Link 
+// <h6><Link to="/">Go back to the homepage</Link></h6>
 
 const styles = {
   header: {
@@ -73,17 +75,52 @@ class Vorteile extends Component {
         flexDirection: 'column',
         flexWrap: 'wrap',
         backgroundColor: "#FF8000",
-        height: "20rem",
+        height: "15rem",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
-      <div>
-        <h1>Hi from the Vorteile</h1>
-        <h6>Welcome to page 2</h6>
-        <h6><Link to="/">Go back to the homepage</Link></h6>
-      </div>
+    </div>
+   
+   <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        maxWidth: "65%",
+        marginRight: "auto",
+        marginLeft: "auto"
+      }}
+      >
+     
+
+
+        <h1>Deine Vorteile</h1>
+      
+
+
+        <h6>
+        Die StockBoost Aktienstrategie basiert auf quantitativem Ansatz; verdichtet historische Aktienpreisentwicklung, positive Gewinnüberraschung sowie Analystendaten.
+        <br /><br /> 
+        Der Stock Ansatz filtert systematisch ein Aktienuniversum bestehend aus 4000 US-Amerikanischen Unternehmen mit einer Marktkapitalisierung von 500 Mio. - 10 Mrd. USD. So stehen US-Midcap-Aktien und nicht Mainstreamwerte im Fokus der Aktienstrategie bei Beachtung notwendiger Portfolio-Diversifikation. 
+        <br /><br /> 
+        Der Boost Ansatz, der Depot-Boost, investiert bei gegebener positiver Marktlage in US-Amerikanische Unternehmen, die vor neuen Bewertungen stehen und somit ein starkes Momentum, eine sich beschleunigende positive Trendbewegung, aufweisen. 
+        <br /><br /> 
+        Subjektive Entscheidungen sind insgesamt unbedeutend, naiv konstruierte Portfolios, die hoch konzentriert sind, ausgeschlossen. Eine deutliche Reduzierung des Maximum Drawdown des Portfolios ist durch die konsequent sukzessive Reduzierung der Aktienquote von 100% auf 66%, in potentiellen Seitwärtsphasen und Bärenmärkten, gewährleistet. 
+        <br /><br /> 
+        Die StockBoost Aktienstrategie eignet sich als Beimischung für klassische Wertschriftenportfolios (Wertschriften: schweizerisch für Aktien und Anleihen) oder auch als aktive Komponente für passiv ausgerichtete ETF-Portfolios. 
+        <br /><br /> 
+        Empirische Studien haben in der Vergangenheit für sämtliche Komponenten der StockBoost Aktienstrategie eine risikoadjustierte Überrendite – Outperformance - nachgewiesen.
+        <br /><br /> 
+        Diesen Nachweis führen wir permanent transparent ‘ungehebelt’ in einem USD 20'000 Echtgelddepot, bei einer Aktienquote von 66% - 100%, weiter. 
+        <br /><br /> 
+        Abonnenten der STOCKBOOST Aktienstraegie werden unmittelbar nach den Portfolio Umschichtungen über sämtliche Käufe / Verkäufe informiert.
+        <br /><br /> 
+        Der Aufwand für die Umsetzung von STOCKBOOST beträgt ca. 15 Minuten pro Woche.
+        </h6>
+
+    
       </div>
      
       <div

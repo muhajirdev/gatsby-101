@@ -104,8 +104,8 @@ class Footer extends Component {
               className={classes.heading}
             >Hello World!</Typography>
             <h6>Angebot</h6>
-            <h6>Anlagekonzept</h6>
-            <h6>Kosten</h6>
+            <h6><a className={classes.link} href="/anlagekonzept">Anlagekonzept</a></h6>
+            <h6><a className={classes.link} href="/abonnement">Kosten</a></h6>
             <h6>Wertentwicklung</h6>
             <h6>sicherheit</h6>
             <h6>Wissen</h6>
@@ -128,12 +128,12 @@ class Footer extends Component {
               gutterBottom
               className={classes.heading}
             >Rechtliches</Typography>
-            <h6>Rechtliche Hinweise</h6>
-            <h6>Datenschutzhinweise</h6>
-            <h6>Impressum</h6>
+            <h6>Risikohinweis</h6>
+            <h6><a className={classes.link} href="/datenschutz">Datenschutzhinweise</a></h6>
+            <h6><a className={classes.link} href="/AGB">AGB</a></h6>
+            <h6><a className={classes.link} href="/impressum">Impressum</a></h6>
             <h6>FAQ</h6>
           </DivFooterStyled>
-
           <DivFooterStyled>
             <Typography
               variant="headline"
@@ -143,7 +143,6 @@ class Footer extends Component {
             <a href="/subscribe" alt="Subscribe">
               <h1 style={{fontFamily:"inherit"}} className={ "animated infinite bounce delay-2s " + classes.heading }>Subscribe</h1>
             </a>
-
             </Typography>
             <Icon source={require('../icons/twitter.svg')} />
             <Icon source={require('../icons/facebook.svg')} />
@@ -168,7 +167,7 @@ class Footer extends Component {
           gutterBottom
           className={classes.copyright}
         >
-          Copyright © {year} BOOST All Rights Reserved. | Impressum |{" "}
+          Copyright © {year} BOOST All Rights Reserved. | <a className={classes.link} href="/impressum">Impressum </a>|{" "}
           <a className={classes.link} href="/datenschutz">
             Datenschutz
             </a>{" "}

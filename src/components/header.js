@@ -226,7 +226,7 @@ const Header = props => {
               <SvgIcon>
                 <CuboIcon />
               </SvgIcon>
-              <StyledLink to="/page-2" color={isHome ? "#fff" : "#000"}>
+              <StyledLink to="/anlagekonzept" color={isHome ? "#fff" : "#000"}>
                 <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
                   Anlagekonzept
                 </Button>
@@ -286,7 +286,7 @@ const Header = props => {
               <SvgIcon>
                 <CuboIcon />
               </SvgIcon>
-              <StyledLink to="/subscribe" color={isHome ? "#fff" : "#000"}>
+              <StyledLink to="/abonnement" color={isHome ? "#fff" : "#000"}>
                 <Button style={{ fontFamily: "acumin-pro" }} color="inherit">
                   Kaufen
                 </Button>

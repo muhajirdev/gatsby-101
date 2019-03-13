@@ -289,8 +289,7 @@ class Datenschutz extends Component {
             </Typography>
           </div>
           <div className={classes.heading}>
-            <Typography variant="display1">
-              <br />, gemeinsam Verantwortlichen und Dritten
+            <Typography variant="display1">Zusammenarbeit mit Auftragsverarbeitern, gemeinsam Verantwortlichen und Dritten
             </Typography>
           </div>
           <div className={classes.blocksatz}>
