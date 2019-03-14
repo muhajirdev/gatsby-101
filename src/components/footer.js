@@ -24,6 +24,10 @@ const StyledLink = styled(Link)`
   font-size: 4;
   text-decoration: none;
   color: #fff;
+
+  &:hover {
+    color: #FF8000;
+  }
 `;
 
 const styles = {
@@ -151,9 +155,9 @@ class Footer extends Component {
               </Typography>
               {column.items.map(item => (
                 <h6>
-                  <a className={classes.link} href={item.url}>
+                  <StyledLink className={classes.link} href={item.url}>
                     {item.name}
-                  </a>
+                  </StyledLink>
                 </h6>
               ))}
             </Flex>

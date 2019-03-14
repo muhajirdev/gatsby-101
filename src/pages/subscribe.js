@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import { Component } from "react";
 
-/* SubscribeCSS */ 
+/* SubscribeCSS */
+
 import Layout from "../components/layout";
 
 import SEO from "../components/seo";
@@ -18,7 +19,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 /* rebass */
-import { Box } from "rebass";
+import { Box, Flex } from "rebass";
 
 const StyledLink = styled(Link)`
   font-size: 9;
@@ -65,8 +66,69 @@ const styles = {
 
 const Subscribe = () => (
   <Layout type="home">
-    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} /> 
-    <div
+    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
+    <Flex
+      // className={classes.textContainer}
+      minWidth={["100%", "100%", "100%"]}
+      minHeight={["100%", "100%", "100%"]}
+      // Header 5rem
+      pt="5rem"
+    >
+      <div
+        style={{
+          // minheight: "100vh",
+          // minWidth: "100vh",
+          backgroundImage: "url(/daniela-cuevas.jpg)",
+          width: "100%",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          zIndex: -100
+        }}
+      >
+        <div
+          style={{
+            // minheight: "100vh",
+            // minWidth: "100vh",
+            background: "rgba(0, 0, 0, 0.3)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        >
+          <div
+            style={{
+              // minheight: "100vh",
+              // minWidth: "100vh",
+              background:
+                "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+              backgroundSize: "cover",
+              backgroundPosition: "center center",
+              zIndex: -50
+            }}
+          >
+            <Flex
+              // className={classes.textContainer}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "40%"]}
+              // Header 5rem
+              pt="5rem"
+              alignSelf="center"
+              alignItems="center"
+              justifyContent="flexStart"
+              textAlign="left"
+              mx="auto"
+              // px="4"
+            >
+              <div>
+                <SubscribeForm />
+              </div>
+            </Flex>
+          </div>
+        </div>
+      </div>
+    </Flex>
+    {/* <div
     style={{
       height: "100%",
       width: "100%",
@@ -79,7 +141,6 @@ const Subscribe = () => (
         style={{
           height: "100%",
           width: "100%",
-          backgroundImage: "url(/daniela-cuevas.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center center",
           position: "absolute",
@@ -135,10 +196,9 @@ const Subscribe = () => (
         </Typography>
         
         {/* SubscribeForm  */}
-        <SubscribeForm />        
-  
-      </Box>
-    </div> 
+    {/* <SubscribeForm />         */}
+    {/* </Box> */}
+    {/* // </div>  */} */}
   </Layout>
 );
 // class Subscribe extends Component {
