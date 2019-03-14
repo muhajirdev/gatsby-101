@@ -74,56 +74,60 @@ class Vorteile extends Component {
         <SEO title="VORTEILE" />
 
 
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            background: "rgba(0, 0, 0, 0.3)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: -50
-          }}
-        />
-          <div
-          style={{
-            height: "100%",
-            width: "100%",
-            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: -50
-          }}
-        />
+      
+        <Flex
+              className={classes.textContainer}
+              minWidth={["100%", "100%", "100%"]}
+              minHeight={["100%","100%","100%",]}
+              // Header 5rem
+              pt="5rem"
+              pb="1rem"
+            >         
 
         <div
           style={{
-            height: "100%",
-            width: "100%",
-            backgroundImage: "url(/pricing.jpg)",
+            minHeight: "100vh",
+            minWidth: "100vw",    
+            backgroundImage: "url(/cedric-frixon.jpg)",
+            backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            position: "absolute",
             zIndex: -100
           }}
-        />
-        
-          <Flex
-              width={["100%", "75%", "60%"]}
-              height={["100%","100%","100%",]}
-              flexDirection={"column"}
+        >   
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100vw",    
+            background: "rgba(0, 0, 0.3, 0.3)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100vw",      
+            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+            <Flex
+              className={classes.textContainer}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "75%"]}
+              // Header 5rem
+              pt="5rem"
               alignSelf = "center"
               alignItems = "center"
-              justifyContent= "center"
+              justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              pt="10rem"
-              px="4"        
-             
-            >
-            
-            <div style={{overflowX: 'scroll', overflowY: 'scroll'}}>
+              // px="4"       
+            >         
 
             <Table style={{ maxWidth: '50%', marginTop: 'theme.spacing.unit * 3', overflowX: 'auto', margin: "0 auto" }}>
 
@@ -176,13 +180,17 @@ class Vorteile extends Component {
                     <TableCell className={classes.logo} >eine unkomplizierte und zeitschonende Umsetzung</TableCell>
                     <TableCell className={classes.logo} >nur ca. 15 Minuten Zeitaufwand pro Woche</TableCell>
                   </TableRow>
+                  <TableRow>
+                  </TableRow>
 
                 </TableBody>
               </Table>  
-              </div>       
-          </Flex>
+              </Flex>
 
-       
+     </div>
+     </div>
+     </div>
+    </Flex>
 </Layout>
     );
   }

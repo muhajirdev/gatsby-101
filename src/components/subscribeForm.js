@@ -147,14 +147,17 @@ export default () => {
         </label>
       </div>
 
-      <div>
+      <div style={{ 
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",}}>
         <button
           style={{
             border: "3px solid #fff",
             backgroundColor: "transparent",
             color: "#fff",
             margin: ".75rem",
-            padding: "0.4rem"
+            padding: "0.4rem",
           }}
           type="submit"
         >

@@ -123,10 +123,14 @@ const columns = [
 ];
 
 class Footer extends Component {
+  
   render() {
+  
     const { classes } = this.props;
     const dt = new Date();
     const year = dt.getFullYear();
+    
+    
     return (
       <div
         style={{

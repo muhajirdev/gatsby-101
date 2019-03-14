@@ -22,9 +22,13 @@ import Button from "@material-ui/core/Button";
 import { Box, Flex } from "rebass";
 
 const StyledLink = styled(Link)`
-  font-size: 9;
+  font-size: 4;
   text-decoration: none;
-  color: #ff8000;
+  color: #fff;
+
+  &:hover {
+    color: #FF8000;
+  }
 `;
 
 const styles = {
@@ -64,32 +68,44 @@ const styles = {
   }
 };
 
-const Subscribe = () => (
-  <Layout type="home">
+
+
+class Subscribe extends Component {
+  render() {
+
+    const { classes } = this.props;
+    const dt = new Date();
+    const year = dt.getFullYear();
+
+    return (
+
+  <Layout backgroundColor="" textColor=""
+  >
     <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
     <Flex
       // className={classes.textContainer}
       minWidth={["100%", "100%", "100%"]}
       minHeight={["100%", "100%", "100%"]}
       // Header 5rem
-      pt="5rem"
+      // pt="5rem"
     >
       <div
         style={{
-          // minheight: "100vh",
-          // minWidth: "100vh",
+          minHeight: "100vh",
+          minWidth: "100vw",    
           backgroundImage: "url(/daniela-cuevas.jpg)",
           width: "100%",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center center",
-          zIndex: -100
+          // Header's zIndex == 200 
+          zIndex: 200
         }}
       >
         <div
           style={{
-            // minheight: "100vh",
-            // minWidth: "100vh",
+            minHeight: "100vh",
+            minWidth: "100vw",    
             background: "rgba(0, 0, 0, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -98,8 +114,8 @@ const Subscribe = () => (
         >
           <div
             style={{
-              // minheight: "100vh",
-              // minWidth: "100vh",
+              minHeight: "100vh",
+              minWidth: "100vw",    
               background:
                 "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
               backgroundSize: "cover",
@@ -107,132 +123,80 @@ const Subscribe = () => (
               zIndex: -50
             }}
           >
+
+          
+              
+
             <Flex
               // className={classes.textContainer}
-              flexDirection={["column", "column", "row"]}
-              width={["100%", "80%", "40%"]}
+              flexDirection={["column", "column", "column"]}
+              width={["100%", "60%", "25%"]}
               // Header 5rem
-              pt="5rem"
+              pt="12rem"
               alignSelf="center"
               alignItems="center"
-              justifyContent="flexStart"
-              textAlign="left"
+              justifyContent="center"
               mx="auto"
-              // px="4"
+              px="4"
             >
+
+            <div style={{color: "white", maxWidth: "40em" , textAlign:"center", paddingBottom: "1em" }}> 
+            <Typography variant="display2" style={{color: "white", maxWidth: "20em" , textAlign:"center"}}>
+              MELDEN SIE SICH AN, UM UPDATES ZU ERHALTEN
+            </Typography>
+            <Typography variant="heading" style={{ color: "white", maxWidth: "25em" , textAlign:"center" }}>
+              Wir möchten, dass Sie als Erster Neuigkeiten, besondere Angebote und
+              Einladungen erhalten. Füllen Sie zur Registrierung das Formular aus.
+            </Typography>
+            </div>
+              
               <div>
                 <SubscribeForm />
               </div>
+              
+              
+              {/* <Flex
+              // className={classes.textContainer}
+              flexDirection={["row", "row", "row"]}
+              width={["100%", "100%", "100%"]}
+              // Header 5rem
+              pt="0.5rem"
+              alignSelf="left"
+              alignItems="left"
+              justifyContent="center"
+              textAlign="left"
+              padding="10em"
+              mx="auto"
+              px="5em"
+              py="1em"
+            > */}
+       
+            <a href="mailto:info@stockboost.de" textDecoration="none">
+            <Typography variant="subheading" style={{ color: "white" , padding:"0 0 0 0"}}>NEED HELP?</Typography>
+            </a>
+    
+            
+            <Typography variant="subheading" style={{ color: "#FF8000",  padding:"0 0 0 0"}}>
+            <a className={classes.link} href="/">Copyright © {year} BOOST All Rights Reserved.</a>
+            </Typography>
+            {/* </Flex> */}
+
+
             </Flex>
+
+           
+
+
           </div>
         </div>
       </div>
     </Flex>
-    {/* <div
-    style={{
-      height: "100%",
-      width: "100%",
-      background: "rgba(0, 0, 0, 0.3)",
-      position: "absolute",
-      zIndex: 100
-    }}
-  />
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          position: "absolute",
-          zIndex: 100
-        }}
-      />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignSelf: "center",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-          width: "100%",
-          background:
-            "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
-          position: "absolute",
-          textAlign: "center",
-          zIndex: 100
-        }}
-      >
+   
+       
+   </Layout>
+    );
+  }
+ }
 
-        <Box
-              //className={classes.textContainer}
-              // bg={['red', 'blue']}
-              width={["90%", "75%", "25%"]}
-              height={["100%"]}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "nowrap",
-                justifyContent: "center",
-                alignItems: "center",
-                alignText: "left",
-                marginTop: "5rem",
-                marginBottom: "5rem",
-                marginLeft: "auto",
-                marginRight: "auto",
-                color: "#fff"
-              }}
-            >
-        
-        <Typography
-          variant="display2"
-          style={{ color: "#fff", maxWidth: "20em" }}
-        >
-          MELDEN SIE SICH AN, UM UPDATES ZU ERHALTEN
-        </Typography>
-        <Typography variant="heading" style={{ color: "white" }}>
-          Wir möchten, dass Sie als Erster Neuigkeiten, besondere Angebote und
-          Einladungen erhalten. Füllen Sie zur Registrierung das Formular aus.
-        </Typography>
-        
-        {/* SubscribeForm  */}
-    {/* <SubscribeForm />         */}
-    {/* </Box> */}
-    {/* // </div>  */} */}
-  </Layout>
-);
-// class Subscribe extends Component {
-//   render() {
-//     const { classes } = this.props;
-//     return (
-//       <Layout>
-//         <SEO title="Newsletter" />
-//         <div
-//           style={{
-//             height: "100vh",
-//             backgroundSize: "cover"
-//           }}
-//         >
-//         <div>
 
-//         </div>
-//           <div
-//             style={{
-//               height: "100%",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               flexDirection: "column",
-//               display: "flex",
-//               maxWidth: "50%",
-//               marginLeft: "auto",
-//               marginRight: "auto"
-//             }}
-//             classesName={classes.container}
-//           >
-//           </div>
-//         </div>
-//       </Layout>
-//     );
-//   }
-// }
 export default withStyles(styles)(Subscribe);

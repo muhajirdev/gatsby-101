@@ -18,7 +18,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import { Box } from "rebass";
+import { Box,Flex } from "rebass";
 
 /* Icons */
 import MonthIcon from "@material-ui/icons/Explore";
@@ -64,105 +64,89 @@ class Abonnement extends Component {
     const dt = new Date();
     const year = dt.getFullYear();
     return (
-      <Layout type="home">
-        <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
+      <Layout backgroundColor="#fdf22f" textColor="black">
+        <SEO title="Abonnement" keywords={[`gatsby`, `application`, `react`]} />      
+        
+        
+        <Flex
+              className={classes.textContainer}
+              minWidth={["100%", "100%", "100%"]}
+              minHeight={["100%","100%","100%",]}
+              // Header 5rem
+              pt="5rem"
+            >         
+
         <div
           style={{
-            height: "100%",
-            width: "100%",
-            background: "rgba(0, 0, 0, 0.3)",
-            position: "absolute",
-            zIndex: 0
-          }}
-        />
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
+            minHeight: "100vh",
+            minWidth: "100vw",           
             backgroundImage: "url(/pricing.jpg)",
+            backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: 0
+            zIndex: -100
           }}
-        />
+        >   
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignSelf: "center",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-            width: "100%",
-            background:
-              "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            position: "absolute",
-            textAlign: "center",
-            zIndex: 0
+            minHeight: "100vh",
+            minWidth: "100vw",    
+            background: "rgba(0, 0, 0, 0.3)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
           }}
-        >
-          <Box
-            className={classes.textContainer}
-            // bg={['red', 'blue']}
-            width={["100%", "75%", "60%"]}
-            style={{
-              height: "40%",
-              display: "flex",
-              flexDirection: "column",
-              flexWrap: "nowrap",
-              justifyContent: "flexStart",
-              alignItems: "left",
-              alignText: "left",
-              marginLeft: "auto",
-              marginRight: "auto",
-              color: "#fff"
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignSelf: "center",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "40%",
-                width: "40%",
-                background:
-                  "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-                position: "absolute",
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto",
-                color: "#fff",
-                zIndex: 0
-              }}
-            >
+        > 
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100vw",     
+            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+
+           <Flex
+              className={classes.textContainer}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "40%"]}
+              // Header 5rem
+              pt="12rem"
+              alignSelf = "center"
+              alignItems = "center"
+              justifyContent= "flexStart"
+              textAlign="left"
+              mx="auto"
+              px="4"       
+            
+            > 
               <div
                 style={{ color: "#FF8000" }}
-              >
-                <a href="/signupMonth" className={classes.link}>
+              > 
+                 <a href="/signupMonth" className={classes.link}>
                   <MonthIcon className={classes.largeIcon} />
-                  <Typography variant="display1">
-                    Monatliche Zahlungsweise
-                  </Typography>
+                  <Typography variant="display1">Monatliche Zahlungsweise</Typography>
                   <Typography variant="heading">X / Monat</Typography>
-                </a>
-              </div>
+                </a> 
+               </div> 
 
               <div>
                 <a href="/signupYear" className={classes.link}>
                   <YearIcon className={classes.largeIcon} />
-                  <Typography variant="display1">
-                    Jährliche Zahlungsweise
-                  </Typography>
+                  <Typography variant="display1">Jährliche Zahlungsweise</Typography>
                   <Typography variant="heading">X / Jahr</Typography>
                 </a>
-              </div>
-            </div>
-          </Box>
-        </div>
+              </div>   
+          </Flex> 
+
+      </div>
+      </div>
+      </div>
+      </Flex>
       </Layout>
+    
       // class Subscribe extends Component {
       //   render() {
       //     const { classes } = this.props;

@@ -60,15 +60,17 @@ const styles = {
     fontWeight: 700
   },
   avatar: {
-    // width:
-    // height
-    // margin bottom 0
-    // display block  | inline-bloc
+    width: 60,
+    height: 60, 
+    margin: 10,
+    // marginBottom: 0,
+    // display block  | inline-block
+    display: "block"
   },
   bigAvatar: {
     margin: 10,
-    width: 60,
-    height: 60,
+    width: 80,
+    height: 80,
   }
 };
 
@@ -91,8 +93,8 @@ class Vorteile extends Component {
 
         <div
           style={{
-            // minheight: "100vh",
-            // minWidth: "100vh",           
+            minHeight: "100vh",
+            minWidth: "100vw",              
             backgroundImage: "url(/pricing.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -102,8 +104,8 @@ class Vorteile extends Component {
         >   
         <div
           style={{
-            // minheight: "100vh",
-            // minWidth: "100vh",      
+            minHeight: "100vh",
+            minWidth: "100vw",      
             background: "rgba(0, 0, 0, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -112,8 +114,8 @@ class Vorteile extends Component {
         > 
         <div
           style={{
-            // minheight: "100vh",
-            // minWidth: "100vh",      
+            minHeight: "100vh",
+            minWidth: "100vw",      
             background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -136,14 +138,15 @@ class Vorteile extends Component {
             >         
             <div>
             <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Marco</Typography>
-            <img alt="Marco Schai" src="/avatar/marco.jpg" className={classes.avatar} />
+            {/* <img alt="Marco Schai" src="/avatar/Marco-Avatar.jpg" className={classes.avatar} /> */}
+            <Avatar alt="Marco Schai" src="/avatar/Marco.jpg" className={classes.avatar} />
             <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
                 Marco absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute.  Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.            </Typography>
             </div>
          
             <div>
-            <Avatar alt="Rami Altonji" src="/static/avatar/Rami-BVH-All-Stars.jpg" className={classes.avatar} />
-            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Rami </Typography>
+            <Avatar alt="Rami Altonji" src="/avatar/Rami-BVH-All-Stars.jpg" className={classes.avatar} />
+            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Rami</Typography>
             <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
                 Rami absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute.  Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.
             </Typography>      

@@ -68,56 +68,63 @@ class Vorteile extends Component {
     return (
       <Layout backgroundColor="#fdf22f" textColor="black">
         <SEO title="VORTEILE" />
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            background: "rgba(0, 0, 0, 0.3)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: -50
-          }}
-        />
-          <div
-          style={{
-            height: "100%",
-            width: "100%",
-            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: -50
-          }}
-        />
+        
+        
+       
+
+      <Flex
+              className={classes.textContainer}
+              minWidth={["100%", "100%", "100%"]}
+              minHeight={["100%","100%","100%",]}
+              // Header 5rem
+              pt="5rem"
+              pb="1rem"
+            >         
 
         <div
           style={{
-            height: "100%",
-            width: "100%",
-            backgroundImage: "url(/pricing.jpg)",
+            minHeight: "100vh",
+            minWidth: "100vw",          
+            backgroundImage: "url(/cedric-frixon.jpg)",
+            backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            position: "absolute",
             zIndex: -100
           }}
-        />
-        
-          <Flex
+        >   
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100vw",       
+            background: "rgba(0, 0, 0.3, 0.3)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100vw",       
+            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+            <Flex
               className={classes.textContainer}
-              width={["100%", "75%", "60%"]}
-              height={["100%","100%","100%",]}
-              flexDirection={"column"}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "75%"]}
+              // Header 5rem
+              pt="5rem"
               alignSelf = "center"
               alignItems = "center"
               justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              pt="10rem"
-              px="4"    
-              zIndex= "100"    
-             
-            >
+              // px="4"       
+            >         
 
             <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Deine Vorteile</Typography>
             <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
@@ -139,8 +146,13 @@ class Vorteile extends Component {
                 <br /><br />
                 Der Aufwand für die Umsetzung von STOCKBOOST beträgt ca. 15 Minuten pro Woche.
           </Typography>
-          </Flex>  
-      </Layout>
+          </Flex>
+        
+    </div>
+    </div>
+    </div>
+    </Flex>  
+    </Layout>
     );
   }
 }

@@ -19,12 +19,19 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Input";
+
 
 /* Icons */
 import MenuIcon from "../icons/menuIcon";
-import CuboIcon from "../icons/cuboIcon";
+import Dashboard from "@material-ui/icons/Dashboard";
+import Circle from "@material-ui/icons/CheckCircleOutline";
+import Done from "@material-ui/icons/DoneOutline";
+import Share from "@material-ui/icons/Share";
+import Send from "@material-ui/icons/Send";
+import AttachFile from "@material-ui/icons/AttachFile";
+import PlusOne from "@material-ui/icons/PlusOne";
+import AttachMoney from "@material-ui/icons/AttachMoney";
+
 
 const HeaderContainer = styled.header`
   padding: 20px;
@@ -138,38 +145,38 @@ const menu = [
   {
     name: "Anlagekonzept",
     url: "/anlagekonzept",
-    icon: <MailIcon />
+    icon: <Dashboard />
   },
   {
     name: "Vorteile",
     url: "/vorteile",
-    icon: <MailIcon />,
+    icon: <Circle />,
   },
   {
     name: "VorteileTable",
     url: "/vorteileTable",
-    icon: <MailIcon />
+    icon: <Done />
   },
   {
     name: "Team",
     url: "/team",
-    icon: <MailIcon />
+    icon: <PlusOne />
   },
   {
     name: "Kundenbereich",
     url: "/",
-    icon: <MailIcon />
+    icon: <AttachFile />
   },
   {
     name: "Blog",
     url: "/",
-    icon: <MailIcon />
+    icon: <Share />
   },
   {
     name: "Newsletter",
     url: "/subscribe",
-    icon: <MailIcon />
-  }
+    icon: <Send />
+  },
 ];
 
 
@@ -202,6 +209,24 @@ const SideList = props => {
         ))}
       </List>
       <Divider />
+      <List>
+      <div style={{ display: "flex", justifyItems: "center", alignItems:"center" }}>
+        <StyledLink to="/abonnement" color={textColor}>
+          <Button
+            variant="outlined"
+            style={{
+              fontFamily: "acumin-pro",
+              borderRadius: 0,
+              fontWeight: 700
+            }}
+            color="inherit"
+          >
+            <AttachMoney /> Kaufen
+          </Button>
+        </StyledLink>
+      </div>  
+      </List> 
+    
       {/* <List>
         {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem button key={text}>
