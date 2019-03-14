@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
 const styles = {
   header: {
     boxShadow: "none",
-    height: '8rem'
+    height: '5rem'
   },
   root: {
     flexGrow: 1,
