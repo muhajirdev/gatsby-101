@@ -17,6 +17,9 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
+/* rebass */
+import { Box } from "rebass";
+
 const StyledLink = styled(Link)`
   font-size: 9;
   text-decoration: none;
@@ -62,54 +65,64 @@ const styles = {
 
 const Subscribe = () => (
   <Layout type="home">
-    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} /> 
     <div
-      style={{
-        height: "100%",
-        width: "100%",
-        background: "rgba(0, 0, 0, 0.3)",
-        position: "absolute",
-        zIndex: 100
-      }}
-    />
-    <div
-      style={{
-        height: "100%",
-        width: "100%",
-        backgroundImage: "url(/daniela-cuevas.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        position: "absolute",
-        zIndex: 100
-      }}
-    />
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignSelf: "center",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-        background:
-          "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
-        position: "absolute",
-        textAlign: "center",
-        zIndex: 100
-      }}
-    >
+    style={{
+      height: "100%",
+      width: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      position: "absolute",
+      zIndex: 100
+    }}
+  />
       <div
         style={{
-          maxWidth: "40%",
-          marginLeft: "auto",
-          marginRight: "auto",
+          height: "100%",
+          width: "100%",
+          backgroundImage: "url(/daniela-cuevas.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          position: "absolute",
+          zIndex: 100
+        }}
+      />
+      <div
+        style={{
           display: "flex",
+          flexDirection: "column",
+          alignSelf: "center",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "column"
+          height: "100%",
+          width: "100%",
+          background:
+            "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+          position: "absolute",
+          textAlign: "center",
+          zIndex: 100
         }}
       >
+
+        <Box
+              //className={classes.textContainer}
+              // bg={['red', 'blue']}
+              width={["90%", "75%", "25%"]}
+              height={["100%"]}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                flexWrap: "nowrap",
+                justifyContent: "center",
+                alignItems: "center",
+                alignText: "left",
+                marginTop: "5rem",
+                marginBottom: "5rem",
+                marginLeft: "auto",
+                marginRight: "auto",
+                color: "#fff"
+              }}
+            >
+        
         <Typography
           variant="display2"
           style={{ color: "#fff", maxWidth: "20em" }}
@@ -120,11 +133,12 @@ const Subscribe = () => (
           Wir möchten, dass Sie als Erster Neuigkeiten, besondere Angebote und
           Einladungen erhalten. Füllen Sie zur Registrierung das Formular aus.
         </Typography>
-        <div style={{ width: "60%", marginTop: '2rem' }}>
-          <SubscribeForm />
-        </div>
-      </div>
-    </div>
+        
+        {/* SubscribeForm  */}
+        <SubscribeForm />        
+  
+      </Box>
+    </div> 
   </Layout>
 );
 // class Subscribe extends Component {

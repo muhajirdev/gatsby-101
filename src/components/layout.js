@@ -112,7 +112,7 @@ const Layout = ({ children, backgroundColor, textColor }) => (
             <div>
               <main style={{ minHeight: "100vh" }}>{children}</main>
             </div>
-            <div style={{ height: "5rem" }} />
+            <div style={{ height: "4rem", marginTop:"auto", marginBottom: "auto" }} />
             <Footer />
           </MuiThemeProvider>
         </ThemeProvider>

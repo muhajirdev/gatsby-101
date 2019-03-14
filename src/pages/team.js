@@ -67,7 +67,7 @@ class Vorteile extends Component {
     const { classes } = this.props;
     return (
       <Layout backgroundColor="#fdf22f" textColor="black">
-        <SEO title="VORTEILE" />
+        <SEO title="TEAM" />
         <div
           style={{
             height: "100%",
@@ -107,7 +107,7 @@ class Vorteile extends Component {
               className={classes.textContainer}
               width={["100%", "75%", "60%"]}
               height={["100%","100%","100%",]}
-              flexDirection={"column"}
+              flexDirection={"row"}
               alignSelf = "center"
               alignItems = "center"
               justifyContent= "flexStart"
@@ -118,27 +118,50 @@ class Vorteile extends Component {
               zIndex= "100"    
              
             >
-
-            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Deine Vorteile</Typography>
+          <Flex
+              className={classes.textContainer}
+              width={["100%", "75%", "40%"]}
+              height={["100%","100%","100%",]}
+              flexDirection={"column"}
+              alignSelf = "center"
+              alignItems = "center"
+              justifyContent= "flexStart"
+              textAlign="left"
+              mx="auto"
+              pt="1rem"
+              px="4"    
+              zIndex= "100"    
+             >
+            
+            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Rami </Typography>
             <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
-                Die StockBoost Aktienstrategie basiert auf quantitativem Ansatz; verdichtet historische Aktienpreisentwicklung, positive Gewinnüberraschung sowie Analystendaten.
-                <br /><br />
-                Der Stock Ansatz filtert systematisch ein Aktienuniversum bestehend aus 4000 US-Amerikanischen Unternehmen mit einer Marktkapitalisierung von 500 Mio. - 10 Mrd. USD. So stehen US-Midcap-Aktien und nicht Mainstreamwerte im Fokus der Aktienstrategie bei Beachtung notwendiger Portfolio-Diversifikation.
-                <br /><br />
-                Der Boost Ansatz, der Depot-Boost, investiert bei gegebener positiver Marktlage in US-Amerikanische Unternehmen, die vor neuen Bewertungen stehen und somit ein starkes Momentum, eine sich beschleunigende positive Trendbewegung, aufweisen.
-                <br /><br />
-                Subjektive Entscheidungen sind insgesamt unbedeutend, naiv konstruierte Portfolios, die hoch konzentriert sind, ausgeschlossen. Eine deutliche Reduzierung des Maximum Drawdown des Portfolios ist durch die konsequent sukzessive Reduzierung der Aktienquote von 100% auf 66%, in potentiellen Seitwärtsphasen und Bärenmärkten, gewährleistet.
-                <br /><br />
-                Die StockBoost Aktienstrategie eignet sich als Beimischung für klassische Wertschriftenportfolios (Wertschriften: schweizerisch für Aktien und Anleihen) oder auch als aktive Komponente für passiv ausgerichtete ETF-Portfolios.
-                <br /><br />
-                Empirische Studien haben in der Vergangenheit für sämtliche Komponenten der StockBoost Aktienstrategie eine risikoadjustierte Überrendite – Outperformance - nachgewiesen.
-                <br /><br />
-                Diesen Nachweis führen wir permanent transparent ‘ungehebelt’ in einem USD 20'000 Echtgelddepot, bei einer Aktienquote von 66% - 100%, weiter.
-                <br /><br />
-                Abonnenten der STOCKBOOST Aktienstraegie werden unmittelbar nach den Portfolio Umschichtungen über sämtliche Käufe / Verkäufe informiert.
-                <br /><br />
-                Der Aufwand für die Umsetzung von STOCKBOOST beträgt ca. 15 Minuten pro Woche.
+                Rami absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute.  Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.
           </Typography>
+          </Flex>  
+
+          <Flex
+              className={classes.textContainer}
+              width={["100%", "75%", "40%"]}
+              height={["100%","100%","100%",]}
+              background = "red"
+              flexDirection={"column"}
+              alignSelf = "center"
+              alignItems = "center"
+              justifyContent= "flexStart"
+              textAlign="left"
+              mx="auto"
+              pt="1rem"
+              px="4"    
+              zIndex= "100"    
+             >
+            
+            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Rami </Typography>
+            <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
+                Rami absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute.  Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.
+          </Typography>
+          </Flex>  
+
+
           </Flex>  
       </Layout>
     );

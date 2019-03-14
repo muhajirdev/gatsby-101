@@ -5,6 +5,10 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 /* styled */
 import styled from "styled-components";
+
+
+import LinkBrand from "./linkBrand";
+
 /* material-ui */
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -34,7 +38,7 @@ const styles = {
     textAlign: "center"
   },
   link: {
-    color: "#FF8000",
+    color: "#fff",
     textDecoration: "none"
   },
   container: {
@@ -85,24 +89,31 @@ const DivFooterStyled = styled.div`
 
 const columns = [
   {
-    title: "Hello World",
+    title: "Hello World!",
     items: [
-      { name: "Angebot", url: "https://www.google.com" },
-      { name: "Kosten", url: "https://www.facebook.com" }
+      { name: "Angebot", url: "/abonnement" },
+      { name: "Anlagekonzept", url: "/anlagekonzept" },
+      { name: "Kosten", url: "/abonnement" },
+      { name: "Wertentwicklung", url: "#" },
+      { name: "Sicherheit", url: "#" },
+      { name: "Wissen", url: "/vorteile" },
     ]
   },
   {
-    title: "Hello World3",
+    title: "Service",
     items: [
-      { name: "Angebot", url: "https://www.google.com" },
-      { name: "Kosten", url: "https://www.facebook.com" }
+      { name: "Blog", url: "#" },
+      { name: "Presse", url: "#" },
+      { name: "Kontakt", url: "/impressum" },
     ]
   },
   {
-    title: "Hello World2",
+    title: "Rechtliches",
     items: [
-      { name: "Angebot", url: "https://www.google.com" },
-      { name: "Kosten", url: "https://www.facebook.com" }
+      { name: "Risikohinweis", url: "/AGB" },
+      { name: "AGB", url: "/AGB" },
+      { name: "Impressum", url: "/impressum" },
+      { name: "FAQ", url: "#" },
     ]
   }
 ];
@@ -120,11 +131,12 @@ class Footer extends Component {
           paddingBottom: "0.5em",
           paddingTop: "1em"
         }}
-      >
+      > 
+   
         <Flex flexDirection={["column", "row", "row"]}>
           {columns.map(column => (
             <Flex
-              width={["100%", "25%"]}
+              width={["100%", "20%", "20%"]}
               mx="auto"
               pt="2rem"
               flexDirection={"column"}
@@ -147,7 +159,7 @@ class Footer extends Component {
             </Flex>
           ))}
           <Flex
-            width={["100%", "25%"]}
+            width={["100%", "25%", ]}
             mx="auto"
             flexDirection={"column"}
             px="4"
@@ -157,12 +169,14 @@ class Footer extends Component {
               gutterBottom
               className={classes.heading}
             >
-              <HoverSubscribe>Subscribe</HoverSubscribe>
+            <a className={classes.link} href="/subscribe" alt="Newsletter">
+            <HoverSubscribe>Subscribe</HoverSubscribe>
+            </a>
             </Typography>
-            <Icon source={require("../icons/twitter.svg")} />
-            <Icon source={require("../icons/facebook.svg")} />
-            <Icon source={require("../icons/instagram.svg")} />
-            <Icon source={require("../icons/github.svg")} />
+            <a href="https://www.twitter.com" alt="Twitter"><Icon source={require("../icons/twitter.svg")} /></a>
+            <a href="https://www.facebook.com" alt="Facebook"><Icon source={require("../icons/facebook.svg")} /></a>
+            <a href="https://www.instagram.com" alt="Instagram"><Icon source={require("../icons/instagram.svg")} /></a>
+            <a href="https://www.github.com" alt="GitHub"><Icon source={require("../icons/github.svg")} /></a>
           </Flex>
         </Flex>
 
@@ -176,20 +190,22 @@ class Footer extends Component {
             borderTop: "1px solid #fff"
           }}
         >
+       
           <Typography
             variant="caption"
             gutterBottom
             className={classes.copyright}
           >
+             
             Copyright © {year} BOOST All Rights Reserved. |{" "}
             <a className={classes.link} href="/impressum">
               Impressum{" "}
             </a>
             |{" "}
             <a className={classes.link} href="/datenschutz">
-              Datenschutz
+            <LinkBrand>Datenschutz</LinkBrand>
             </a>{" "}
-            | Risikohinweis | Wiederrufsbelehrung
+            | Risikohinweis | Wiederrufsbelehrung  
           </Typography>
         </div>
       </div>

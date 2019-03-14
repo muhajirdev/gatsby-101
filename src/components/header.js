@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
 const styles = {
   header: {
     boxShadow: "none",
-    height: '10rem'
+    height: '8rem'
   },
   root: {
     flexGrow: 1,
@@ -134,29 +134,75 @@ const TextLogo = styled(Typography)`
   }
 `;
 
-const SideList = () => {
-  const links = [
-    {
-      text: "a",
-      icon: <InboxIcon />
-    },
-    {
-      text: "b",
-      icon: <MailIcon />
-    }
-  ];
+const menu = [
+  {
+    name: "Anlagekonzept",
+    url: "/anlagekonzept",
+    icon: <MailIcon />
+  },
+  {
+    name: "Vorteile",
+    url: "/vorteile",
+    icon: <MailIcon />,
+  },
+  {
+    name: "VorteileTable",
+    url: "/vorteileTable",
+    icon: <MailIcon />
+  },
+  {
+    name: "Team",
+    url: "/team",
+    icon: <MailIcon />
+  },
+  {
+    name: "Kundenbereich",
+    url: "/",
+    icon: <MailIcon />
+  },
+  {
+    name: "Blog",
+    url: "/",
+    icon: <MailIcon />
+  },
+  {
+    name: "Newsletter",
+    url: "/subscribe",
+    icon: <MailIcon />
+  }
+];
+
+
+
+
+const SideList = props => {
+  const { classes } = props;
+  const textColor = props.textColor || "#fff";
+
+  // const menu = [
+  //   {
+  //     text: "a",
+  //     icon: <InboxIcon />
+  //   },
+  //   {
+  //     text: "b",
+  //     icon: <MailIcon />
+  //   }
+  // ];
   return (
     <div style={{ width: 250 }}>
       <List>
-        {links.map(link => (
-          <ListItem button key={link.text}>
-            <ListItemIcon>{link.icon}</ListItemIcon>
-            <ListItemText primary={link.text} />
-          </ListItem>
+        {menu.map(link => (
+          <StyledLink to={link.url} color={textColor}>
+            <ListItem button key={link.name}>
+              <ListItemIcon>{link.icon}</ListItemIcon>
+              <ListItemText primary={link.name} />
+            </ListItem>
+          </StyledLink>
         ))}
       </List>
       <Divider />
-      <List>
+      {/* <List>
         {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -165,41 +211,11 @@ const SideList = () => {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </div>
   );
-};
+ };
 
-const links = [
-  {
-    name: "Anlagekonzept",
-    url: "/anlagekonzept"
-  },
-  {
-    name: "Vorteile",
-    url: "/vorteile"
-  },
-  {
-    name: "Team",
-    url: "/vorteile"
-  },
-  {
-    name: "Kundenbereich",
-    url: "/vorteile"
-  },
-  {
-    name: "Team",
-    url: "/vorteile"
-  },
-  {
-    name: "Blog",
-    url: "/vorteile"
-  },
-  {
-    name: "Newsletter",
-    url: "/vorteile"
-  }
-];
 
 const Header = props => {
   const { classes } = props;
@@ -264,7 +280,7 @@ const Header = props => {
             </div>
           </Hidden>
           <Hidden mdDown>
-            {links.map(link => (
+            {menu.map(link => (
               <div style={{ display: "flex", justifyItems: "center" }}>
                 <StyledLink to={link.url} color={textColor}>
                   <Button

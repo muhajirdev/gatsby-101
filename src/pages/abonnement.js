@@ -21,9 +21,8 @@ import Button from "@material-ui/core/Button";
 import { Box } from "rebass";
 
 /* Icons */
-
 import MonthIcon from "@material-ui/icons/Explore";
-import YearIcon from "@material-ui/icons/Power";
+import YearIcon from "@material-ui/icons/PowerSettingsNew";
 
 const StyledLink = styled(Link)`
   font-size: 9;
@@ -147,17 +146,17 @@ class Abonnement extends Component {
                   <Typography variant="display1">
                     Monatliche Zahlungsweise
                   </Typography>
-                  <Typography variant="heading">/Monat</Typography>
+                  <Typography variant="heading">X / Monat</Typography>
                 </a>
               </div>
 
               <div>
-                <a href="/signupYear">
-                  <YearIcon style={{ color: "#FF8000", height: "10%" }} />
+                <a href="/signupYear" className={classes.link}>
+                  <YearIcon className={classes.largeIcon} />
                   <Typography variant="display1">
                     Jährliche Zahlungsweise
                   </Typography>
-                  <Typography variant="heading">/Jahr</Typography>
+                  <Typography variant="heading">X / Jahr</Typography>
                 </a>
               </div>
             </div>

@@ -152,7 +152,9 @@ export default () => {
           style={{
             border: "3px solid #fff",
             backgroundColor: "transparent",
-            color: "#fff"
+            color: "#fff",
+            margin: ".75rem",
+            padding: "0.4rem"
           }}
           type="submit"
         >

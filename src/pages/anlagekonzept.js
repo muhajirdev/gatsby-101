@@ -42,7 +42,7 @@ const styles = theme => ({
     color: "#fff",
     marginBottom: "1rem",
     fontWeight: "normal",
-    padding: "1em 5em 1em 0em",
+    padding: "1em 5em 1em 1em",
     border: "2px solid #FF8000"
   },
   blocksatz: {
@@ -84,7 +84,7 @@ class Anlagekonzept extends Component {
         <Box
           className={classes.textContainer}
           // bg={['red', 'blue']}
-          width={["100%", '75%', '60%']}
+          width={["97.5%", '75%', '60%']}
           style={{
             display: "flex",
             flexDirection: "column",
