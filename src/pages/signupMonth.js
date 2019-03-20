@@ -51,9 +51,11 @@ const styles = theme => ({
 });
 
 const StyledIframe = styled.iframe`
+  overflow: -moz-scrollbars-none;
   &::-webkit-scrollbar {
     width: 0;
     background-color: transparent;
+    display: none;
   }
 `;
 class Abonnement extends Component {

@@ -159,7 +159,7 @@ class Footer extends Component {
               </Typography>
               {column.items.map(item => (
                 <h6>
-                  <StyledLink className={classes.link} href={item.url}>
+                  <StyledLink className={classes.link} href={item.url} to={item.url}>
                     {item.name}
                   </StyledLink>
                 </h6>

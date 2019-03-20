@@ -20,7 +20,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-
 /* Icons */
 import MenuIcon from "../icons/menuIcon";
 import Dashboard from "@material-ui/icons/Dashboard";
@@ -31,7 +30,6 @@ import Send from "@material-ui/icons/Send";
 import AttachFile from "@material-ui/icons/AttachFile";
 import PlusOne from "@material-ui/icons/PlusOne";
 import AttachMoney from "@material-ui/icons/AttachMoney";
-
 
 const HeaderContainer = styled.header`
   padding: 20px;
@@ -52,7 +50,7 @@ const StyledLink = styled(Link)`
 const styles = {
   header: {
     boxShadow: "none",
-    height: '5rem'
+    height: "5rem"
   },
   root: {
     flexGrow: 1,
@@ -150,7 +148,7 @@ const menu = [
   {
     name: "Vorteile",
     url: "/vorteile",
-    icon: <Circle />,
+    icon: <Circle />
   },
   {
     name: "VorteileTable",
@@ -176,16 +174,13 @@ const menu = [
     name: "Newsletter",
     url: "/subscribe",
     icon: <Send />
-  },
+  }
 ];
-
-
-
 
 const SideList = props => {
   const { classes } = props;
   const textColor = props.textColor || "#fff";
- 
+
   return (
     <div style={{ width: 250 }}>
       <List>
@@ -198,28 +193,27 @@ const SideList = props => {
           </StyledLink>
         ))}
       </List>
-      <Divider />
       <List>
-      <div style={{ display: "flex", justifyItems: "center", alignItems:"center" }}>
-        <StyledLink to="/abonnement" color={textColor}>
-          <Button
-            variant="outlined"
-            style={{
-              fontFamily: "acumin-pro",
-              borderRadius: 0,
-              fontWeight: 700
-            }}
-            color="inherit"
-          >
-            <AttachMoney /> Kaufen
-          </Button>
-        </StyledLink>
-      </div>  
-      </List> 
+        <div
+          style={{
+            display: "flex",
+            justifyItems: "center",
+            alignItems: "center"
+          }}
+        >
+          <StyledLink to="/abonnement" color={textColor}>
+            <ListItem button key={"kaufen"}>
+              <ListItemIcon>
+                <AttachMoney />
+              </ListItemIcon>
+              <ListItemText primary={"Kaufen"} />
+            </ListItem>
+          </StyledLink>
+        </div>
+      </List>
     </div>
   );
- };
-
+};
 
 const Header = props => {
   const { classes } = props;
@@ -227,8 +221,7 @@ const Header = props => {
   // || => means "OR"
   // In this case, if props.backgroundColor is not specified.
   // It will be transparent
-  const backgroundColor =
-    props.backgroundColor ||'transparent'
+  const backgroundColor = props.backgroundColor || "transparent";
   const textColor = props.textColor || "#fff";
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -236,18 +229,25 @@ const Header = props => {
     <div className={classes.root}>
       <div>
         <Drawer
-
           anchor="right"
           open={isDrawerOpen}
           onClose={() => setDrawerOpen(false)}
         >
           <div
-            tabIndex={0}
-            role="button"
-            onClick={() => setDrawerOpen(false)}
-            onKeyDown={() => setDrawerOpen(false)}
+            style={{
+              backgroundImage: "url(/pricing.jpg)",
+              height: "100%"
+            }}
           >
-            <SideList />
+            <div
+              style={{ backgroundColor: "rgba(0,0,0,0.6)", height: "100%" }}
+              tabIndex={0}
+              role="button"
+              onClick={() => setDrawerOpen(false)}
+              onKeyDown={() => setDrawerOpen(false)}
+            >
+              <SideList />
+            </div>
           </div>
         </Drawer>
       </div>
@@ -257,7 +257,7 @@ const Header = props => {
         style={{ background: backgroundColor }}
       >
         <Toolbar>
-          <StyledLink to="/">
+          {/* <StyledLink to="/">
             <IconButton
               className={classes.menuButton}
               color="inherit"
@@ -267,7 +267,7 @@ const Header = props => {
                 <MenuIcon />
               </SvgIcon>
             </IconButton>
-          </StyledLink>
+          </StyledLink> */}
           <DivStyled>
             <TextLogo className={classes.logo}>BOOST</TextLogo>
           </DivStyled>
