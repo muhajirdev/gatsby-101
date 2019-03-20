@@ -185,17 +185,7 @@ const menu = [
 const SideList = props => {
   const { classes } = props;
   const textColor = props.textColor || "#fff";
-
-  // const menu = [
-  //   {
-  //     text: "a",
-  //     icon: <InboxIcon />
-  //   },
-  //   {
-  //     text: "b",
-  //     icon: <MailIcon />
-  //   }
-  // ];
+ 
   return (
     <div style={{ width: 250 }}>
       <List>
@@ -226,17 +216,6 @@ const SideList = props => {
         </StyledLink>
       </div>  
       </List> 
-    
-      {/* <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List> */}
     </div>
   );
  };
@@ -257,6 +236,7 @@ const Header = props => {
     <div className={classes.root}>
       <div>
         <Drawer
+
           anchor="right"
           open={isDrawerOpen}
           onClose={() => setDrawerOpen(false)}

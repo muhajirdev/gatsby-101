@@ -143,13 +143,12 @@ const IndexPage = () => (
       >
         Wie man systematisch & entspannt in Aktien investiert - Boost
       </Typography>
-      <Typography
-        variant="heading"
-        style={{ color: "#FF8000", fontWeight: "bold" }}
-      >
-        <StyledLink to="/page-2">Mehr erfahren</StyledLink>
+      <Typography Variant="heading" style={{ color: "#FF8000", fontWeight: "bold" }}>
+      <StyledLink to="/anlagekonzept">
+      Mehr erfahren
+      </StyledLink>
       </Typography>
-      <StyledLink to="/page-2">
+      <StyledLink to="/anlagekonzept">
         <Icon source={require("../icons/bulb.svg")} />
       </StyledLink>
     </div>

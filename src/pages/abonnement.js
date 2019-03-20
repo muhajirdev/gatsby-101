@@ -18,11 +18,23 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
+/* rebass */
 import { Box,Flex } from "rebass";
 
 /* Icons */
 import MonthIcon from "@material-ui/icons/Explore";
 import YearIcon from "@material-ui/icons/PowerSettingsNew";
+
+
+import {
+  position,
+  zIndex,
+  top,
+  right,
+  bottom,
+  left,
+} from 'styled-system';
+
 
 const StyledLink = styled(Link)`
   font-size: 9;
@@ -69,13 +81,13 @@ class Abonnement extends Component {
         
         
         <Flex
-              className={classes.textContainer}
+              // className={classes.textContainer}
               minWidth={["100%", "100%", "100%"]}
               minHeight={["100%","100%","100%",]}
               // Header 5rem
               pt="5rem"
             >         
-
+        
         <div
           style={{
             minHeight: "100vh",
@@ -84,7 +96,7 @@ class Abonnement extends Component {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            zIndex: -100
+            zIndex: 0
           }}
         >   
         <div
@@ -108,10 +120,11 @@ class Abonnement extends Component {
           }}
         > 
 
-           <Flex
+          <Flex
               className={classes.textContainer}
               flexDirection={["column", "column", "row"]}
               width={["100%", "80%", "40%"]}
+              position="fixed" 
               // Header 5rem
               pt="12rem"
               alignSelf = "center"
@@ -119,32 +132,35 @@ class Abonnement extends Component {
               justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              px="4"       
-            
-            > 
-              <div
-                style={{ color: "#FF8000" }}
-              > 
-                 <a href="/signupMonth" className={classes.link}>
-                  <MonthIcon className={classes.largeIcon} />
-                  <Typography variant="display1">Monatliche Zahlungsweise</Typography>
-                  <Typography variant="heading">X / Monat</Typography>
-                </a> 
-               </div> 
+              px="4"      
+             
+             
+            >  
+                <div>   
+                <StyledLink to="/signupMonth">
+                <MonthIcon className={classes.largeIcon} />
+                <Typography variant="display1">Monatliche Zahlungsweise</Typography>
+                <Typography variant="heading">X / Monat</Typography>
+                </StyledLink>
+                </div> 
 
-              <div>
-                <a href="/signupYear" className={classes.link}>
+               <div> 
+               <StyledLink to="/signupYear">
                   <YearIcon className={classes.largeIcon} />
                   <Typography variant="display1">Jährliche Zahlungsweise</Typography>
                   <Typography variant="heading">X / Jahr</Typography>
-                </a>
-              </div>   
-          </Flex> 
+                </StyledLink>
+                </div> 
+              
+            </Flex>  
 
       </div>
       </div>
       </div>
       </Flex>
+
+  
+                
       </Layout>
     
       // class Subscribe extends Component {

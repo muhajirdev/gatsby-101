@@ -118,7 +118,7 @@ class Vorteile extends Component {
             <Flex
               className={classes.textContainer}
               flexDirection={["column", "column", "row"]}
-              width={["100%", "80%", "75%"]}
+              width={["100%", "80%", "60%"]}
               // Header 5rem
               pt="5rem"
               alignSelf = "center"
@@ -126,10 +126,10 @@ class Vorteile extends Component {
               justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              // px="4"       
+              px="4"       
             >         
 
-            <Table style={{ maxWidth: '50%', marginTop: 'theme.spacing.unit * 3', overflowX: 'auto', margin: "0 auto" }}>
+            <Table style={{ overflowX: 'auto', margin: "0 auto" }}>
 
                 <TableHead className={classes.logo}>
 
