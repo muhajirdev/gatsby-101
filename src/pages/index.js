@@ -8,6 +8,8 @@ import SEO from "../components/seo";
 import Icon from "../components/icon";
 import styled from "styled-components";
 
+import { Flex } from "rebass";
+
 const BigButton = styled.button`
   background-color: red;
   height: 50px;
@@ -24,7 +26,7 @@ function BlueBox(props) {
 }
 
 const StyledLink = styled(Link)`
-  font-size: 9;
+  font-size: 15;
   text-decoration: none;
   color: #ff8000;
 `;
@@ -88,8 +90,8 @@ const IndexPage = () => (
     <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
     <div
       style={{
-        height: "100%",
-        width: "100%",
+        minHeight: "100vh",
+        minWidth: "100%",
         backgroundImage: "url(/brooklyn-bridge.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
@@ -137,17 +139,71 @@ const IndexPage = () => (
         zIndex: 0
       }}
     >
-      <Typography
-        variant="display2"
-        style={{ color: "#fff", maxWidth: "20em" }}
-      >
+      <Typography variant="display2" style={{ color: "#fff", maxWidth: "20em", paddingBottom:"1em" }}>
         Wie man systematisch & entspannt in Aktien investiert - Boost
       </Typography>
-      <Typography Variant="heading" style={{ color: "#FF8000", fontWeight: "bold" }}>
-      <StyledLink to="/anlagekonzept">
-      Mehr erfahren
-      </StyledLink>
+
+      <Typography variant="heading"  style={{ color: "#fff", maxWidth: "20em" }}>
+      Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft! 
       </Typography>
+
+      <Typography variant="heading"  style={{ color: "#fff", maxWidth: "20em", paddingBottom:"1em" }}>
+      Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot(!) anwenden. 
+      Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem! 
+      </Typography>
+      
+
+      {/* <Typography variant="subheading"  style={{ color: "#fff", maxWidth: "40em" }}>
+      Erfahrung und Wissenschaft: In StockBoost arbeitet ein Team aus jungen erfahrenen Händlern auf Grundlage neuester wissenschaftlicher Erkenntnisse. Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot bei Interactive Brokers Ltd. anwenden. 
+      Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem. Transparenz ist uns ganz wichtig, schließlich geht es um Ihr Vertrauen!  Alle genutzten Erkenntnisse inklusive Literaturverzeichnis finden Sie im Dokument „StockBoost Fakten und Hintergründe“. Gibt es neue Erkenntnisse, die unseren Ansatz nachhaltig beeinflussen, finden Sie alle Informationen dort!
+      Eine kurze Beschreibung unseres Ansatzes finden Sie hier: 
+      Wenn Sie weitere Fragen haben, stehen wir selbstverständlich gern zu Ihrer Verfügung.
+      </Typography> */}
+
+    <div>
+      <Flex
+          // bg={['red', 'blue']}
+          width={["100%", '75%', '60%']}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            // flexWrap: "no-wrap",
+            // paddingTop: "1rem",
+            justifyContent: "center;",
+            alignItems: "center",
+            marginLeft: "auto",
+            marginRight: "auto",  
+          }}
+        > 
+      
+         
+            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
+            </Typography>
+            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
+            Systematische Regeln               
+            </Typography>
+            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
+            </Typography>
+            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
+            Transparente Echtgeld Umsetzung
+            </Typography>
+            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
+            </Typography>
+            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
+            Umsetzbar in wenigen Minuten pro Woche
+            </Typography>
+            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
+            </Typography>
+        
+      </Flex> 
+      </div>
+
+      <StyledLink to="/anlagekonzept">
+      <Typography variant="display1" style={{ color: "#FF8000", maxWidth: "20em" , fontWeight: "bold", paddingTop:"1em"  }}>
+      Mehr erfahren      
+      </Typography>
+      </StyledLink>
+
       <StyledLink to="/anlagekonzept">
         <Icon source={require("../icons/bulb.svg")} />
       </StyledLink>

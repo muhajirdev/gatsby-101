@@ -32,17 +32,29 @@ import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 
-import { Box } from "rebass";
+import { Flex } from "rebass";
 
 const styles = theme => ({
   heading: {
     color: "#fff",
     marginBottom: "1rem",
     fontWeight: "normal",
-    padding: "1em 5em 1em 0em",
-    border: "2px solid #FF8000"
+    padding: "1rem 0rem 1rem 0rem",
+    // border: "2px solid #FF8000"
+    // border: "1px solid #fdf22f"
+  },
+  display: {
+    fontWeight: "bold",
+    color: "#fff",
+    paddingTop: "5rem",
+  },  
+  subheader: {
+    fontWeight: "bold",  
+    color: "#fff",
+    paddingTop: "0rem", 
   },
   blocksatz: {
+    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
     padding: "5px 0px 5px 0px"
   },
   copyright: {
@@ -58,6 +70,9 @@ const styles = theme => ({
   }
 });
 
+const itemsHeader = "Allgemeine Geschäfts- und Lieferbedingungen - AGB";
+
+
 class Datenschutz extends Component {
   render() {
     const { classes } = this.props;
@@ -66,19 +81,42 @@ class Datenschutz extends Component {
     return (
       <Layout>
         <SEO title="Allgemeine Geschäfts- und Lieferbedingungen - AGB" />
-        <div
+        
+        <div className={classes.heading}
           style={{
             display: "flex",
             flexDirection: "column",
             flexWrap: "nowrap",
-            backgroundColor: "#FF8000",
-            height: "10rem",
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "left",
           }}
-        />
+        >
+        <Flex
+          // bg={['red', 'blue']}
+          width={["97.5%", '75%', '60%']}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            justifyContent: "flexStart",
+            alignItems: "left",
+            alignText: "left",
+            marginLeft: "auto",
+            marginRight: "auto",  
+          }}
+        >
+        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
+        </Flex>    
+        </div>
 
-        <Box
+       
+
+        <Flex
           className={classes.textContainer}
           // bg={['red', 'blue']}
           width={["100%", '75%', '60%']}
@@ -265,7 +303,7 @@ class Datenschutz extends Component {
             Es gilt Schweizer Recht. Ausschliesslicher Gerichtsstand für alle Ansprüche im Zusammenhang mit der Geschäftsbeziehung zwischen dem Verlag und Herausgeber SoftQuote GmbH und dem Kunden ist Herisau, Schweiz.
             </Typography>
          </div>
-        </Box>
+        </Flex>
       </Layout>
     );
   }

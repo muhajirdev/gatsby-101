@@ -25,6 +25,21 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 rel: "stylesheet",
                 href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+              },
+              { rel: "stylesheet",
+                href:"js/TimelineMax.min.js>" 
+              }, 
+              { rel: "stylesheet",
+              href:"js/TweenLite.min.js" 
+              }, 
+              { rel: "stylesheet",
+              href:"js/EasePack.min.js" 
+              }, 
+              { rel: "stylesheet",
+              href:"js/rAF.js" 
+              }, 
+              { rel: "stylesheet",
+              href:"js/demo-1.js" 
               }
             ]}
             meta={[

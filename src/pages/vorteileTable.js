@@ -41,8 +41,12 @@ const styles = {
     backgroundColor: "transparent",
     boxShadow: "none",
     color: '#fff'
-
   },
+  headerBackground: {
+    backgroundColor:"#fff",
+    backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+    backgroundRepeat: "repeat-x"
+},
   root: {
     flexGrow: 1,
     position: "fixed",
@@ -70,7 +74,7 @@ class Vorteile extends Component {
     const { classes } = this.props;
     return (
 
-      <Layout backgroundColor="#fdf22f" textColor="black">
+      <Layout backgroundColor="" textColor="black">
         <SEO title="VORTEILE" />
 
 

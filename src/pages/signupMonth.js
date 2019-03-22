@@ -18,7 +18,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import { Box } from "rebass";
+import { Flex } from "rebass";
 
 const StyledLink = styled(Link)`
   font-size: 9;
@@ -51,13 +51,21 @@ const styles = theme => ({
 });
 
 const StyledIframe = styled.iframe`
+  height: -webkit-fill-available;
+  height: 100%;
+  width: 1px;
+  min-width: 100%;
+  *width: 100%;
   overflow: -moz-scrollbars-none;
+  border: none;
+  margin-bottom: 1rem;
   &::-webkit-scrollbar {
     width: 0;
     background-color: transparent;
     display: none;
   }
 `;
+
 class Abonnement extends Component {
   render() {
     const { classes } = this.props;
@@ -68,7 +76,7 @@ class Abonnement extends Component {
         <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
         <div
           style={{
-            height: "100%",
+            minHeight: "100vh",
             width: "100%",
             background: "rgba(0, 0, 0, 0.3)",
             position: "absolute",
@@ -77,7 +85,7 @@ class Abonnement extends Component {
         />
         <div
           style={{
-            height: "100%",
+            minHeight: "100vh",
             width: "100%",
             backgroundImage: "url(/pricing.jpg)",
             backgroundSize: "cover",
@@ -93,7 +101,7 @@ class Abonnement extends Component {
             alignSelf: "center",
             justifyContent: "center",
             alignItems: "center",
-            height: "100%",
+            minHeight: "100vh",
             width: "100%",
             background:
               "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
@@ -102,30 +110,33 @@ class Abonnement extends Component {
             zIndex: 0
           }}
         >
-          <Box
+         <Flex
             className={classes.textContainer}
-            // bg={['red', 'blue']}
-            width={["100%", "75%", "60%"]}
-            height={["80%"]}
-            style={{
-              height: "80%",
-              display: "flex",
-              flexDirection: "column",
-              flexWrap: "nowrap",
-              justifyContent: "flexStart",
-              alignItems: "left",
-              alignText: "left",
-              marginLeft: "auto",
-              marginRight: "auto"
-            }}
-          >
-            <StyledIframe
-              scrolling="auto"
-              style={{ border: "none", marginBottom: 0 }}
-              height="100%"
+            // bg={['red', 'blue', 'green']}
+            minHeight={["100vh","100vh","100vh"]}
+            minWidth={["100%", "75%", "60%"]}
+            // Header 5rem
+            pt="10rem"
+            mx="auto"
+            flexDirection="column"
+            flex="1 1 auto"
+            flexWrap="nowrap"
+            justifyContent="flexStart"
+            alignItems="left"
+            >
+            <div 
+              style={{
+                minHeight: "80vh",
+                minWidth: "60vw",
+                border: "10px solid #fff",
+                alignText: "left",
+                marginBottom: "1rem"
+            }}>
+            <StyledIframe     
               src="https://sandbox.billwerk.com/portal/signup.html#/5c88c072443e550ea0751415?language=de&country=DE"
             />
-          </Box>
+            </div>
+          </Flex>
         </div>
       </Layout>
       // class Subscribe extends Component {

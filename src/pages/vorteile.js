@@ -36,56 +36,101 @@ import Icon from '../components/icon'
 // Link 
 // <h6><Link to="/">Go back to the homepage</Link></h6>
 
-const styles = {
-  header: {
-    backgroundColor: "transparent",
-    boxShadow: "none"
+const styles = theme => ({
+  heading: {
+    color: "#fff",
+    marginBottom: "1rem",
+    fontWeight: "normal",
+    padding: "1rem 0rem 1rem 0rem",
+    // border: "2px solid #FF8000"
+    // border: "1px solid #fdf22f"
   },
-  root: {
-    flexGrow: 1,
-    position: "fixed",
-    width: "100%",
-    zIndex: 200,
-    top: 0
+  display: {
+    fontWeight: "bold",
+    color: "#fff",
+    paddingTop: "5rem",
+  },  
+  subheader: {
+    fontWeight: "bold",  
+    color: "#fff",
+    paddingTop: "0rem", 
   },
-  grow: {
-    flexGrow: 1
+  blocksatz: {
+    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
+    padding: "5px 0px 5px 0px"
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+  copyright: {
+    color: "#fff",
+    textAlign: "center"
+  },
+  link: {
+    color: "#FF8000",
+    textDecoration: "none"
   },
   logo: {
     fontWeight: 700
   }
-};
+});
 
+
+const itemsHeader = "Vorteile";
 
 
 class Vorteile extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Layout backgroundColor="#fdf22f" textColor="black">
+      // backgroundColor="#fdf22f" textColor="black"
+      <Layout >
         <SEO title="VORTEILE" />
         
         
-       
+        <div className={classes.heading}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
+            justifyContent: "center",
+            alignItems: "left",
+          }}
+        >
+        <Flex
+          // bg={['red', 'blue']}
+          width={["97.5%", '75%', '60%']}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            justifyContent: "flexStart",
+            alignItems: "left",
+            alignText: "left",
+            marginLeft: "auto",
+            marginRight: "auto",  
+          }}
+        >
+        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
+        </Flex>    
+        </div>
 
       <Flex
               className={classes.textContainer}
               minWidth={["100%", "100%", "100%"]}
               minHeight={["100%","100%","100%",]}
               // Header 5rem
-              pt="5rem"
+              // pt="5rem"
               pb="1rem"
-            >         
+        >         
 
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",          
-            backgroundImage: "url(/cedric-frixon.jpg)",
+            minWidth: "100%",          
+            // backgroundImage: "url(/cedric-frixon.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -95,8 +140,8 @@ class Vorteile extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",       
-            background: "rgba(0, 0, 0.3, 0.3)",
+            minWidth: "100%",       
+            // background: "rgba(0, 0, 0.3, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
@@ -105,19 +150,43 @@ class Vorteile extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",       
-            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            minWidth: "100%",       
+            // background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
           }}
         > 
+          
+          
+          <Flex
+              className={classes.textContainer}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "40%"]}
+              // Header 5rem
+              // pt="5rem"
+              alignSelf = "center"
+              alignItems = "center"
+              justifyContent= "flexStart"
+              textAlign="left"
+              mx="auto"
+              // px="4"       
+            >         
+            <Typography variant="subheading" style={{color: '#000', padding: '1rem'}} >
+              StockBoost = Handelserfahrung & Wissenschaft
+            </Typography>
+            <Typography variant="subheading" style={{color: '#000', padding: '1rem'}} >
+              Wie wir systematisch & entspannt in Aktien investieren.
+            </Typography>
+            </Flex>
+
+            
             <Flex
               className={classes.textContainer}
               flexDirection={["column", "column", "row"]}
-              width={["100%", "80%", "75%"]}
+              width={["100%", "80%", "40%"]}
               // Header 5rem
-              pt="5rem"
+              // pt="5rem"
               alignSelf = "center"
               alignItems = "center"
               justifyContent= "flexStart"
@@ -126,8 +195,7 @@ class Vorteile extends Component {
               // px="4"       
             >         
 
-            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Deine Vorteile</Typography>
-            <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
+            <Typography variant="subheading" style={{color: '#000', padding: '1rem'}} >
                 Die StockBoost Aktienstrategie basiert auf quantitativem Ansatz; verdichtet historische Aktienpreisentwicklung, positive Gewinnüberraschung sowie Analystendaten.
                 <br /><br />
                 Der Stock Ansatz filtert systematisch ein Aktienuniversum bestehend aus 4000 US-Amerikanischen Unternehmen mit einer Marktkapitalisierung von 500 Mio. - 10 Mrd. USD. So stehen US-Midcap-Aktien und nicht Mainstreamwerte im Fokus der Aktienstrategie bei Beachtung notwendiger Portfolio-Diversifikation.
@@ -146,11 +214,11 @@ class Vorteile extends Component {
                 <br /><br />
                 Der Aufwand für die Umsetzung von STOCKBOOST beträgt ca. 15 Minuten pro Woche.
           </Typography>
-          </Flex>
+         </Flex>
         
-    </div>
-    </div>
-    </div>
+      </div>
+      </div>
+      </div>
     </Flex>  
     </Layout>
     );

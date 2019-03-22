@@ -47,10 +47,22 @@ const styles = theme => ({
     color: "#fff",
     marginBottom: "1rem",
     fontWeight: "normal",
-    padding: "1em 5em 1em 0em",
-    border: "2px solid #FF8000"
+    padding: "1rem 0rem 1rem 0rem",
+    // border: "2px solid #FF8000"
+    // border: "1px solid #fdf22f"
+  },
+  display: {
+    fontWeight: "bold",
+    color: "#fff",
+    paddingTop: "5rem",
+  },  
+  subheader: {
+    fontWeight: "bold",  
+    color: "#fff",
+    paddingTop: "0rem", 
   },
   blocksatz: {
+    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
     padding: "5px 0px 5px 0px"
   },
   copyright: {
@@ -63,12 +75,11 @@ const styles = theme => ({
   },
   logo: {
     fontWeight: 700
-  },
-  largeIcon: {
-    width: 60,
-    height: 60
   }
 });
+
+
+const itemsHeader = "Abonnement";
 
 class Abonnement extends Component {
   render() {
@@ -76,9 +87,42 @@ class Abonnement extends Component {
     const dt = new Date();
     const year = dt.getFullYear();
     return (
-      <Layout backgroundColor="#fdf22f" textColor="black">
+      // backgroundColor="#fdf22f" textColor="black"
+      <Layout>
         <SEO title="Abonnement" keywords={[`gatsby`, `application`, `react`]} />      
         
+        <div className={classes.heading}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
+            justifyContent: "center",
+            alignItems: "left",
+          }}
+        >
+        <Flex
+          // bg={['red', 'blue']}
+          width={["97.5%", '75%', '60%']}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            justifyContent: "flexStart",
+            alignItems: "left",
+            alignText: "left",
+            marginLeft: "auto",
+            marginRight: "auto",  
+          }}
+        >
+        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
+        </Flex>    
+        </div>
+
         
         <Flex
               // className={classes.textContainer}
@@ -91,18 +135,18 @@ class Abonnement extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",           
+            minWidth: "100%",           
             backgroundImage: "url(/pricing.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            zIndex: 0
+            zIndex: 200
           }}
         >   
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",    
+            minWidth: "100%",    
             background: "rgba(0, 0, 0, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -112,7 +156,7 @@ class Abonnement extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",     
+            minWidth: "100%",     
             background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -126,20 +170,22 @@ class Abonnement extends Component {
               width={["100%", "80%", "40%"]}
               position="fixed" 
               // Header 5rem
-              pt="12rem"
+              px="4rem"
               alignSelf = "center"
               alignItems = "center"
               justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              px="4"      
+              pt="12rem"
+        
+                 
              
              
             >  
                 <div>   
                 <StyledLink to="/signupMonth">
                 <MonthIcon className={classes.largeIcon} />
-                <Typography variant="display1">Monatliche Zahlungsweise</Typography>
+                <Typography variant="display1" className={classes.subheader}>Monatliche Zahlungsweise</Typography>
                 <Typography variant="heading">X / Monat</Typography>
                 </StyledLink>
                 </div> 
@@ -147,7 +193,7 @@ class Abonnement extends Component {
                <div> 
                <StyledLink to="/signupYear">
                   <YearIcon className={classes.largeIcon} />
-                  <Typography variant="display1">Jährliche Zahlungsweise</Typography>
+                  <Typography variant="display1" className={classes.subheader}>Jährliche Zahlungsweise</Typography>
                   <Typography variant="heading">X / Jahr</Typography>
                 </StyledLink>
                 </div> 

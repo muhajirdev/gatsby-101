@@ -32,9 +32,8 @@ import PlusOne from "@material-ui/icons/PlusOne";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 
 const HeaderContainer = styled.header`
-  padding: 20px;
   display: flex;
-  max-width: 1400px;
+  width: 100vw;
   justify-content: space-between;
   margin: 0 auto;
   backgroundcolor: ${props => props.theme.palette.primary.main};
@@ -55,7 +54,7 @@ const styles = {
   root: {
     flexGrow: 1,
     position: "fixed",
-    width: "100%",
+    width: "100vw",
     zIndex: 200,
     top: 0
   },
@@ -73,10 +72,12 @@ const styles = {
 };
 
 const DivStyled = styled.div`
-  height: 100% !important;
-  width: 100% !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  padding-left: 4rem;
   display: flex !important;
   align-items: center !important;
+  // justify-content: center !important;
 `;
 
 const TextLogo = styled(Typography)`
@@ -86,6 +87,7 @@ const TextLogo = styled(Typography)`
   font-weight: 700 !important;
   font-style: normal !important;
   font-weight: bold;
+  padding: 0rem 0rem 0rem 0rem;
   /* background: linear-gradient(to bottom, #c0c0c0 22%, #404040 24%, #666666 26%, #666666 27%,#e6e6e6 40%,#333333 78%) !important;  */
   background-image: -webkit-repeating-linear-gradient(
       top,
@@ -150,11 +152,11 @@ const menu = [
     url: "/vorteile",
     icon: <Circle />
   },
-  {
-    name: "VorteileTable",
-    url: "/vorteileTable",
-    icon: <Done />
-  },
+  // {
+  //   name: "VorteileTable",
+  //   url: "/vorteileTable",
+  //   icon: <Done />
+  // },
   {
     name: "Team",
     url: "/team",
@@ -235,12 +237,13 @@ const Header = props => {
         >
           <div
             style={{
-              backgroundImage: "url(/pricing.jpg)",
-              height: "100%"
+              backgroundImage: "url(/brookly-bridge.jpg)",
+              backgroundSize:"cover",
+              minheight: "100vh"
             }}
           >
             <div
-              style={{ backgroundColor: "rgba(0,0,0,0.6)", height: "100%" }}
+              style={{ backgroundColor: "rgba(0,0,0,0.6)", minHeight: "100vh" }}
               tabIndex={0}
               role="button"
               onClick={() => setDrawerOpen(false)}
@@ -252,11 +255,13 @@ const Header = props => {
         </Drawer>
       </div>
       <AppBar
-        position="static"
+        position="relative"
         className={classes.header}
         style={{ background: backgroundColor }}
       >
+        {/* <Toolbar style={{ alignItems: "center", alignSelf:"center" }}> */}
         <Toolbar>
+
           {/* <StyledLink to="/">
             <IconButton
               className={classes.menuButton}
@@ -269,7 +274,9 @@ const Header = props => {
             </IconButton>
           </StyledLink> */}
           <DivStyled>
+            <StyledLink to="/">
             <TextLogo className={classes.logo}>BOOST</TextLogo>
+            </StyledLink>
           </DivStyled>
           <Hidden lgUp>
             <div onClick={() => setDrawerOpen(true)}>
@@ -286,7 +293,7 @@ const Header = props => {
           </Hidden>
           <Hidden mdDown>
             {menu.map(link => (
-              <div style={{ display: "flex", justifyItems: "center" }}>
+              <div style={{ display: "flex", justifyItems: "center", alignSelf: "center" }}>
                 <StyledLink to={link.url} color={textColor}>
                   <Button
                     style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
@@ -298,7 +305,7 @@ const Header = props => {
               </div>
             ))}
 
-            <div style={{ display: "flex", justifyItems: "center" }}>
+            <div style={{ display: "flex", justifyItems: "center", alignSelf: "center"  }}>
               <StyledLink to="/abonnement" color={textColor}>
                 <Button
                   variant="outlined"

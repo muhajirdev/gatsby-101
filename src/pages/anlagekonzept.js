@@ -32,7 +32,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
 
-import { Box } from "rebass";
+import { Flex } from "rebass";
 
 // <Link to="/">Go back to the homepage</Link>
 
@@ -42,11 +42,31 @@ const styles = theme => ({
     color: "#fff",
     marginBottom: "1rem",
     fontWeight: "normal",
-    padding: "1em 5em 1em 1em",
-    border: "2px solid #FF8000"
+    padding: "1rem",
+    marginLeft: "auto",
+    marginRight: "auto",
+    // border: "2px solid #FF8000"
+    // border: "1px solid #fdf22f"
+  },
+  display: {
+    fontWeight: "bold",
+    color: "#fff",
+    paddingTop: "5rem",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },  
+  subheader: {
+    fontWeight: "bold",  
+    color: "#fff",
+    paddingTop: "0rem", 
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   blocksatz: {
-    padding: "5px 0px 5px 0px"
+    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
+    padding: "1rem",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   copyright: {
     color: "#fff",
@@ -61,6 +81,8 @@ const styles = theme => ({
   }
 });
 
+const itemsHeader = "Anlagekonzept";
+
 class Anlagekonzept extends Component {
   render() {
     const { classes } = this.props;
@@ -68,21 +90,23 @@ class Anlagekonzept extends Component {
     const year = dt.getFullYear();
     return (
       <Layout>
-        <SEO title="Anlagekonzept" />
-        <div
+        <SEO title={itemsHeader} />
+       
+        <div className={classes.heading}
           style={{
             display: "flex",
             flexDirection: "column",
             flexWrap: "nowrap",
-            backgroundColor: "#FF8000",
-            height: "10rem",
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "left",
           }}
-        />
-
-        <Box
-          className={classes.textContainer}
+        >
+        <Flex
           // bg={['red', 'blue']}
           width={["97.5%", '75%', '60%']}
           style={{
@@ -93,15 +117,91 @@ class Anlagekonzept extends Component {
             alignItems: "left",
             alignText: "left",
             marginLeft: "auto",
-            marginRight: "auto"
+            marginRight: "auto",  
           }}
         >
+        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
+        </Flex>    
+        </div>
+        
+      
+        {/* <div class="container demo-1">
+          <div class="content">
+            <div id="large-header" class="large-header" style="height: 846px;">
+          <canvas id="demo-canvas" width="1920" height="846"></canvas>
+                <h1 class="main-title">&copy;Syriaproducts</h1>
+              </div>
+            </div>
+            <div class="copyright">
+                <p>CONTACT <a href="mailto:systems@syriaproducts.de">Systems@Syriaproducts.de</a></p>
+            </div>
+          </div> */}
 
-          <Typography variant="display2"></Typography>
-          <div className={classes.blocksatz}>
-            <Typography variant="heading">
-            </Typography>
-          </div>
+          {/* <Typography variant="display2"> {itemsHeader} </Typography>
+          <div className={classes.blocksatz} style={{paddingTop: "10rem" }}>
+          <Typography variant="display1">
+            {itemsHeader}
+          </Typography>
+          </div> */}
+
+<Flex
+              className={classes.textContainer}
+              minWidth={["100%", "100%", "100%"]}
+              minHeight={["100%","100%","100%",]}
+              // Header 5rem
+              // pt="5rem"
+              pb="1rem"
+        >         
+
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100%",          
+            // backgroundImage: "url(/cedric-frixon.jpg)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -100
+          }}
+        >   
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100%",       
+            // background: "rgba(0, 0, 0.3, 0.3)",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+        <div
+          style={{
+            minHeight: "100vh",
+            minWidth: "100%",       
+            // background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            zIndex: -50
+          }}
+        > 
+          
+          
+                
+            <Flex
+              className={classes.textContainer}
+              flexDirection={["column", "column", "row"]}
+              width={["100%", "80%", "40%"]}
+              // Header 5rem
+              // pt="5rem"
+              alignSelf = "center"
+              alignItems = "center"
+              justifyContent= "flexStart"
+              textAlign="left"
+              mx="auto"
+              // px="4"       
+            >         
+
+
           <div className={classes.heading}>
             <Typography variant="display1">Regelwerk StockBoost</Typography>
           </div>
@@ -208,8 +308,11 @@ class Anlagekonzept extends Component {
             <br /> 
             </Typography>
             </div>      
-    
-        </Box>
+        </Flex>
+        </div>
+        </div>
+        </div>
+        </Flex>
       </Layout>
     );
   }

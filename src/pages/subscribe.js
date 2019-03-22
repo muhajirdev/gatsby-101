@@ -21,6 +21,10 @@ import Button from "@material-ui/core/Button";
 /* rebass */
 import { Box, Flex } from "rebass";
 
+/* Mailto */
+import Mailto from 'react-protected-mailto'
+
+
 const StyledLink = styled(Link)`
   font-size: 4;
   text-decoration: none;
@@ -62,9 +66,12 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   },
-
   logo: {
-    fontWeight: 700
+    fontWeight: 700,
+    // fontWeight: "bold" 
+    width: "20rem", 
+    color: "white",
+    padding: "0em 1rem 0em 1rem",   
   }
 };
 
@@ -77,17 +84,17 @@ class Subscribe extends Component {
     return (
       <Layout backgroundColor="" textColor="">
         <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
-        <Flex
+        {/* <Flex
           // className={classes.textContainer}
           minWidth={["100%", "100%", "100%"]}
           minHeight={["100%", "100%", "100%"]}
           // Header 5rem
-          // pt="5rem"
-        >
+          pt="5rem"
+        > */}
           <div
             style={{
               minHeight: "100vh",
-              minWidth: "100vw",
+              minWidth: "100%",
               backgroundImage: "url(/daniela-cuevas.jpg)",
               width: "100%",
               backgroundRepeat: "no-repeat",
@@ -100,7 +107,7 @@ class Subscribe extends Component {
             <div
               style={{
                 minHeight: "100vh",
-                minWidth: "100vw",
+                minWidth: "100%",
                 background: "rgba(0, 0, 0, 0.3)",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
@@ -110,7 +117,7 @@ class Subscribe extends Component {
               <div
                 style={{
                   minHeight: "100vh",
-                  minWidth: "100vw",
+                  minWidth: "100%",
                   background:
                     "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
                   backgroundSize: "cover",
@@ -184,38 +191,22 @@ class Subscribe extends Component {
                 </Flex>
                 <div>
                   <Flex mx="auto" justifyContent="center">
-                    <a
-                      href="mailto:info@stockboost.de"
-                      style={{ width: "20rem", textDecoration: "none" }}
-                    >
-                      <Typography
-                        variant="subheading"
-                        style={{ color: "white", padding: "0 0 0 0" }}
-                      >
-                        NEED HELP?
-                      </Typography>
-                    </a>
-                    <div style={{ width: "20rem" }} />
-
-                    <Typography
-                      variant="subheading"
-                      style={{
-                        width: "20rem",
-                        color: "#FF8000",
-                        padding: "0 0 0 0"
-                      }}
-                    >
-                      <a className={classes.link} href="/">
-                        Copyright © {year} BOOST All Rights Reserved.
-                      </a>
+                    <Typography variant="heading" className={classes.logo}>need help?&nbsp;
+                    <Mailto className={classes.link} email="info@stockboost.de"
+                       headers={{ subject: 'NoFAQ / Kunde ist König', body: 'Sehr geehrtes StockBoost Team, ' }} />  
+                    </Typography>           
+                    <Typography variant="subheading" className={classes.logo} style={{color: "#FF8000"}}>
+                      <a className={classes.link} href="/">Copyright © {year} BOOST All Rights Reserved.</a>
                     </Typography>
                     {/* </Flex> */}
+                   
                   </Flex>
-                </div>
+                  </div>
+           
               </div>
             </div>
           </div>
-        </Flex>
+        {/* </Flex> */}
       </Layout>
     );
   }

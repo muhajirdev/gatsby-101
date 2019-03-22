@@ -80,22 +80,38 @@ class Vorteile extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Layout backgroundColor="#fdf22f" textColor="black">
+      <Layout>
         <SEO title="TEAM" />
         
+        <div className={classes.heading}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
+            justifyContent: "center",
+            alignItems: "left",
+          }}
+        />
+
         <Flex
               className={classes.textContainer}
               minWidth={["100%", "100%", "100%"]}
               minHeight={["100%","100%","100%",]}
               // Header 5rem
               pt="5rem"
+              pb="1rem"
             >         
 
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",              
-            backgroundImage: "url(/pricing.jpg)",
+            minWidth: "100%",          
+            backgroundImage: "url(/cedric-frixon.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -105,8 +121,8 @@ class Vorteile extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",      
-            background: "rgba(0, 0, 0, 0.3)",
+            minWidth: "100%",       
+            background: "rgba(0, 0, 0.3, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
@@ -115,15 +131,14 @@ class Vorteile extends Component {
         <div
           style={{
             minHeight: "100vh",
-            minWidth: "100vw",      
+            minWidth: "100%",       
             background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
           }}
         > 
-
-           <Flex
+            <Flex
               className={classes.textContainer}
               flexDirection={["column", "column", "row"]}
               width={["100%", "80%", "40%"]}
@@ -134,7 +149,7 @@ class Vorteile extends Component {
               justifyContent= "flexStart"
               textAlign="left"
               mx="auto"
-              // px="4"       
+              // px="4"    
             >         
             <div>
             <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Marco</Typography>
@@ -145,10 +160,11 @@ class Vorteile extends Component {
             </div>
          
             <div>
-            <Avatar alt="Rami Altonji" src="/avatar/Rami-BVH-All-Stars.jpg" className={classes.avatar} />
-            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Rami</Typography>
+            <Avatar alt="Elko Ebert" src="/avatar/Elko.jpg" className={classes.avatar} />
+            <Typography variant="display1" style={{color: '#fff', padding: '1rem'}} >Elko Ebert</Typography>
             <Typography variant="subheading" style={{color: '#fff', padding: '1rem'}} >
-                Rami absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute.  Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.
+              Elko beschäftigt sich seit seiner Jugend mit den Finanzmärkten. Diese Faszination hält seit 25 Jahren immer noch an. Nach seinem Abschluss als Diplom Wirtschaftsinformatiker hat er viele Jahr im Vertrieb für IT-Unternehmen gearbeitet. Seit 2015 ist er privater Vollzeittrader.
+              Elko handelt in Aktien- und Rohstoffmärkten. Als häufigstes Handelsinstrument setzt er Optionen ein. Er lebt mit seiner Familie in Bad Honnef im Siebengebirge. Als sportlichen Ausgleich spielt er Fußball und fährt Snowboard.
             </Typography>      
             </div>
           </Flex>

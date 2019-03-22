@@ -70,7 +70,8 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
     /* fontFamily: ["acumin-pro", "sans-serif"].join(","), */
-    fontFamily: ["Montserrat", "Helvetica Neue", "Arial", "sans-serif"].join(
+    // Copernicus-Roman?
+    fontFamily: ["Helvetica","Montserrat", "Helvetica Neue", "Arial","Georgia", "sans-serif"].join(
       ","
     ),
     fontWight: 700,

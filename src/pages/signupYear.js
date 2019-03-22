@@ -26,6 +26,15 @@ const StyledLink = styled(Link)`
   color: #ff8000;
 `;
 
+const StyledIframe = styled.iframe`
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+    display: none;
+  }
+`;
+
 const styles = theme => ({
   heading: {
     color: "#fff",
@@ -97,8 +106,8 @@ class Abonnement extends Component {
           <Flex
             className={classes.textContainer}
             // bg={['red', 'blue']}
-            width={["100%", "75%", "60%"]}
-            height={["80%"]}
+            minWidth={["100%", "75%", "60%"]}
+            height={["100vh","100vh","100vh"]}
             mx="auto"
             flexDirection="column"
             flexWrap="nowrap"
@@ -108,14 +117,14 @@ class Abonnement extends Component {
               border: "10px solid #fff",
               height: "80%",
               alignText: "left"
-            }}
-          >
-            <iframe
+            }}>
+            
+             <StyledIframe
               scrolling="auto"
               style={{ border: "none", marginBottom: 0 }}
               height="100%"
               src="https://sandbox.billwerk.com/portal/signup.html#/5c88c017443e550ea07511fd?language=de&country=DE"
-            />
+            /> 
           </Flex>
         </div>
       </Layout>
