@@ -8,6 +8,10 @@ import Header from "./header";
 import Footer from "./footer";
 import "./layout.css";
 
+import CopernicusEot from "../../static/fonts/Copernicus-Roman.eot";
+import CopernicusTTF from "../assets/fonts/Copernicus-Roman.ttf";
+import CopernicusWoff from "../assets/fonts/Copernicus-Roman.woff";
+
 const styledComponentsTheme = {
   brand: "#ff8000"
 };
@@ -71,9 +75,14 @@ const theme = createMuiTheme({
     useNextVariants: true,
     /* fontFamily: ["acumin-pro", "sans-serif"].join(","), */
     // Copernicus-Roman?
-    fontFamily: ["Helvetica","Montserrat", "Helvetica Neue", "Arial","Georgia", "sans-serif"].join(
-      ","
-    ),
+    fontFamily: [
+      "Helvetica",
+      "Montserrat",
+      "Helvetica Neue",
+      "Arial",
+      "Georgia",
+      "sans-serif"
+    ].join(","),
     fontWight: 700,
     fontWeight: "bold",
     fontStyle: "normal",
@@ -82,6 +91,11 @@ const theme = createMuiTheme({
 });
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "Copernicus-Roman";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Copernicus-Roman"), local("Copernicus-Roman"), url(${CopernicusTTF}) format("ttf"), url(${CopernicusWoff}) format("woff");
   html {
     font-family: 'acumin-pro', sans-serif !important; 
     font-weight: 700; 
@@ -113,7 +127,13 @@ const Layout = ({ children, backgroundColor, textColor }) => (
             <div>
               <main style={{ minHeight: "100vh" }}>{children}</main>
             </div>
-            <div style={{ height: "4rem", marginTop:"auto", marginBottom: "auto" }} />
+            <div
+              style={{
+                height: "4rem",
+                marginTop: "auto",
+                marginBottom: "auto"
+              }}
+            />
             <Footer />
           </MuiThemeProvider>
         </ThemeProvider>

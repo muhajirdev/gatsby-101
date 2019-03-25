@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { SignIn, SignOUt } from "../components/Signin";
+
 import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
@@ -238,7 +240,7 @@ const Header = props => {
           <div
             style={{
               backgroundImage: "url(/brookly-bridge.jpg)",
-              backgroundSize:"cover",
+              backgroundSize: "cover",
               minheight: "100vh"
             }}
           >
@@ -261,7 +263,6 @@ const Header = props => {
       >
         {/* <Toolbar style={{ alignItems: "center", alignSelf:"center" }}> */}
         <Toolbar>
-
           {/* <StyledLink to="/">
             <IconButton
               className={classes.menuButton}
@@ -275,7 +276,7 @@ const Header = props => {
           </StyledLink> */}
           <DivStyled>
             <StyledLink to="/">
-            <TextLogo className={classes.logo}>BOOST</TextLogo>
+              <TextLogo className={classes.logo}>BOOST</TextLogo>
             </StyledLink>
           </DivStyled>
           <Hidden lgUp>
@@ -293,7 +294,13 @@ const Header = props => {
           </Hidden>
           <Hidden mdDown>
             {menu.map(link => (
-              <div style={{ display: "flex", justifyItems: "center", alignSelf: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyItems: "center",
+                  alignSelf: "center"
+                }}
+              >
                 <StyledLink to={link.url} color={textColor}>
                   <Button
                     style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
@@ -305,7 +312,13 @@ const Header = props => {
               </div>
             ))}
 
-            <div style={{ display: "flex", justifyItems: "center", alignSelf: "center"  }}>
+            <div
+              style={{
+                display: "flex",
+                justifyItems: "center",
+                alignSelf: "center"
+              }}
+            >
               <StyledLink to="/abonnement" color={textColor}>
                 <Button
                   variant="outlined"
