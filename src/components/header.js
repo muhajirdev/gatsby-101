@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { SignIn, SignOUt } from "../components/Signin";
+// import { SignIn, SignOut } from "./signin";
 
 import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";

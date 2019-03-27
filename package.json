@@ -15,7 +15,7 @@
     "eslint-plugin-graphql": "^3.0.3",
     "express-graphql": "^0.7.1",
     "firebase": "^5.9.1",
-    "gatsby": "^2.1.4",
+    "gatsby": "^2.2.10",
     "gatsby-cli": "^2.4.17",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
@@ -23,7 +23,7 @@
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-plugin-sharp": "^2.0.31",
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-remark": "^2.2.6",
@@ -65,6 +65,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
+    "rollup-plugin-node-resolve": "^4.0.1",
     "sass": "^1.17.2"
   }
 }

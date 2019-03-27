@@ -39,34 +39,24 @@ import { Flex } from "rebass";
 
 const styles = theme => ({
   heading: {
-    color: "#fff",
-    marginBottom: "1rem",
-    fontWeight: "normal",
-    padding: "1rem",
-    marginLeft: "auto",
-    marginRight: "auto",
-    // border: "2px solid #FF8000"
-    // border: "1px solid #fdf22f"
+    fontFamily: "Noto Serif, serif !important",
+    color: "#000",
+    paddingTop: "1rem",
   },
   display: {
-    fontWeight: "bold",
-    color: "#fff",
-    paddingTop: "5rem",
-    marginLeft: "auto",
-    marginRight: "auto",
+    fontFamily: "Noto Serif, serif !important",    
+    color: "#000",
+    paddingTop: "1rem",
   },  
   subheader: {
-    fontWeight: "bold",  
-    color: "#fff",
-    paddingTop: "0rem", 
-    marginLeft: "auto",
-    marginRight: "auto",
+    fontFamily: "Noto Serif, serif !important",
+    color: "#000",
+    paddingTop: "1rem",   
   },
   blocksatz: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    padding: "1rem",
-    marginLeft: "auto",
-    marginRight: "auto",
+    fontFamily: "Noto Serif, serif !important",
+    color: "#000",
+    paddingTop: "1rem",
   },
   copyright: {
     color: "#fff",
@@ -81,7 +71,7 @@ const styles = theme => ({
   }
 });
 
-const itemsHeader = "Anlagekonzept";
+const pageHeader = "Anlagekonzept";
 
 class Anlagekonzept extends Component {
   render() {
@@ -90,134 +80,103 @@ class Anlagekonzept extends Component {
     const year = dt.getFullYear();
     return (
       <Layout>
-        <SEO title={itemsHeader} />
-       
-        <div className={classes.heading}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "nowrap",
-            // backgroundColor: "#1c222e",
-            backgroundColor:"#fff",
-            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
-            backgroundRepeat: "repeat-x",
-            height: "15rem",
-            justifyContent: "center",
-            alignItems: "left",
-          }}
-        >
-        <Flex
-          // bg={['red', 'blue']}
-          width={["97.5%", '75%', '60%']}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "nowrap",
-            justifyContent: "flexStart",
-            alignItems: "left",
-            alignText: "left",
-            marginLeft: "auto",
-            marginRight: "auto",  
-          }}
-        >
-        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
-        </Flex>    
-        </div>
+        <SEO title={pageHeader} />
         
-      
-        {/* <div class="container demo-1">
-          <div class="content">
-            <div id="large-header" class="large-header" style="height: 846px;">
-          <canvas id="demo-canvas" width="1920" height="846"></canvas>
-                <h1 class="main-title">&copy;Syriaproducts</h1>
-              </div>
-            </div>
-            <div class="copyright">
-                <p>CONTACT <a href="mailto:systems@syriaproducts.de">Systems@Syriaproducts.de</a></p>
-            </div>
-          </div> */}
-
-          {/* <Typography variant="display2"> {itemsHeader} </Typography>
-          <div className={classes.blocksatz} style={{paddingTop: "10rem" }}>
-          <Typography variant="display1">
-            {itemsHeader}
-          </Typography>
-          </div> */}
-
-<Flex
-              className={classes.textContainer}
-              minWidth={["100%", "100%", "100%"]}
-              minHeight={["100%","100%","100%",]}
-              // Header 5rem
-              // pt="5rem"
-              pb="1rem"
-        >         
-
         <div
           style={{
             minHeight: "100vh",
             minWidth: "100%",          
-            // backgroundImage: "url(/cedric-frixon.jpg)",
+            backgroundImage: "url(/img/rob-bates.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -100
           }}
-        >   
+        /> 
+
         <div
           style={{
             minHeight: "100vh",
             minWidth: "100%",       
-            // background: "rgba(0, 0, 0.3, 0.3)",
+            background: "rgba(0, 0, 0.3, 0.3)",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
           }}
-        > 
+        /> 
+        
         <div
           style={{
             minHeight: "100vh",
             minWidth: "100%",       
-            // background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
+            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
             backgroundSize: "cover",
             backgroundPosition: "center center",
             zIndex: -50
           }}
-        > 
-          
-          
-                
-            <Flex
-              className={classes.textContainer}
-              flexDirection={["column", "column", "row"]}
-              width={["100%", "80%", "40%"]}
-              // Header 5rem
-              // pt="5rem"
-              alignSelf = "center"
-              alignItems = "center"
-              justifyContent= "flexStart"
-              textAlign="left"
-              mx="auto"
-              // px="4"       
-            >         
+        /> 
 
 
-          <div className={classes.heading}>
-            <Typography variant="display1">Regelwerk StockBoost</Typography>
-          </div>
-          <div className={classes.blocksatz}>
-            <Typography variant="subheading">
+
+
+        <div 
+          style={{
+            // backgroundColor: "#1c222e",
+            backgroundColor:"#fff",
+            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
+            backgroundRepeat: "repeat-x",
+            height: "15rem",
+          }} >     
+
+          <Flex 
+        // Wrapper Header
+          // className={classes.textContainer}
+          flexDirection={["row", "row", "row"]}
+          flexWrap="nowrap"
+          height= "100vh"    
+          width={["100%", '75%', '40%']}
+          // Header 5rem
+          pt="1rem"
+          mx="auto"
+          alignItems = "flexStart"
+          justifyContent= "flexStart"
+          textAlign="left"
+          >
+            <Typography variant="display1" style={{ paddingTop:"10rem"}}> {pageHeader} </Typography>     
+          </Flex>
+        </div>
+
+
+        <Flex
+          // className={classes.textContainer}
+          flexDirection={["column", "column", "column"]}
+          flexWrap="nowrap"
+          height= "100vh"    
+          width={["100%", '75%', '40%']}
+          // Header 5rem
+          pt="5rem"
+          mx="auto"
+          alignItems = "flexStart"
+          justifyContent= "flexStart"
+          textAlign="left"
+          >
+
+
+          
+            <Typography variant="display1" className={classes.heading}>Regelwerk StockBoost</Typography>
+          
+            <Typography className={classes.blocksatz} variant="subheading">
             In StockBoost stellen wir aus den Erkenntnissen der akademischen Literatur ein Regelwerk
             auf, das wir systematisch in einem Echtgelddepot bei Interactive Brokers Ltd. anwenden. Die
             Erkenntnisse, inklusive dem Literaturverzeichnis, stellen wir unseren Kunden im Dokument
             „StockBoost Fakten und Hintergründe“ gerne zu Verfügung.
-            </Typography>
-            </div>
-            <div className={classes.heading}>
-            <Typography variant="display1">Erkenntnisse</Typography>
-          </div>
-          <div className={classes.blocksatz}>
-            <Typography variant="subheading">
+            <br />   
+            </Typography>     
+          
+            <Typography variant="display1" className={classes.heading}>Erkenntnisse</Typography>
+       
+       
+            <Typography variant="subheading" className={classes.blocksatz}>
             - Die Preisreaktion nach Earnings Surprises und Prognoserevisionen ist unvollständig.
             <br />
             - Der Post-Announcement-Drift nach Prognoserevisionen von Analysten & nach Gewinn-Überraschungen existiert und hält über mehrere Monate an.
@@ -245,19 +204,21 @@ class Anlagekonzept extends Component {
             für die Kunden transparent gezeigt.
             <br />
             </Typography>
-            </div>
+   
 
-            <div className={classes.heading}>
-            <Typography variant="display1">Regelwerk Stock (mit 66,66% gewichtete Teilstrategie von StockBoost)</Typography>
-            </div>
-          <div className={classes.blocksatz}>
-            <Typography variant="subheading">
+         
+            <Typography variant="display1" className={classes.heading}>Regelwerk Stock (mit 66,66% gewichtete Teilstrategie von StockBoost)</Typography>
+     
+            <Typography variant="subheading" className={classes.blocksatz}>
             Mithilfe von Aktienscreenern und inhouse entwickelter Software suchen wir - in Anlehnung
             an die Erkenntnisse der oben erwähnten Studien zu Gewinn-Revisionen und -Überraschungen
             - zweimal pro Woche die bestklassierten Aktien aus einem Universum von 4‘200 USamerikanischen Aktien.
             <br />
-            <Typography variant="display">Voraussetzungen für Käufe:</Typography>
-            <br />
+            </Typography>
+
+            <Typography variant="display" className={classes.heading}>Voraussetzungen für Käufe:</Typography>
+            
+            <Typography variant="subheading" className={classes.blocksatz}>
             - Die Aktien sind aktuell und vor einer halben Woche in den besten 5% des Aktienuniversums rangiert.
             <br /> 
             - Die Marktkapitalisierung der Aktien liegt zwischen 500 Millionen und 15 Milliarden US Dollar.
@@ -274,22 +235,26 @@ class Anlagekonzept extends Component {
             <br />
             - Stock ist in jedem Marktumfeld dauernd investiert.
             </Typography>
-            </div>
+            
 
 
-            <div className={classes.heading}>
-            <Typography variant="display1">Regelwerk Boost (mit 33,33% gewichtete Teilstrategie von StockBoost)</Typography>
-            </div>
-          <div className={classes.blocksatz}>
-            <Typography variant="subheading">
+           
+            <Typography variant="display1" className={classes.heading}>Regelwerk Boost (mit 33,33% gewichtete Teilstrategie von StockBoost)</Typography>
+       
+            <Typography variant="subheading" className={classes.blocksatz}>
             In Boost kombinieren wir Momentum und Jahreshöchststände mit positiven Gewinnüberraschungen.
             <br />
             Das Universum besteht aus US-gelisteten Aktien mit einer Marktkapitalisierung von mehr als einer Milliarde US Dollar. Im März 2019 umfasste das Universum ungefähr 2‘500 Aktien. Alle 15 Aktien werden beim Kauf mit 1/45 des StockBoost-Portfolios gleich gewichtet (entspricht 2,222% Gewichtung pro Aktie). 
             <br />
             <br />
-            <Typography variant="headline">Voraussetzungen für die maximal 15 Stock-Aktien:</Typography>
+            </Typography>
+            
+            <Typography variant="headline" >Voraussetzungen für die maximal 15 Stock-Aktien:</Typography>
+            
+            <Typography variant="subheading" className={classes.blocksatz}>
+
             <br />
-            - Der S&P 500 notiert über seinem einfachen, gleitenden Durchschnitt der letzten 200 Handelstage.
+            - Der 'S&P' 500 notiert über seinem einfachen, gleitenden Durchschnitt der letzten 200 Handelstage.
             <br /> 
             - Die Aktie hat zur Börseneröffnung - in Verbindung mit einer positiven Gewinnüberraschung bzw. einer anderweitigen, positiven Unternehmensnachricht - mit einer Kurslücke eröffnet.
             <br /> 
@@ -298,8 +263,11 @@ class Anlagekonzept extends Component {
             - Die Aktie wird i.d.R. am Tag der positiven Gewinnüberraschung gekauft
             <br /> 
             <br />
+            </Typography>
+            
             <Typography variant="headline">Verkaufskriterien:</Typography>
-            <br />
+            
+            <Typography variant="subheading" className={classes.blocksatz}>
             - Die Aktie hat in den letzten drei Monaten kein neues Jahreshoch erreicht.
             <br /> 
             - Die Aktie ist unter einen systematisch berechneten Schwellenwert zurückgefallen.
@@ -307,11 +275,6 @@ class Anlagekonzept extends Component {
             - In Boost wird die Hälfte der Positionen verkauft, wenn der S&P 500 unter den 200-TageGleitenden-Durchschnitt fällt.
             <br /> 
             </Typography>
-            </div>      
-        </Flex>
-        </div>
-        </div>
-        </div>
         </Flex>
       </Layout>
     );

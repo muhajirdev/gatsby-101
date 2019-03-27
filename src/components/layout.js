@@ -8,9 +8,13 @@ import Header from "./header";
 import Footer from "./footer";
 import "./layout.css";
 
-import CopernicusEot from "../../static/fonts/Copernicus-Roman.eot";
+// Fonts
+import CopernicusEot from "../assets/fonts/Copernicus-Roman.eot";
 import CopernicusTTF from "../assets/fonts/Copernicus-Roman.ttf";
 import CopernicusWoff from "../assets/fonts/Copernicus-Roman.woff";
+
+import DejaVuSerif from "../assets/fonts/DejaVuSerif.ttf";
+import NotoSerifRegular from "../assets/fonts/NotoSerif-Regular.ttf";
 
 const styledComponentsTheme = {
   brand: "#ff8000"
@@ -75,28 +79,40 @@ const theme = createMuiTheme({
     useNextVariants: true,
     /* fontFamily: ["acumin-pro", "sans-serif"].join(","), */
     // Copernicus-Roman?
-    fontFamily: [
-      "Helvetica",
-      "Montserrat",
-      "Helvetica Neue",
-      "Arial",
-      "Georgia",
-      "sans-serif"
-    ].join(","),
-    fontWight: 700,
-    fontWeight: "bold",
-    fontStyle: "normal",
-    fontSize: 12
+    // fontFamily: [
+    //   "Helvetica",
+    //   "Montserrat",
+    //   "Helvetica Neue",
+    //   "Arial",
+    //   "Georgia",
+    //   "sans-serif"
+    // ].join(","),
+    // fontWight: 700,
+    // fontWeight: "bold",
+    // fontStyle: "normal",
+    // fontSize: 12
   }
 });
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
+    font-family: "DejaVuSerif";
+    font-style: normal;
+    font-weight: normal;
+    src: local("DejaVuSerif"), local("DejaVuSerif"), url(${DejaVuSerif}) format("ttf");
+  @font-face {
+    font-family: "Noto Serif", serif;
+    font-style: normal;
+    font-weight: normal;
+    src: local("NotoSerif-Regular"), local("NotoSerif-Regular"), url(${NotoSerifRegular}) format("ttf");
+  @font-face {
     font-family: "Copernicus-Roman";
     font-style: normal;
     font-weight: normal;
-    src: local("Copernicus-Roman"), local("Copernicus-Roman"), url(${CopernicusTTF}) format("ttf"), url(${CopernicusWoff}) format("woff");
+    src: local("Copernicus-Roman"), local("Copernicus-Roman"), url(${CopernicusTTF}) format("ttf"), url(${CopernicusWoff}) format("woff"), url(${CopernicusEot}) format("eot");
   html {
+    // Acumin Pro Bold - font-weight: 700; 
+    // Acumin Pro Regular - font-weight: 400; 
     font-family: 'acumin-pro', sans-serif !important; 
     font-weight: 700; 
     font-style: normal;
