@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Box, Flex, Button } from "rebass";
 
 // import { SignIn, SignOut } from "./signin";
 
@@ -10,7 +11,7 @@ import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 /* import MenuIcon from "@material-ui/icons/Menu"; */
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -32,6 +33,8 @@ import Send from "@material-ui/icons/Send";
 import AttachFile from "@material-ui/icons/AttachFile";
 import PlusOne from "@material-ui/icons/PlusOne";
 import AttachMoney from "@material-ui/icons/AttachMoney";
+import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import Search from "@material-ui/icons/Search";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -219,6 +222,43 @@ const SideList = props => {
   );
 };
 
+const DropDown = ({ title, list, onClick, colorTitle = "white" }) => {
+  const [isVisible, setVisible] = useState(false);
+  return (
+    <div
+      onClick={() => {
+        setVisible(!isVisible);
+        onClick();
+      }}
+    >
+      <Flex alignItems="center" onClick={() => setVisible(!isVisible)}>
+        <Button
+          px="2"
+          bg="transparent"
+          style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
+          color={colorTitle}
+        >
+          {title}
+        </Button>
+        <KeyboardArrowDown style={{ color: "#fff" }} />
+      </Flex>
+      {isVisible && list && (
+        <Box px="2">
+          {list.map(item => (
+            <Box>
+              <StyledLink to={item.url} color="black">
+                {item.name}
+              </StyledLink>
+            </Box>
+          ))}
+        </Box>
+      )}
+    </div>
+  );
+};
+
+const headerStyle = { position: "fixed", zIndex: 300 };
+
 const Header = props => {
   const { classes } = props;
 
@@ -229,6 +269,45 @@ const Header = props => {
   const textColor = props.textColor || "#fff";
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [dropdownVisible, setDropdownVisivle] = useState(false);
+  return (
+    <Flex
+      justifyContent="space-around"
+      px="5"
+      pt="4"
+      style={headerStyle}
+      width={1}
+      bg={dropdownVisible ? "white" : "transparent"}
+    >
+      <StyledLink to="/">
+        <TextLogo className={classes.logo}>BOOST</TextLogo>
+      </StyledLink>
+      <DropDown
+        title="Education"
+        list={menu}
+        colorTitle={dropdownVisible ? "#FF8000" : "white"}
+        onClick={() => setDropdownVisivle(!dropdownVisible)}
+      />
+      <DropDown
+        title="Strategies"
+        list={menu}
+        onClick={() => setDropdownVisivle(!dropdownVisible)}
+      />
+      <DropDown
+        title="About Us"
+        list={menu}
+        onClick={() => setDropdownVisivle(!dropdownVisible)}
+      />
+      <Flex alignItems="center">
+        <Search style={{ color: "white" }} />
+      </Flex>
+      <DropDown
+        title="My Boost"
+        list={menu}
+        onClick={() => setDropdownVisivle(!dropdownVisible)}
+      />
+    </Flex>
+  );
   return (
     <div className={classes.root}>
       <div>
@@ -293,6 +372,7 @@ const Header = props => {
             </div>
           </Hidden>
           <Hidden mdDown>
+            <DropDown />
             {menu.map(link => (
               <div
                 style={{

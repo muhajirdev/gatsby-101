@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
+import { TweenLite } from "gsap/all";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Layout from "../components/layout";
@@ -9,6 +10,68 @@ import Icon from "../components/icon";
 import styled from "styled-components";
 
 import { Flex } from "rebass";
+
+const Text = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    TweenLite.from(ref.current, 1, { x: "-50%", y: "-50%" });
+  }, []);
+
+  return (
+    <>
+      <style>{`
+        .test {
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+            `}</style>
+      <h1
+        variant="heading"
+        ref={ref}
+        style={{
+          border: "0.2rem solid #fff",
+          padding: "0.2rem",
+          color: "#fff",
+          maxWidth: "20em",
+          opacity: 0.1
+        }}
+      >
+        Systematische Regeln
+      </h1>
+      <Typography
+        variant="heading"
+        style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
+      />
+      <Typography
+        variant="heading"
+        style={{
+          border: "0.2rem solid #fff",
+          padding: "0.2rem",
+          color: "#fff",
+          maxWidth: "20em"
+        }}
+      >
+        Transparente Echtgeld Umsetzung
+      </Typography>
+      <Typography
+        variant="heading"
+        style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
+      />
+      <Typography
+        variant="heading"
+        style={{
+          border: "0.2rem solid #fff",
+          padding: "0.2rem",
+          color: "#fff",
+          maxWidth: "20em"
+        }}
+      >
+        Umsetzbar in wenigen Minuten pro Woche
+      </Typography>
+    </>
+  );
+};
 
 const BigButton = styled.button`
   background-color: red;
@@ -139,19 +202,26 @@ const IndexPage = () => (
         zIndex: 0
       }}
     >
-      <Typography variant="display2" style={{ color: "#fff", maxWidth: "20em", paddingBottom:"1em" }}>
+      <Typography
+        variant="display2"
+        style={{ color: "#fff", maxWidth: "20em", paddingBottom: "1em" }}
+      >
         Wie man systematisch & entspannt in Aktien investiert - Boost
       </Typography>
 
-      <Typography variant="heading"  style={{ color: "#fff", maxWidth: "20em" }}>
-      Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft! 
+      <Typography variant="heading" style={{ color: "#fff", maxWidth: "20em" }}>
+        Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
       </Typography>
 
-      <Typography variant="heading"  style={{ color: "#fff", maxWidth: "20em", paddingBottom:"1em" }}>
-      Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot(!) anwenden. 
-      Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem! 
+      <Typography
+        variant="heading"
+        style={{ color: "#fff", maxWidth: "20em", paddingBottom: "1em" }}
+      >
+        Basierend auf akademischer Literatur haben wir ein Regelwerk
+        zusammengestellt, das wir systematisch als Anlagestrategie in einem
+        Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau wir uns
+        beziehen? Kein Problem!
       </Typography>
-      
 
       {/* <Typography variant="subheading"  style={{ color: "#fff", maxWidth: "40em" }}>
       Erfahrung und Wissenschaft: In StockBoost arbeitet ein Team aus jungen erfahrenen Händlern auf Grundlage neuester wissenschaftlicher Erkenntnisse. Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot bei Interactive Brokers Ltd. anwenden. 
@@ -160,10 +230,10 @@ const IndexPage = () => (
       Wenn Sie weitere Fragen haben, stehen wir selbstverständlich gern zu Ihrer Verfügung.
       </Typography> */}
 
-    <div>
-      <Flex
+      <div>
+        <Flex
           // bg={['red', 'blue']}
-          width={["100%", '75%', '60%']}
+          width={["100%", "75%", "60%"]}
           style={{
             display: "flex",
             flexDirection: "row",
@@ -172,36 +242,29 @@ const IndexPage = () => (
             justifyContent: "center;",
             alignItems: "center",
             marginLeft: "auto",
-            marginRight: "auto",  
+            marginRight: "auto"
           }}
-        > 
-      
-         
-            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
-            </Typography>
-            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
-            Systematische Regeln               
-            </Typography>
-            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
-            </Typography>
-            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
-            Transparente Echtgeld Umsetzung
-            </Typography>
-            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
-            </Typography>
-            <Typography variant="heading"  style={{ border:"0.2rem solid #fff", padding: "0.2rem", color: "#fff", maxWidth: "20em" }}>
-            Umsetzbar in wenigen Minuten pro Woche
-            </Typography>
-            <Typography variant="heading"  style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}>
-            </Typography>
-        
-      </Flex> 
+        >
+          <Text />
+          <Typography
+            variant="heading"
+            style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
+          />
+        </Flex>
       </div>
 
       <StyledLink to="/anlagekonzept">
-      <Typography variant="display1" style={{ color: "#FF8000", maxWidth: "20em" , fontWeight: "bold", paddingTop:"1em"  }}>
-      Mehr erfahren      
-      </Typography>
+        <Typography
+          variant="display1"
+          style={{
+            color: "#FF8000",
+            maxWidth: "20em",
+            fontWeight: "bold",
+            paddingTop: "1em"
+          }}
+        >
+          Mehr erfahren
+        </Typography>
       </StyledLink>
 
       <StyledLink to="/anlagekonzept">
