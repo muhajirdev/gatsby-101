@@ -1,92 +1,61 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-import { TweenLite } from "gsap/all";
+import { TweenLite } from "gsap";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 import styled from "styled-components";
+// rebass 
+import { Flex, Box, Text } from "rebass";
 
-import { Flex } from "rebass";
+// const FullScreen = Styled(Flex)`
+//     // ${minHeight}
+//     // ${minWidth}
+//     width: 100vw;
+//     height: 100vh;
+// `
 
-const Text = () => {
+const gsapStyle = { 
+        // textTransform: "uppercase",
+        fontFamily: "acumin-pro, sans-serif !important",
+        fontWeight: "700", 
+        textAlign: "left",
+        letterSpacing: "-0.25rem",
+        whiteSpace: "nowrap",
+        lineHeight: "1.85rem",
+        opacity: "0.2",
+        color: "#fff", 
+};
+ 
+
+const GreenSock = () => {
   const ref = useRef(null);
 
   useEffect(() => {
-    TweenLite.from(ref.current, 1, { x: "-50%", y: "-50%" });
+    TweenLite.from(ref.current, 1, { x: "-1000%", y: "-500%" },{scale: 5, autoAlpha:1}, {delay:1000}, {duration: 100} );
   }, []);
 
-  return (
+  return (  
     <>
-      <style>{`
-        .test {
-            margin-top: 100px;
-            margin-left: 100px;
-        }
-            `}</style>
-      <h1
-        variant="heading"
-        ref={ref}
-        style={{
-          border: "0.2rem solid #fff",
-          padding: "0.2rem",
-          color: "#fff",
-          maxWidth: "20em",
-          opacity: 0.1
-        }}
-      >
-        Systematische Regeln
-      </h1>
-      <Typography
-        variant="heading"
-        style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
-      />
-      <Typography
-        variant="heading"
-        style={{
-          border: "0.2rem solid #fff",
-          padding: "0.2rem",
-          color: "#fff",
-          maxWidth: "20em"
-        }}
-      >
-        Transparente Echtgeld Umsetzung
-      </Typography>
-      <Typography
-        variant="heading"
-        style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
-      />
-      <Typography
-        variant="heading"
-        style={{
-          border: "0.2rem solid #fff",
-          padding: "0.2rem",
-          color: "#fff",
-          maxWidth: "20em"
-        }}
-      >
+    <Typography variant="display" style={gsapStyle}>
+      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
+        Systematische Regeln        
+      </Text>
+    </Typography> 
+    <Typography variant="display" style={gsapStyle}>
+      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
+        Transparente Echtgeld Umsetzung         
+      </Text>
+    </Typography> 
+    <Typography variant="display" style={gsapStyle}>
+      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
         Umsetzbar in wenigen Minuten pro Woche
-      </Typography>
-    </>
+      </Text>
+    </Typography> 
+    </>     
   );
 };
-
-const BigButton = styled.button`
-  background-color: red;
-  height: 50px;
-  width: 500px;
-  padding: 5px;
-`;
-
-function BlueBox(props) {
-  return (
-    <div style={{ backgroundColor: "blue", width: 50, height: 50 }}>
-      <h1>{props.text}</h1>
-    </div>
-  );
-}
 
 const StyledLink = styled(Link)`
   font-size: 15;
@@ -94,183 +63,123 @@ const StyledLink = styled(Link)`
   color: #ff8000;
 `;
 
-const Card = props => {
-  const imageUrl = `url(https://cdn-images-1.medium.com/max/500//0*U1UDCKJqqm2KJT-2)`;
-  console.log(imageUrl);
-  return (
-    <div>
-      <div
-        style={{
-          height: props.big ? 300 : 150,
-          backgroundPosition: "50% 50%",
-          backgroundImage: imageUrl
-        }}
-      />
-      <h4>{props.title}</h4>
-      <h5 style={{ color: "grey" }}>by {props.author}</h5>
-    </div>
-  );
-};
-
-const posts = [
-  {
-    img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "Halo",
-    author: "jamie"
-  },
-  {
-    img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
-  },
-  {
-    img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
-  },
-  {
-    img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
-  },
-  {
-    img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
-  }
-];
-
 const IndexPage = () => (
   <Layout
-    backgroundColor="linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))"
+    backgroundColor=""
     textColor="white"
   >
     <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
+    
+    <Flex
+      // Header 5rem
+      // bg='magenta'
+      minHeight={[ 1, 1, 1 ]}
+      minWidth={[ 1, 1, 1 ]}
+      flexDirection={["column", "column", "column"]}
+      flexWrap="nowrap"   
+      alignSelf = "center"
+      alignItems = "center"
+      justifyContent= "flexStart"
+      textAlign="center"
+      marginLeft="auto"
+      marginRight="auto"
+    >
+   
     <div
       style={{
         minHeight: "100vh",
         minWidth: "100%",
+        background:"linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
         backgroundImage: "url(/brooklyn-bridge.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         position: "absolute",
-        zIndex: 0
+        zIndex: -100
       }}
     />
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignSelf: "center",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-        background:
-          "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+        minHeight: "100vh",
+        minWidth: "100%",
+        background: "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
         position: "absolute",
-        textAlign: "center",
-        zIndex: 0
+        zIndex: -100
       }}
     />
     <div
       style={{
-        height: "100%",
-        width: "100%",
+        minHeight: "100vh",
+        minWidth: "100%",
         background: "rgba(0, 0, 0, 0.3)",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
         position: "absolute",
-        textAlign: "center",
-        zIndex: 0
+        zIndex: -100
       }}
     />
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignSelf: "center",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-        position: "absolute",
-        textAlign: "center",
-        zIndex: 0
-      }}
-    >
-      <Typography
-        variant="display2"
-        style={{ color: "#fff", maxWidth: "20em", paddingBottom: "1em" }}
-      >
-        Wie man systematisch & entspannt in Aktien investiert - Boost
-      </Typography>
+       
+   <Box
+      flexDirection={["row", "row", "row"]}
+      // Header 5rem
+      // bg='magenta'
+      pt="13.5rem"
+      marginRight="auto"
+      marginLeft="auto"
+      fontSize={40}
+      width={[ 1, 1, 1/2 ]}
+      color='#fff'
+      justifyContent="center"
+      alignItems="center"
+      textAlign="center"
+      alignSelf="center"
+      mx="auto"
+      p={10}    
+      padding="40px" 
+      style={{textAlign:"center"}}
+   >   
+      
+              <Typography variant="heading" style={{color:"#fff", fontWeight:"bold"}}>
+                Wie man systematisch & entspannt in Aktien investiert - Boost
+              </Typography>
+              <Typography variant="heading">
+                Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
+                <br />
+                Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem!
+              </Typography>
+              
+              <StyledLink to="/anlagekonzept">
+                <Typography variant="display1" style={{color:"#FF8000"}}>
+                  Mehr erfahren
+                </Typography>
+              </StyledLink>
+              <StyledLink to="/anlagekonzept" >
+                  <Icon source={require("../icons/bulb.svg")}  />
+              </StyledLink>
+     
+      </Box>
 
-      <Typography variant="heading" style={{ color: "#fff", maxWidth: "20em" }}>
-        Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
-      </Typography>
-
-      <Typography
-        variant="heading"
-        style={{ color: "#fff", maxWidth: "20em", paddingBottom: "1em" }}
-      >
-        Basierend auf akademischer Literatur haben wir ein Regelwerk
-        zusammengestellt, das wir systematisch als Anlagestrategie in einem
-        Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau wir uns
-        beziehen? Kein Problem!
-      </Typography>
-
-      {/* <Typography variant="subheading"  style={{ color: "#fff", maxWidth: "40em" }}>
-      Erfahrung und Wissenschaft: In StockBoost arbeitet ein Team aus jungen erfahrenen Händlern auf Grundlage neuester wissenschaftlicher Erkenntnisse. Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot bei Interactive Brokers Ltd. anwenden. 
-      Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem. Transparenz ist uns ganz wichtig, schließlich geht es um Ihr Vertrauen!  Alle genutzten Erkenntnisse inklusive Literaturverzeichnis finden Sie im Dokument „StockBoost Fakten und Hintergründe“. Gibt es neue Erkenntnisse, die unseren Ansatz nachhaltig beeinflussen, finden Sie alle Informationen dort!
-      Eine kurze Beschreibung unseres Ansatzes finden Sie hier: 
-      Wenn Sie weitere Fragen haben, stehen wir selbstverständlich gern zu Ihrer Verfügung.
-      </Typography> */}
-
-      <div>
-        <Flex
-          // bg={['red', 'blue']}
-          width={["100%", "75%", "60%"]}
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            // flexWrap: "no-wrap",
-            // paddingTop: "1rem",
-            justifyContent: "center;",
-            alignItems: "center",
-            marginLeft: "auto",
-            marginRight: "auto"
-          }}
-        >
-          <Text />
-          <Typography
-            variant="heading"
-            style={{ padding: "0.5rem", color: "#fff", maxWidth: "20em" }}
-          />
-        </Flex>
-      </div>
-
-      <StyledLink to="/anlagekonzept">
-        <Typography
-          variant="display1"
-          style={{
-            color: "#FF8000",
-            maxWidth: "20em",
-            fontWeight: "bold",
-            paddingTop: "1em"
-          }}
-        >
-          Mehr erfahren
-        </Typography>
-      </StyledLink>
-
-      <StyledLink to="/anlagekonzept">
-        <Icon source={require("../icons/bulb.svg")} />
-      </StyledLink>
-    </div>
+      <Box
+        flexDirection={["column", "column", "column"]}
+        // Header 5rem
+        // bg='magenta'
+        height="100%"
+        marginTop= "-75%"
+        paddingTop="75%"
+        mx="auto"
+        fontSize={4}
+        width={[ 1, 1, 1/2 ]}
+        color='#fff'
+        justifyContent="flexStart"
+        alignItems="flexStart"
+        textAlign="flexStart"
+        alignSelf="flexStart"
+        mx="auto"                    
+        > 
+          <GreenSock /> 
+      </Box>
+    </Flex>
   </Layout>
 );
 

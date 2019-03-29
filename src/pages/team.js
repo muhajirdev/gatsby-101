@@ -117,7 +117,8 @@ class Vorteile extends Component {
             backgroundPosition: "center center",
             zIndex: -100
           }}
-        >   
+        > 
+
         <div
           style={{
             minHeight: "100vh",
@@ -128,6 +129,7 @@ class Vorteile extends Component {
             zIndex: -50
           }}
         > 
+        
         <div
           style={{
             minHeight: "100vh",

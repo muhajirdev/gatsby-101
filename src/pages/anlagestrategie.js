@@ -6,9 +6,8 @@ import PropTypes from "prop-types";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 
-/* Components */
-import Icon from "../components/icon";
-import LinkBrand from "../components/linkBrand";
+
+
 
 /* styled */
 import styled from "styled-components";
@@ -16,23 +15,8 @@ import styled from "styled-components";
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableFooter from "@material-ui/core/TableFooter";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
-import Paper from "@material-ui/core/Paper";
-
-import { Flex } from "rebass";
+import { Box, Flex, Text } from "rebass";
+// import SVG from ./assets/svg/global.svg
 
 // <Link to="/">Go back to the homepage</Link>
 
@@ -55,7 +39,7 @@ const styles = theme => ({
   },
   blocksatz: {
     fontFamily: "Noto Serif, serif !important",
-    color: "#000",
+    color: "#fff",
     paddingTop: "1rem",
   },
   copyright: {
@@ -71,99 +55,94 @@ const styles = theme => ({
   }
 });
 
-const pageHeader = "Anlagekonzept";
+const pageHeader = "Anlagestrategie";
 
-class Anlagekonzept extends Component {
+class Anlagestrategie extends Component {
   render() {
     const { classes } = this.props;
     const dt = new Date();
     const year = dt.getFullYear();
     return (
+      
       <Layout>
         <SEO title={pageHeader} />
-        
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",          
-            backgroundImage: "url(/img/rob-bates.jpg)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: -100
-          }}
-        /> 
-
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",       
-            background: "rgba(0, 0, 0.3, 0.3)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: -50
-          }}
-        /> 
-        
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",       
-            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: -50
-          }}
-        /> 
-
-
-
-
-        <div 
-          style={{
-            // backgroundColor: "#1c222e",
-            backgroundColor:"#fff",
-            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
-            backgroundRepeat: "repeat-x",
-            height: "15rem",
-          }} >     
-
-          <Flex 
-        // Wrapper Header
-          // className={classes.textContainer}
+ 
+            
+      <Flex
+        // Header 5rem
+        // bg='magenta'
+        minHeight={[ 1, 1, 1 ]}
+        minWidth={[ 1, 1, 1 ]}
+        flexDirection={["column", "column", "column"]}
+        flexWrap="nowrap"   
+        alignSelf = "center"
+        alignItems = "center"
+        justifyContent= "flexStart"
+        textAlign="center"
+        marginLeft="auto"
+        marginRight="auto"
+      > 
+   
+      <div
+        style={{
+          minHeight: "100vh",
+          minWidth: "100%",
+          background:"linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+          backgroundImage: "url(/img/rob-bates.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          position: "absolute",
+          zIndex: -100
+        }}
+      />
+      <div
+        style={{
+          minHeight: "100vh",
+          minWidth: "100%",
+          background: "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          position: "absolute",
+          zIndex: -100
+        }}
+      />
+      <div
+        style={{
+          minHeight: "100vh",
+          minWidth: "100%",
+          background: "rgba(0, 0, 0, 0.3)",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          position: "absolute",
+          zIndex: -100
+        }}
+      />
+       
+      <Box
           flexDirection={["row", "row", "row"]}
-          flexWrap="nowrap"
-          height= "100vh"    
-          width={["100%", '75%', '40%']}
           // Header 5rem
-          pt="1rem"
+          // bg='magenta'
+          pt="13.5rem"
+          marginRight="auto"
+          marginLeft="auto"
+          fontSize={4}
+          width={[ 1, 1, 1/2 ]}
+          color='#fff'
+          justifyContent="flexStart"
+          alignItems="flexStart"
+          textAlign="flexStart"
+          alignSelf="flexStart"
           mx="auto"
-          alignItems = "flexStart"
-          justifyContent= "flexStart"
-          textAlign="left"
-          >
-            <Typography variant="display1" style={{ paddingTop:"10rem"}}> {pageHeader} </Typography>     
-          </Flex>
-        </div>
-
-
-        <Flex
-          // className={classes.textContainer}
-          flexDirection={["column", "column", "column"]}
-          flexWrap="nowrap"
-          height= "100vh"    
-          width={["100%", '75%', '40%']}
-          // Header 5rem
-          pt="5rem"
-          mx="auto"
-          alignItems = "flexStart"
-          justifyContent= "flexStart"
-          textAlign="left"
-          >
-
-
+          p={10}    
+          padding="40px" 
+      >   
           
-            <Typography variant="display1" className={classes.heading}>Regelwerk StockBoost</Typography>
+          <Typography variant="subheading" style={{ paddingTop:"6rem"}}>
+          </Typography>     
+
+         <Typography variant="subheading"> Strategie > {pageHeader} </Typography>     
+         <Typography variant="display1"> {pageHeader} </Typography>     
+                      
           
             <Typography className={classes.blocksatz} variant="subheading">
             In StockBoost stellen wir aus den Erkenntnissen der akademischen Literatur ein Regelwerk
@@ -275,9 +254,10 @@ class Anlagekonzept extends Component {
             - In Boost wird die Hälfte der Positionen verkauft, wenn der S&P 500 unter den 200-TageGleitenden-Durchschnitt fällt.
             <br /> 
             </Typography>
+          </Box>
         </Flex>
       </Layout>
     );
   }
 }
-export default withStyles(styles)(Anlagekonzept);
+export default withStyles(styles)(Anlagestrategie);

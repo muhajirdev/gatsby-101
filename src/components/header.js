@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Box, Flex, Button } from "rebass";
+// css-metallic / menu
+import {cssLogo} from "./cssLogo";
+import {menuEducation,menuStrategie,menuAboutUS,menuLogin,menuiOS} from "./menu";
 
 // import { SignIn, SignOut } from "./signin";
 
@@ -10,46 +13,26 @@ import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+
 // import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-/* import MenuIcon from "@material-ui/icons/Menu"; */
+import MenuIcon from "@material-ui/icons/Menu"; 
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Drawer from "@material-ui/core/Drawer";
-
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
 /* Icons */
-import MenuIcon from "../icons/menuIcon";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Circle from "@material-ui/icons/CheckCircleOutline";
-import Done from "@material-ui/icons/DoneOutline";
-import Share from "@material-ui/icons/Share";
-import Send from "@material-ui/icons/Send";
-import AttachFile from "@material-ui/icons/AttachFile";
-import PlusOne from "@material-ui/icons/PlusOne";
+// import MenuIcon from "../icons/menuIcon";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUp from "@material-ui/icons/KeyboardArrowUp";
 import Search from "@material-ui/icons/Search";
 
-const HeaderContainer = styled.header`
-  display: flex;
-  width: 100vw;
-  justify-content: space-between;
-  margin: 0 auto;
-  backgroundcolor: ${props => props.theme.palette.primary.main};
-  color: #fff;
-`;
 
-const StyledLink = styled(Link)`
-  font-size: 4;
-  text-decoration: none;
-  color: ${props => props.color};
-`;
+
 
 const styles = {
   header: {
@@ -85,104 +68,14 @@ const DivStyled = styled.div`
   // justify-content: center !important;
 `;
 
-const TextLogo = styled(Typography)`
-  font-size: 1.5em !important;
-  letter-spacing: 0.5px;
-  font-family: "acumin-pro", sans-serif;
-  font-weight: 700 !important;
-  font-style: normal !important;
-  font-weight: bold;
-  padding: 0rem 0rem 0rem 0rem;
-  /* background: linear-gradient(to bottom, #c0c0c0 22%, #404040 24%, #666666 26%, #666666 27%,#e6e6e6 40%,#333333 78%) !important;  */
-  background-image: -webkit-repeating-linear-gradient(
-      top,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 3%,
-      hsla(0, 0%, 100%, 0.1) 4.5%
-    ),
-    -webkit-repeating-linear-gradient(top, hsla(0, 0%, 0%, 0) 0%, hsla(
-            0,
-            0%,
-            0%,
-            0
-          )
-          2%, hsla(0, 0%, 0%, 0.03) 2.5%),
-    -webkit-repeating-linear-gradient(top, hsla(0, 0%, 100%, 0) 0%, hsla(
-            0,
-            0%,
-            100%,
-            0
-          )
-          0.6%, hsla(0, 0%, 100%, 0.15) 1.2%),
-    linear-gradient(
-      80deg,
-      #a6a6a6 0%,
-      #d9d9d9 45%,
-      #e0e0e0 55%,
-      #e0e0e0 65%,
-      #d9d9d9 75%,
-      #a6a6a6 100%
-    ) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: #fff !important;
-  /* font-family: 'Playfair Display', serif !important; */
-  position: relative !important;
-  text-transform: uppercase !important;
-  /* font-size: 8vw !important; */
-  margin: 0 !important;
-  &after {
-    background: none;
-    content: attr(data-heading);
-    left: 0;
-    /* top: 0; */
-    z-index: -1;
-    position: absolute;
-    /* text-shadow: 
-    1px  0px 0px #333333 , 
-    0px  1px 0px #333333 ,
-    0px  -1px 0px #333333 ,
-    -1px  0px 0px #333333 ; */
+const StyledLink = styled(Link)`
+  font-size: 4;
+  text-decoration: none;
+  color: ${props => props.color};
+  &:hover {
+    color: #FF8000;
   }
 `;
-
-const menu = [
-  {
-    name: "Anlagekonzept",
-    url: "/anlagekonzept",
-    icon: <Dashboard />
-  },
-  {
-    name: "Vorteile",
-    url: "/vorteile",
-    icon: <Circle />
-  },
-  // {
-  //   name: "VorteileTable",
-  //   url: "/vorteileTable",
-  //   icon: <Done />
-  // },
-  {
-    name: "Team",
-    url: "/team",
-    icon: <PlusOne />
-  },
-  {
-    name: "Kundenbereich",
-    url: "/",
-    icon: <AttachFile />
-  },
-  {
-    name: "Blog",
-    url: "/",
-    icon: <Share />
-  },
-  {
-    name: "Newsletter",
-    url: "/subscribe",
-    icon: <Send />
-  }
-];
 
 const SideList = props => {
   const { classes } = props;
@@ -191,7 +84,7 @@ const SideList = props => {
   return (
     <div style={{ width: 250 }}>
       <List>
-        {menu.map(link => (
+        {menuiOS.map(link => (
           <StyledLink to={link.url} color={textColor}>
             <ListItem button key={link.name}>
               <ListItemIcon>{link.icon}</ListItemIcon>
@@ -241,14 +134,19 @@ const DropDown = ({ title, list, onClick, colorTitle = "white" }) => {
           {title}
         </Button>
         <KeyboardArrowDown style={{ color: "#fff" }} />
+        { isVisible && ( 
+          <Flex flexDirection={["column", "column", "column"]}>
+          <KeyboardArrowUp style={{ color: "#000" }} />
+          </Flex>
+        )}
       </Flex>
-      {isVisible && list && (
-        <Box px="2">
+      { isVisible && list && (   
+         <Box px="2">
           {list.map(item => (
             <Box>
               <StyledLink to={item.url} color="black">
                 {item.name}
-              </StyledLink>
+            </StyledLink>
             </Box>
           ))}
         </Box>
@@ -257,7 +155,7 @@ const DropDown = ({ title, list, onClick, colorTitle = "white" }) => {
   );
 };
 
-const headerStyle = { position: "fixed", zIndex: 300 };
+const headerStyle = { position: "fixed", zIndex: 400 };
 
 const Header = props => {
   const { classes } = props;
@@ -271,6 +169,7 @@ const Header = props => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [dropdownVisible, setDropdownVisivle] = useState(false);
   return (
+ 
     <Flex
       justifyContent="space-around"
       px="5"
@@ -280,33 +179,40 @@ const Header = props => {
       bg={dropdownVisible ? "white" : "transparent"}
     >
       <StyledLink to="/">
-        <TextLogo className={classes.logo}>BOOST</TextLogo>
+        <cssLogo className={classes.logo}>BOOST</cssLogo>
       </StyledLink>
       <DropDown
-        title="Education"
-        list={menu}
+        title="Finanzbildung"
+        list={menuEducation}
+        colorTitle={dropdownVisible ? "#FF8000" : "white"}
+        onClick={() => setDropdownVisivle(!dropdownVisible)}
+      />       
+
+      <DropDown
+        title="Strategie"
+        list={menuStrategie}
         colorTitle={dropdownVisible ? "#FF8000" : "white"}
         onClick={() => setDropdownVisivle(!dropdownVisible)}
       />
       <DropDown
-        title="Strategies"
-        list={menu}
-        onClick={() => setDropdownVisivle(!dropdownVisible)}
-      />
-      <DropDown
         title="About Us"
-        list={menu}
+        list={menuAboutUS}
+        colorTitle={dropdownVisible ? "#FF8000" : "white"}
         onClick={() => setDropdownVisivle(!dropdownVisible)}
       />
       <Flex alignItems="center">
-        <Search style={{ color: "white" }} />
+          <StyledLink to="/abonnement" > 
+              <AttachMoney style={{ color: "white" }} />
+          </StyledLink>
       </Flex>
       <DropDown
         title="My Boost"
-        list={menu}
+        colorTitle={dropdownVisible ? "#FF8000" : "white"}
+        list={menuLogin}
         onClick={() => setDropdownVisivle(!dropdownVisible)}
       />
     </Flex>
+    
   );
   return (
     <div className={classes.root}>
@@ -355,7 +261,7 @@ const Header = props => {
           </StyledLink> */}
           <DivStyled>
             <StyledLink to="/">
-              <TextLogo className={classes.logo}>BOOST</TextLogo>
+              <cssLogo className={classes.logo}>BOOST</cssLogo>
             </StyledLink>
           </DivStyled>
           <Hidden lgUp>
@@ -373,7 +279,7 @@ const Header = props => {
           </Hidden>
           <Hidden mdDown>
             <DropDown />
-            {menu.map(link => (
+            {menuiOS.map(link => (
               <div
                 style={{
                   display: "flex",
@@ -419,34 +325,6 @@ const Header = props => {
     </div>
   );
 };
-
-const Logo = () => (
-  <div style={{ display: "flex" }}>
-    <div>
-      <img
-        style={{ width: 50, marginBottom: 0 }}
-        src="https://seeklogo.com/images/A/airbnb-logo-1D03C48906-seeklogo.com.png"
-      />
-    </div>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <h1 style={{ marginBottom: 0, marginLeft: 20, fontSize: 25 }}>
-        Airbnb.io
-      </h1>
-    </div>
-  </div>
-);
-
-const listOfItems = ["Careers", "Events", "I dunno"];
-
-const Links = () => (
-  <div style={{ display: "flex", alignItems: "center" }}>
-    {listOfItems.map(item => (
-      <a href="#" style={{ marginLeft: 10 }}>
-        {item}
-      </a>
-    ))}
-  </div>
-);
 
 Header.propTypes = {
   siteTitle: PropTypes.string
