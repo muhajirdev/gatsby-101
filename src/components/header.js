@@ -1,11 +1,17 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Box, Flex, Button } from "rebass";
 // css-metallic / menu
-import {cssLogo} from "./cssLogo";
-import {menuEducation,menuStrategie,menuAboutUS,menuLogin,menuiOS} from "./menu";
+import { CssLogo } from "./cssLogo";
+import {
+  menuEducation,
+  menuStrategie,
+  menuAboutUS,
+  menuLogin,
+  menuiOS
+} from "./menu";
 
 // import { SignIn, SignOut } from "./signin";
 
@@ -16,7 +22,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 // import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu"; 
+// import MenuIcon from "@material-ui/icons/Menu";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -25,14 +31,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
 /* Icons */
-// import MenuIcon from "../icons/menuIcon";
+import MenuIcon from "../icons/menuIcon";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUp from "@material-ui/icons/KeyboardArrowUp";
 import Search from "@material-ui/icons/Search";
-
-
-
 
 const styles = {
   header: {
@@ -73,7 +76,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${props => props.color};
   &:hover {
-    color: #FF8000;
+    color: #ff8000;
   }
 `;
 
@@ -115,38 +118,32 @@ const SideList = props => {
   );
 };
 
-const DropDown = ({ title, list, onClick, colorTitle = "white" }) => {
-  const [isVisible, setVisible] = useState(false);
+const DropDown = ({ title, list, onClick, isOpen, colorTitle = "white" }) => {
   return (
-    <div
-      onClick={() => {
-        setVisible(!isVisible);
-        onClick();
-      }}
-    >
-      <Flex alignItems="center" onClick={() => setVisible(!isVisible)}>
-        <Button
+    <div>
+      <Flex alignItems="center" onClick={onClick}>
+        <Box
           px="2"
           bg="transparent"
           style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
           color={colorTitle}
         >
           {title}
-        </Button>
+        </Box>
         <KeyboardArrowDown style={{ color: "#fff" }} />
-        { isVisible && ( 
+        {isOpen && (
           <Flex flexDirection={["column", "column", "column"]}>
-          <KeyboardArrowUp style={{ color: "#000" }} />
+            <KeyboardArrowUp style={{ color: "#000" }} />
           </Flex>
         )}
       </Flex>
-      { isVisible && list && (   
-         <Box px="2">
+      {isOpen && list && (
+        <Box px="2">
           {list.map(item => (
             <Box>
               <StyledLink to={item.url} color="black">
                 {item.name}
-            </StyledLink>
+              </StyledLink>
             </Box>
           ))}
         </Box>
@@ -158,7 +155,7 @@ const DropDown = ({ title, list, onClick, colorTitle = "white" }) => {
 const headerStyle = { position: "fixed", zIndex: 400 };
 
 const Header = props => {
-  const { classes } = props;
+  const { selectedDropdown, setSelectedDropdown, classes } = props;
 
   // || => means "OR"
   // In this case, if props.backgroundColor is not specified.
@@ -166,57 +163,78 @@ const Header = props => {
   const backgroundColor = props.backgroundColor || "transparent";
   const textColor = props.textColor || "#fff";
 
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const [dropdownVisible, setDropdownVisivle] = useState(false);
-  return (
- 
-    <Flex
-      justifyContent="space-around"
-      px="5"
-      pt="4"
-      style={headerStyle}
-      width={1}
-      bg={dropdownVisible ? "white" : "transparent"}
-    >
-      <StyledLink to="/">
-        <cssLogo className={classes.logo}>BOOST</cssLogo>
-      </StyledLink>
-      <DropDown
-        title="Finanzbildung"
-        list={menuEducation}
-        colorTitle={dropdownVisible ? "#FF8000" : "white"}
-        onClick={() => setDropdownVisivle(!dropdownVisible)}
-      />       
+  const [visible, setVisible] = useState(true);
 
-      <DropDown
-        title="Strategie"
-        list={menuStrategie}
-        colorTitle={dropdownVisible ? "#FF8000" : "white"}
-        onClick={() => setDropdownVisivle(!dropdownVisible)}
-      />
-      <DropDown
-        title="About Us"
-        list={menuAboutUS}
-        colorTitle={dropdownVisible ? "#FF8000" : "white"}
-        onClick={() => setDropdownVisivle(!dropdownVisible)}
-      />
-      <Flex alignItems="center">
-          <StyledLink to="/abonnement" > 
-              <AttachMoney style={{ color: "white" }} />
-          </StyledLink>
-      </Flex>
-      <DropDown
-        title="My Boost"
-        colorTitle={dropdownVisible ? "#FF8000" : "white"}
-        list={menuLogin}
-        onClick={() => setDropdownVisivle(!dropdownVisible)}
-      />
-    </Flex>
-    
-  );
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.pageYOffset > 200) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+    };
+  }, []);
+
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const dropdownVisible = selectedDropdown.length > 0;
   return (
-    <div className={classes.root}>
-      <div>
+    <div style={{ display: visible ? "block" : "none" }}>
+      <Flex
+        justifyContent="space-between"
+        px={[3, 6]}
+        pt="4"
+        style={headerStyle}
+        width={1}
+        bg={dropdownVisible ? "white" : "transparent"}
+      >
+        <StyledLink to="/">
+          <CssLogo className={classes.logo}>BOOST</CssLogo>
+        </StyledLink>
+        <Hidden mdDown>
+          <DropDown
+            title="Finanzbildung"
+            isOpen={selectedDropdown === "Finanzbildung"}
+            list={menuEducation}
+            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            onClick={() => setSelectedDropdown("Finanzbildung")}
+          />
+
+          <DropDown
+            title="Strategie"
+            list={menuStrategie}
+            isOpen={selectedDropdown === "Strategie"}
+            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            onClick={() => setSelectedDropdown("Strategie")}
+          />
+          <DropDown
+            title="About Us"
+            list={menuAboutUS}
+            isOpen={selectedDropdown === "About Us"}
+            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            onClick={() => setSelectedDropdown("About Us")}
+          />
+          <Flex alignItems={dropdownVisible ? null : "center"}>
+            <StyledLink to="/abonnement">
+              <AttachMoney
+                style={{ color: dropdownVisible ? "#FF8000" : "white" }}
+              />
+            </StyledLink>
+          </Flex>
+          <DropDown
+            title="My Boost"
+            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            isOpen={selectedDropdown === "My Boost"}
+            list={menuLogin}
+            onClick={() => setSelectedDropdown("My Boost")}
+          />
+        </Hidden>
+
+        <Hidden lgUp>
+          <Box bg="transparent" onClick={() => setDrawerOpen(true)}>
+            <MenuIcon />
+          </Box>
+        </Hidden>
+
         <Drawer
           anchor="right"
           open={isDrawerOpen}
@@ -240,7 +258,12 @@ const Header = props => {
             </div>
           </div>
         </Drawer>
-      </div>
+      </Flex>
+    </div>
+  );
+  return (
+    <div className={classes.root}>
+      <div />
       <AppBar
         position="relative"
         className={classes.header}

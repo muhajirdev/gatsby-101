@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
@@ -76,7 +76,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    useNextVariants: true,
+    useNextVariants: true
     /* fontFamily: ["acumin-pro", "sans-serif"].join(","), */
     // Copernicus-Roman?
     // fontFamily: [
@@ -100,16 +100,19 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: normal;
     src: local("DejaVuSerif"), local("DejaVuSerif"), url(${DejaVuSerif}) format("ttf");
+  }
   @font-face {
     font-family: "Noto Serif", serif;
     font-style: normal;
     font-weight: normal;
     src: local("NotoSerif-Regular"), local("NotoSerif-Regular"), url(${NotoSerifRegular}) format("ttf");
+  }
   @font-face {
     font-family: "Copernicus-Roman";
     font-style: normal;
     font-weight: normal;
     src: local("Copernicus-Roman"), local("Copernicus-Roman"), url(${CopernicusTTF}) format("ttf"), url(${CopernicusWoff}) format("woff"), url(${CopernicusEot}) format("eot");
+  }
   html {
     // Acumin Pro Bold - font-weight: 700; 
     // Acumin Pro Regular - font-weight: 400; 
@@ -119,44 +122,49 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, backgroundColor, textColor }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children, backgroundColor, textColor }) => {
+  const [selectedDropdown, setSelectedDropdown] = useState("");
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <ThemeProvider theme={styledComponentsTheme}>
-          <MuiThemeProvider theme={theme}>
-            <Header
-              siteTitle={data.site.siteMetadata.title}
-              backgroundColor={backgroundColor}
-              textColor={textColor}
-            />
-            <GlobalStyle />
-            <div>
-              <main style={{ minHeight: "100vh" }}>{children}</main>
-            </div>
-            <div
-              style={{
-                height: "4rem",
-                marginTop: "auto",
-                marginBottom: "auto"
-              }}
-            />
-            <Footer />
-          </MuiThemeProvider>
-        </ThemeProvider>
-      </>
-    )}
-  />
-);
+      `}
+      render={data => (
+        <>
+          <ThemeProvider theme={styledComponentsTheme}>
+            <MuiThemeProvider theme={theme}>
+              <Header
+                selectedDropdown={selectedDropdown}
+                setSelectedDropdown={setSelectedDropdown}
+                siteTitle={data.site.siteMetadata.title}
+                backgroundColor={backgroundColor}
+                textColor={textColor}
+              />
+              <GlobalStyle />
+              <div onClick={() => setSelectedDropdown("")}>
+                <main style={{ minHeight: "100vh" }}>{children}</main>
+              </div>
+              <div
+                style={{
+                  height: "4rem",
+                  marginTop: "auto",
+                  marginBottom: "auto"
+                }}
+              />
+              <Footer />
+            </MuiThemeProvider>
+          </ThemeProvider>
+        </>
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired

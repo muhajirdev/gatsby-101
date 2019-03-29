@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
-export const cssLogo = styled(Typography)`
+export const CssLogo = styled(Typography)`
 font-size: 1.5em !important;
 letter-spacing: 0.5px;
 font-family: "acumin-pro", sans-serif;

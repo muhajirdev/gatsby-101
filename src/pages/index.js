@@ -1,13 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-import { TweenLite } from "gsap";
+import { TweenLite, TweenMax } from "gsap";
+import { Elastic } from "gsap/EasePack";
 import Typography from "@material-ui/core/Typography";
+
+
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 import styled from "styled-components";
-// rebass 
+// rebass
 import { Flex, Box, Text } from "rebass";
+import FullScreen from "../components/fullscreen";
 
 // const FullScreen = Styled(Flex)`
 //     // ${minHeight}
@@ -16,44 +21,52 @@ import { Flex, Box, Text } from "rebass";
 //     height: 100vh;
 // `
 
-const gsapStyle = { 
-        // textTransform: "uppercase",
-        fontFamily: "acumin-pro, sans-serif !important",
-        fontWeight: "700", 
-        textAlign: "left",
-        letterSpacing: "-0.25rem",
-        whiteSpace: "nowrap",
-        lineHeight: "1.85rem",
-        opacity: "0.2",
-        color: "#fff", 
+const gsapStyle = {
+  // textTransform: "uppercase",
+  fontFamily: "acumin-pro, sans-serif !important",
+  fontWeight: "700",
+  textAlign: "left",
+  letterSpacing: "-0.25rem",
+  whiteSpace: "nowrap",
+  lineHeight: "1.85rem",
+  opacity: "0.2",
+  color: "#fff"
 };
- 
 
 const GreenSock = () => {
-  const ref = useRef(null);
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
 
   useEffect(() => {
-    TweenLite.from(ref.current, 1, { x: "-1000%", y: "-500%" },{scale: 5, autoAlpha:1}, {delay:1000}, {duration: 100} );
+    TweenMax.staggerFrom(
+      [ref1.current, ref2.current, ref3.current],
+      5,
+      {
+        y: "-5000%"
+      },
+      0.5
+    );
   }, []);
 
-  return (  
+  return (
     <>
-    <Typography variant="display" style={gsapStyle}>
-      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
-        Systematische Regeln        
-      </Text>
-    </Typography> 
-    <Typography variant="display" style={gsapStyle}>
-      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
-        Transparente Echtgeld Umsetzung         
-      </Text>
-    </Typography> 
-    <Typography variant="display" style={gsapStyle}>
-      <Text fontSize={[ 4, 6, 6 ]} fontWeight='bold' ref={ref}>
-        Umsetzbar in wenigen Minuten pro Woche
-      </Text>
-    </Typography> 
-    </>     
+      <Typography variant="display" style={gsapStyle}>
+        <Text fontSize={[4, 6, 6]} fontWeight="bold" ref={ref1}>
+          Systematische Regeln
+        </Text>
+      </Typography>
+      <Typography variant="display" style={gsapStyle}>
+        <Text fontSize={[4, 6, 6]} fontWeight="bold" ref={ref2}>
+          Transparente Echtgeld Umsetzung
+        </Text>
+      </Typography>
+      <Typography variant="display" style={gsapStyle}>
+        <Text fontSize={[4, 6, 6]} fontWeight="bold" ref={ref3}>
+          Umsetzbar in wenigen Minuten pro Woche
+        </Text>
+      </Typography>
+    </>
   );
 };
 
@@ -63,123 +76,141 @@ const StyledLink = styled(Link)`
   color: #ff8000;
 `;
 
-const IndexPage = () => (
-  <Layout
-    backgroundColor=""
-    textColor="white"
+const Background1 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+      backgroundImage: "url(/brooklyn-bridge.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
   >
+    {children}
+  </div>
+);
+
+const Background2 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+const Background3 = ({ children }) => (
+  <div
+    style={{
+      minWidth: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+
+const IndexPage = () => (
+  <Layout backgroundColor="" textColor="white">
     <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
-    
-    <Flex
+
+    <FullScreen
       // Header 5rem
       // bg='magenta'
-      minHeight={[ 1, 1, 1 ]}
-      minWidth={[ 1, 1, 1 ]}
       flexDirection={["column", "column", "column"]}
-      flexWrap="nowrap"   
-      alignSelf = "center"
-      alignItems = "center"
-      justifyContent= "flexStart"
+      flexWrap="nowrap"
+      alignSelf="center"
+      alignItems="center"
+      justifyContent="space-between"
       textAlign="center"
       marginLeft="auto"
       marginRight="auto"
     >
-   
-    <div
-      style={{
-        minHeight: "100vh",
-        minWidth: "100%",
-        background:"linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
-        backgroundImage: "url(/brooklyn-bridge.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        position: "absolute",
-        zIndex: -100
-      }}
-    />
-    <div
-      style={{
-        minHeight: "100vh",
-        minWidth: "100%",
-        background: "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        position: "absolute",
-        zIndex: -100
-      }}
-    />
-    <div
-      style={{
-        minHeight: "100vh",
-        minWidth: "100%",
-        background: "rgba(0, 0, 0, 0.3)",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        position: "absolute",
-        zIndex: -100
-      }}
-    />
-       
-   <Box
-      flexDirection={["row", "row", "row"]}
-      // Header 5rem
-      // bg='magenta'
-      pt="13.5rem"
-      marginRight="auto"
-      marginLeft="auto"
-      fontSize={40}
-      width={[ 1, 1, 1/2 ]}
-      color='#fff'
-      justifyContent="center"
-      alignItems="center"
-      textAlign="center"
-      alignSelf="center"
-      mx="auto"
-      p={10}    
-      padding="40px" 
-      style={{textAlign:"center"}}
-   >   
-      
-              <Typography variant="heading" style={{color:"#fff", fontWeight:"bold"}}>
+      <Background1>
+        <Background2>
+          <Background3>
+            <Box
+              flexDirection={["row", "row", "row"]}
+              // Header 5rem
+              // bg='magenta'
+              pt="13.5rem"
+              marginRight="auto"
+              marginLeft="auto"
+              fontSize={40}
+              width={[1, 1, 1 / 2]}
+              color="#fff"
+              justifyContent="center"
+              alignItems="center"
+              textAlign="center"
+              alignSelf="center"
+              mx="auto"
+              p={10}
+              padding="40px"
+              style={{ textAlign: "center" }}
+            >
+              <Text
+                style={{ color: "#fff", fontWeight: "bold" }}
+                fontSize={[0, 5]}
+              >
                 Wie man systematisch & entspannt in Aktien investiert - Boost
-              </Typography>
+              </Text>
               <Typography variant="heading">
-                Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
+                Ein Team aus erfahrenen Händlern schlägt die Brücke in die
+                Wissenschaft!
                 <br />
-                Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem!
+                Basierend auf akademischer Literatur haben wir ein Regelwerk
+                zusammengestellt, das wir systematisch als Anlagestrategie in
+                einem Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau
+                wir uns beziehen? Kein Problem!
               </Typography>
-              
+
               <StyledLink to="/anlagekonzept">
-                <Typography variant="display1" style={{color:"#FF8000"}}>
+                <Typography variant="display1" style={{ color: "#FF8000" }}>
                   Mehr erfahren
                 </Typography>
               </StyledLink>
-              <StyledLink to="/anlagekonzept" >
-                  <Icon source={require("../icons/bulb.svg")}  />
+              <StyledLink to="/anlagekonzept">
+                <div>
+                  <img
+                    style={{ width: "2rem" }}
+                    src={require("../icons/bulb.svg")}
+                  />
+                </div>
               </StyledLink>
-     
-      </Box>
+            </Box>
 
-      <Box
-        flexDirection={["column", "column", "column"]}
-        // Header 5rem
-        // bg='magenta'
-        height="100%"
-        marginTop= "-75%"
-        paddingTop="75%"
-        mx="auto"
-        fontSize={4}
-        width={[ 1, 1, 1/2 ]}
-        color='#fff'
-        justifyContent="flexStart"
-        alignItems="flexStart"
-        textAlign="flexStart"
-        alignSelf="flexStart"
-        mx="auto"                    
-        > 
-          <GreenSock /> 
-      </Box>
-    </Flex>
+            <Box
+              flexDirection={["column", "column", "column"]}
+              // Header 5rem
+              // bg='magenta'
+              height="100%"
+              fontSize={4}
+              width={[1, 1, 1 / 2]}
+              color="#fff"
+              justifyContent="flexStart"
+              alignItems="flexStart"
+              textAlign="flexStart"
+              alignSelf="flexStart"
+              mx="auto"
+            >
+              <GreenSock />
+            </Box>
+          </Background3>
+        </Background2>
+      </Background1>
+    </FullScreen>
   </Layout>
 );
 
