@@ -15,10 +15,13 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/Add";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 
+// rebass
+import { Flex, Box, Text } from "rebass";
+import FullScreen from "../components/fullscreen";
+
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import { Box, Flex, Text } from "rebass";
 // import SVG from ./assets/svg/global.svg
 
 // <Link to="/">Go back to the homepage</Link>
@@ -34,16 +37,16 @@ const CloseIcon = ({ active }) => {
 const styles = theme => ({
   heading: {
     fontFamily: "Noto Serif, serif !important",
-    color: "#000"
+    color: "#fff"
   },
   display: {
     fontFamily: "Noto Serif, serif !important",
-    color: "#000",
+    color: "#fff",
     paddingTop: "1rem"
   },
   subheader: {
     fontFamily: "Noto Serif, serif !important",
-    color: "#000",
+    color: "#fff",
     paddingTop: "1rem"
   },
   blocksatz: {
@@ -75,15 +78,63 @@ const styles = theme => ({
   }
 });
 
+const Background1 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+      backgroundImage: "url(/rob-bates.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: 0
+    }}
+  >
+    {children}
+  </div>
+);
+
+const Background2 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+const Background3 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+
 const pageHeader = "Anlagestrategie";
 
 const Collapsable = withStyles(styles)(({ title, children, classes }) => {
   const [active, setActive] = useState(false);
   return (
-    <ExpansionPanel
+
+      <ExpansionPanel
       onClick={() => setActive(!active)}
       style={{ background: "transparent", boxShadow: "none" }}
-    >
+      >
       <ExpansionPanelSummary
         expandIcon={<CloseIcon active={active} />}
         style={{ padding: 0 }}
@@ -100,6 +151,7 @@ const Collapsable = withStyles(styles)(({ title, children, classes }) => {
     </ExpansionPanel>
   );
 });
+
 class Anlagestrategie extends Component {
   render() {
     const { classes } = this.props;
@@ -108,8 +160,8 @@ class Anlagestrategie extends Component {
     return (
       <Layout>
         <SEO title={pageHeader} />
-
-        <Flex
+       
+        <FullScreen
           // Header 5rem
           // bg='magenta'
           minHeight={[1, 1, 1]}
@@ -122,43 +174,12 @@ class Anlagestrategie extends Component {
           textAlign="center"
           marginLeft="auto"
           marginRight="auto"
-        >
-          <div
-            style={{
-              minHeight: "100vh",
-              minWidth: "100%",
-              background:
-                "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
-              backgroundImage: "url(/img/rob-bates.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              position: "absolute",
-              zIndex: -100
-            }}
-          />
-          <div
-            style={{
-              minHeight: "100vh",
-              minWidth: "100%",
-              background:
-                "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              position: "absolute",
-              zIndex: -100
-            }}
-          />
-          <div
-            style={{
-              minHeight: "100vh",
-              minWidth: "100%",
-              background: "rgba(0, 0, 0, 0.3)",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              position: "absolute",
-              zIndex: -100
-            }}
-          />
+        >         
+
+      <Background1>
+        <Background2>
+          <Background3>
+       
 
           <Box
             flexDirection={["row", "row", "row"]}
@@ -181,7 +202,6 @@ class Anlagestrategie extends Component {
             <Typography variant="subheading" style={{ paddingTop: "6rem" }} />
 
             <Typography variant="subheading">
-              {" "}
               Strategie > {pageHeader}{" "}
             </Typography>
             <Typography variant="display1"> {pageHeader} </Typography>
@@ -200,7 +220,11 @@ class Anlagestrategie extends Component {
               Erkenntnisse
             </Typography>
 
-            <Collapsable title={"test"}>Content</Collapsable>
+            <Collapsable title={"Erkenntnisse"}>
+            
+            
+            
+            
 
             <Typography variant="subheading" className={classes.blocksatz}>
               - Die Preisreaktion nach Earnings Surprises und Prognoserevisionen
@@ -340,9 +364,16 @@ class Anlagestrategie extends Component {
               500 unter den 200-TageGleitenden-Durchschnitt fällt.
               <br />
             </Typography>
+
+            </Collapsable>
           </Box>
-        </Flex>
-      </Layout>
+     
+     
+          </Background3>
+        </Background2>
+      </Background1> 
+    </FullScreen>
+  </Layout>
     );
   }
 }

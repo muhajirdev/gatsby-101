@@ -74,6 +74,7 @@ const StyledLink = styled(Link)`
   font-size: 15;
   text-decoration: none;
   color: #ff8000;
+  z-index: 0;
 `;
 
 const Background1 = ({ children }) => (
@@ -86,7 +87,7 @@ const Background1 = ({ children }) => (
       backgroundImage: "url(/brooklyn-bridge.jpg)",
       backgroundSize: "cover",
       backgroundPosition: "center center",
-      zIndex: -100
+      zIndex: 0
     }}
   >
     {children}
@@ -111,6 +112,7 @@ const Background2 = ({ children }) => (
 const Background3 = ({ children }) => (
   <div
     style={{
+      minHeight: "100vh",
       minWidth: "100%",
       background: "rgba(0, 0, 0, 0.3)",
       backgroundSize: "cover",
@@ -141,7 +143,7 @@ const IndexPage = () => (
       <Background1>
         <Background2>
           <Background3>
-            <Box
+            <Box 
               flexDirection={["row", "row", "row"]}
               // Header 5rem
               // bg='magenta'
@@ -156,32 +158,26 @@ const IndexPage = () => (
               textAlign="center"
               alignSelf="center"
               mx="auto"
-              p={10}
-              padding="40px"
+              p={100}
               style={{ textAlign: "center" }}
             >
-              <Text
-                style={{ color: "#fff", fontWeight: "bold" }}
-                fontSize={[0, 5]}
-              >
-                Wie man systematisch & entspannt in Aktien investiert - Boost
+              <Text style={{ color: "#fff", fontWeight: "bold", padding: "1rem 0rem 1rem 0rem"}} fontSize={[3, 5]}>
+                Wie man systematisch & entspannt in Aktien investiert - StockBoost
               </Text>
-              <Typography variant="heading">
-                Ein Team aus erfahrenen Händlern schlägt die Brücke in die
-                Wissenschaft!
+              <Text style={{ color: "#fff", fontWeight: "normal", padding: "1rem 0rem 1rem 0rem"}} fontSize={[2, 2]}>
+                Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
                 <br />
-                Basierend auf akademischer Literatur haben wir ein Regelwerk
-                zusammengestellt, das wir systematisch als Anlagestrategie in
-                einem Echtgelddepot(!) anwenden. Sie wollen wissen, worauf genau
+                Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot anwenden. 
+                <br />
+                Sie wollen wissen, worauf genau
                 wir uns beziehen? Kein Problem!
-              </Typography>
+              </Text>
 
-              <StyledLink to="/anlagekonzept">
-                <Typography variant="display1" style={{ color: "#FF8000" }}>
-                  Mehr erfahren
-                </Typography>
-              </StyledLink>
-              <StyledLink to="/anlagekonzept">
+              <Text style={{ color: "#FF8000", fontWeight: "bold", padding: "1rem 0rem 1rem 0rem"}} fontSize={[2, 5]}>
+              <StyledLink to="/anlagestrategie"> Mehr erfahren</StyledLink>
+              </Text>
+         
+              <StyledLink to="/anlagestrategie">
                 <div>
                   <img
                     style={{ width: "2rem" }}
@@ -195,21 +191,22 @@ const IndexPage = () => (
               flexDirection={["column", "column", "column"]}
               // Header 5rem
               // bg='magenta'
-              height="100%"
+              minHeight="100%"
               fontSize={4}
               width={[1, 1, 1 / 2]}
               color="#fff"
-              justifyContent="flexStart"
-              alignItems="flexStart"
-              textAlign="flexStart"
-              alignSelf="flexStart"
+              justifyContent="flexEnd"
+              alignItems="flexEnd"
+              textAlign="flexEnd"
+              alignSelf="flexEnd"
               mx="auto"
             >
               <GreenSock />
             </Box>
+
           </Background3>
         </Background2>
-      </Background1>
+      </Background1> 
     </FullScreen>
   </Layout>
 );
