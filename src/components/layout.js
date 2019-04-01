@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { Flex, Button } from "rebass";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -124,6 +125,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({ children, backgroundColor, textColor }) => {
   const [selectedDropdown, setSelectedDropdown] = useState("");
+  const [GDPRVisible, setGDPRVisible] = useState(true);
   return (
     <StaticQuery
       query={graphql`
@@ -158,6 +160,40 @@ const Layout = ({ children, backgroundColor, textColor }) => {
                 }}
               />
               <Footer />
+              {GDPRVisible && (
+                <Flex
+                  width={1}
+                  justifyContent="center"
+                  alignItems="center"
+                  bg="rgba(0,0,0,0.8)"
+                  color="white"
+                  py="3"
+                  style={{
+                    position: "fixed",
+                    bottom: 0,
+                    zIndex: 500
+                  }}
+                >
+                  <span>
+                    Wir verwenden Cookies, um unser Angebot für Sie zu
+                    verbessern. Mehr Informationen dazu finden Sie in unserer
+                    Datenschutzerklärung.
+                  </span>
+                  <Button
+                    ml="3"
+                    borderRadius="0"
+                    bg="transparent"
+                    onClick={() => setGDPRVisible(false)}
+                  >
+                    Okay
+                  </Button>
+                  <Link to="/datenschutz">
+                    <Button ml="3" borderRadius="0" bg="transparent">
+                      Mehr Infos
+                    </Button>
+                  </Link>
+                </Flex>
+              )}
             </MuiThemeProvider>
           </ThemeProvider>
         </>
