@@ -1,24 +1,33 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useState } from "react";
 import { Component } from "react";
-
-/* SubscribeCSS */
-
-import Layout from "../components/layout";
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
 
 import SEO from "../components/seo";
-import SubscribeForm from "../components/subscribeForm";
-import Icon from "../components/icon";
+import Layout from "../components/layout";
 
 /* styled */
 import styled from "styled-components";
 
-/* material-ui */
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+// Expansion Panel
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/Add";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 
-import { Flex } from "rebass";
+// rebass
+import { Flex, Box, Text } from "rebass";
+import FullScreen from "../components/fullscreen";
+
+/* MUI */
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from '@material-ui/core/Avatar';
+
+/* Icons */
+import MonthIcon from "@material-ui/icons/Explore";
+import YearIcon from "@material-ui/icons/PowerSettingsNew";
+
 
 const StyledLink = styled(Link)`
   font-size: 9;
@@ -26,8 +35,14 @@ const StyledLink = styled(Link)`
   color: #ff8000;
 `;
 
+// height: -webkit-fill-available;
+
 const StyledIframe = styled.iframe`
+  height: 100vh;
+  width: 100%;
   overflow: -moz-scrollbars-none;
+  overflow: -moz-scrollbars-none;
+  border: none;
   &::-webkit-scrollbar {
     width: 0;
     background-color: transparent;
@@ -35,16 +50,39 @@ const StyledIframe = styled.iframe`
   }
 `;
 
+// 
+
+const SEO_Title = "Abonnement";
+const Navigation_View = "Abonnement";
+
+const CloseIcon = ({ active }) => {
+  return (
+    <ExpandMoreIcon
+      style={{ fill: "#fff", transform: active ? "rotate(45deg)" : null }}
+    />
+  );
+};
+
 const styles = theme => ({
   heading: {
+    color: "#fff"
+  },
+  display: {
     color: "#fff",
-    marginBottom: "1rem",
-    fontWeight: "normal",
-    padding: "1em 5em 1em 0em",
-    border: "2px solid #FF8000"
+    paddingTop: "1rem"
+  },
+  subheader: {
+    color: "#fff",
+    paddingTop: "1rem"
   },
   blocksatz: {
-    padding: "5px 0px 5px 0px"
+    color: "#fff",
+    paddingTop: "1rem"
+  },
+  collapsable: {
+    color: "#fff",
+    fontFamily: "Noto Serif, serif !important",
+    paddingTop: "1rem"
   },
   copyright: {
     color: "#fff",
@@ -56,114 +94,174 @@ const styles = theme => ({
   },
   logo: {
     fontWeight: 700
+  },
+  transparent: {
+    background: "transparent",
+    boxShadow: "none"
+  },
+  noPadding: {
+    padding: 0
+  },
+  avatar: {
+    width: 65,
+    height: 65, 
+    margin: 12,
+    padding: 0,
+    // marginBottom: 0,
+    // display block  | inline-block
+    display: "block"
+  },
+  bigAvatar: {
+    width: 80,
+    height: 80,
+    margin: 12,
+    padding: 0,
   }
 });
 
-class Abonnement extends Component {
+const Background1 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+      backgroundImage: "url(/esther-tuttle.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: 0
+    }}
+  >
+    {children}
+  </div>
+);
+
+const Background2 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+const Background3 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+
+
+const Collapsable = withStyles(styles)(({ title, children, classes }) => {
+  const [active, setActive] = useState(false);
+  return (
+
+      <ExpansionPanel
+      onClick={() => setActive(!active)}
+      style={{ background: "transparent", boxShadow: "none" }}
+      >
+      <ExpansionPanelSummary
+        expandIcon={<CloseIcon active={active} />}
+        style={{ padding: 0 }}
+      >
+        <Typography variant="primary" className={classes.heading}>
+          {title}
+        </Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails style={{ padding: 0 }}>
+        <Typography variant="subheading" className={classes.blocksatz}>
+          {children}
+        </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
+});
+
+class Anlagestrategie extends Component {
   render() {
     const { classes } = this.props;
     const dt = new Date();
     const year = dt.getFullYear();
     return (
-      <Layout type="home">
-        <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            background: "rgba(0, 0, 0, 0.3)",
-            position: "absolute",
-            zIndex: 0
-          }}
-        />
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            backgroundImage: "url(/pricing.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            position: "absolute",
-            zIndex: 0
-          }}
-        />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignSelf: "center",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-            width: "100%",
-            background:
-              "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            position: "absolute",
-            textAlign: "center",
-            zIndex: 0
-          }}
-        >
-          <Flex
-            className={classes.textContainer}
-            // bg={['red', 'blue']}
-            minWidth={["100%", "75%", "60%"]}
-            height={["100vh","100vh","100vh"]}
-            mx="auto"
-            flexDirection="column"
-            flexWrap="nowrap"
-            justifyContent="flexStart"
-            alignItems="left"
-            style={{
-              border: "10px solid #fff",
-              height: "80%",
-              alignText: "left"
-            }}>
-            
-             <StyledIframe
-              scrolling="auto"
-              style={{ border: "none", marginBottom: 0 }}
-              height="100%"
-              src="https://sandbox.billwerk.com/portal/signup.html#/5c88c017443e550ea07511fd?language=de&country=DE"
-            /> 
-          </Flex>
-        </div>
-      </Layout>
-      // class Subscribe extends Component {
-      //   render() {
-      //     const { classes } = this.props;
-      //     return (
-      //       <Layout>
-      //         <SEO title="Newsletter" />
-      //         <div
-      //           style={{
-      //             height: "100vh",
-      //             backgroundSize: "cover"
-      //           }}
-      //         >
-      //         <div>
+      <Layout>
+        <SEO title={SEO_Title} />
+       
+        <FullScreen
+          // Header 5rem
+          // bg='magenta'
+          minHeight={[1, 1, 1]}
+          minWidth={[1, 1, 1]}
+          flexDirection={["column", "column", "column"]}
+          flexWrap="nowrap"
+          alignSelf="center"
+          alignItems="center"
+          justifyContent="flexStart"
+          textAlign="center"
+          marginLeft="auto"
+          marginRight="auto"
+        >         
 
-      //         </div>
-      //           <div
-      //             style={{
-      //               height: "100%",
-      //               justifyContent: "center",
-      //               alignItems: "center",
-      //               flexDirection: "column",
-      //               display: "flex",
-      //               maxWidth: "50%",
-      //               marginLeft: "auto",
-      //               marginRight: "auto"
-      //             }}
-      //             classesName={classes.container}
-      //           >
-      //           </div>
-      //         </div>
-      //       </Layout>
-      //     );
-      //   }
-      // }
+      <Background1>
+        <Background2>
+          <Background3>
+       
+
+          <Box
+            flexDirection={["row", "row", "row"]}
+            // Header 5rem
+            // bg='magenta'
+            pt="6rem"
+            marginRight="auto"
+            marginLeft="auto"
+            fontSize={4}
+            width={[1, 1, 3 / 4]}
+            color="#fff"
+            // justifyContent="flexStart"
+            // alignItems="flexStart"
+            // textAlign="flexStart"
+            // alignSelf="flexStart"
+            mx="auto"
+            p={10}
+            padding="40px"
+          >
+
+            <div 
+              style={{
+                minHeight: "80vh",
+                minWidth: "60vw",
+                border: "10px solid #fff",
+                alignText: "left",
+                // marginBottom: "1rem"
+            }}>
+               <StyledIframe src="https://sandbox.billwerk.com/portal/signup.html#/5c88c017443e550ea07511fd?language=de&country=DE"/> 
+            </div>
+
+            {/* <Collapsable title={""}>
+            </Collapsable> */}
+          </Box>
+     
+     
+          </Background3>
+        </Background2>
+      </Background1> 
+    </FullScreen>
+  </Layout>
     );
   }
 }
-
-export default withStyles(styles)(Abonnement);
+export default withStyles(styles)(Anlagestrategie);

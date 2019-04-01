@@ -8,12 +8,12 @@ import AttachFile from "@material-ui/icons/AttachFile";
 import PlusOne from "@material-ui/icons/PlusOne";
 
 export const menuEducation = [
-    {
-        // Blog 
-        name: "News",
-        url: "/anlagekonzept",
-        icon: <Dashboard />
-    },
+    // {
+    //     // Blog 
+    //     name: "News",
+    //     url: "/anlagekonzept",
+    //     icon: <Dashboard />
+    // },
     {
         name: "Newsletter",
         url: "/subscribe",
@@ -34,6 +34,11 @@ export const menuStrategie = [
         icon: <Circle />
     },
     {
+        name: "FAQ",
+        url: "/faq",
+        icon: <Circle />
+    },
+    {
         name: "Abonnement",
         url: "/abonnement",
         icon: <Circle />
@@ -43,7 +48,7 @@ export const menuStrategie = [
 export const menuAboutUS = [
 
     {
-        name: "Team",
+        name: "Das Team StockBoost",
         url: "/team",
         icon: <PlusOne />
     },
@@ -58,7 +63,7 @@ export const menuAboutUS = [
 export const menuLogin = [
 
     {
-        name: "Login",
+        name: "Registrierung",
         url: "/",
         icon: <PlusOne />
     },
@@ -71,14 +76,24 @@ export const menuLogin = [
 
 
 export const menuiOS = [
+    // {
+    //     name: "News",
+    //     url: "/anlagekonzept",
+    //     icon: <Dashboard />
+    // },
     {
-        name: "News",
-        url: "/anlagekonzept",
-        icon: <Dashboard />
+        name: "Vision",
+        url: "/vision",
+        icon: <PlusOne />
     },
     {
         name: "Vorteile",
         url: "/vorteile",
+        icon: <Circle />
+    },
+    {
+        name: "FAQ",
+        url: "/faq",
         icon: <Circle />
     },
     // {
@@ -87,7 +102,7 @@ export const menuiOS = [
     //   icon: <Done />
     // },
     {
-        name: "Team",
+        name: "Das Team StockBoost",
         url: "/team",
         icon: <PlusOne />
     },
@@ -96,11 +111,11 @@ export const menuiOS = [
         url: "/",
         icon: <AttachFile />
     },
-    {
-        name: "Blog",
-        url: "/",
-        icon: <Share />
-    },
+    // {
+    //     name: "Blog",
+    //     url: "/",
+    //     icon: <Share />
+    // },
     {
         name: "Newsletter",
         url: "/subscribe",

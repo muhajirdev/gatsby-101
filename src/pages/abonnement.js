@@ -1,39 +1,32 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useState } from "react";
 import { Component } from "react";
-
-/* SubscribeCSS */
-
-import Layout from "../components/layout";
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
 
 import SEO from "../components/seo";
-import SubscribeForm from "../components/subscribeForm";
-import Icon from "../components/icon";
+import Layout from "../components/layout";
 
 /* styled */
 import styled from "styled-components";
 
-/* material-ui */
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+// Expansion Panel
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/Add";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 
-/* rebass */
-import { Box,Flex } from "rebass";
+// rebass
+import { Flex, Box, Text } from "rebass";
+import FullScreen from "../components/fullscreen";
+
+/* MUI */
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from '@material-ui/core/Avatar';
 
 /* Icons */
 import MonthIcon from "@material-ui/icons/Explore";
 import YearIcon from "@material-ui/icons/PowerSettingsNew";
-
-
-import {
-  position,
-  zIndex,
-  top,
-  right,
-  bottom,
-  left,
-} from 'styled-system';
 
 
 const StyledLink = styled(Link)`
@@ -42,28 +35,40 @@ const StyledLink = styled(Link)`
   color: #ff8000;
 `;
 
+
+// 
+
+const SEO_Title = "Vision";
+const Navigation_View = "Team > Vision";
+
+const CloseIcon = ({ active }) => {
+  return (
+    <ExpandMoreIcon
+      style={{ fill: "#fff", transform: active ? "rotate(45deg)" : null }}
+    />
+  );
+};
+
 const styles = theme => ({
   heading: {
-    color: "#fff",
-    marginBottom: "1rem",
-    fontWeight: "normal",
-    padding: "1rem 0rem 1rem 0rem",
-    // border: "2px solid #FF8000"
-    // border: "1px solid #fdf22f"
+    color: "#fff"
   },
   display: {
-    fontWeight: "bold",
     color: "#fff",
-    paddingTop: "5rem",
-  },  
+    paddingTop: "1rem"
+  },
   subheader: {
-    fontWeight: "bold",  
     color: "#fff",
-    paddingTop: "0rem", 
+    paddingTop: "1rem"
   },
   blocksatz: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    padding: "5px 0px 5px 0px"
+    color: "#fff",
+    paddingTop: "1rem"
+  },
+  collapsable: {
+    color: "#fff",
+    fontFamily: "Noto Serif, serif !important",
+    paddingTop: "1rem"
   },
   copyright: {
     color: "#fff",
@@ -75,176 +80,178 @@ const styles = theme => ({
   },
   logo: {
     fontWeight: 700
+  },
+  transparent: {
+    background: "transparent",
+    boxShadow: "none"
+  },
+  noPadding: {
+    padding: 0
+  },
+  avatar: {
+    width: 65,
+    height: 65, 
+    margin: 12,
+    padding: 0,
+    // marginBottom: 0,
+    // display block  | inline-block
+    display: "block"
+  },
+  bigAvatar: {
+    width: 80,
+    height: 80,
+    margin: 12,
+    padding: 0,
   }
 });
 
+const Background1 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+      backgroundImage: "url(/daniel-genser.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: 0
+    }}
+  >
+    {children}
+  </div>
+);
 
-const itemsHeader = "Abonnement";
+const Background2 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+const Background3 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
 
-class Abonnement extends Component {
+
+const Collapsable = withStyles(styles)(({ title, children, classes }) => {
+  const [active, setActive] = useState(false);
+  return (
+
+      <ExpansionPanel
+      onClick={() => setActive(!active)}
+      style={{ background: "transparent", boxShadow: "none" }}
+      >
+      <ExpansionPanelSummary
+        expandIcon={<CloseIcon active={active} />}
+        style={{ padding: 0 }}
+      >
+        <Typography variant="primary" className={classes.heading}>
+          {title}
+        </Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails style={{ padding: 0 }}>
+        <Typography variant="subheading" className={classes.blocksatz}>
+          {children}
+        </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
+});
+
+class Anlagestrategie extends Component {
   render() {
     const { classes } = this.props;
     const dt = new Date();
     const year = dt.getFullYear();
     return (
-      // backgroundColor="#fdf22f" textColor="black"
       <Layout>
-        <SEO title="Abonnement" keywords={[`gatsby`, `application`, `react`]} />      
-        
-        <div className={classes.heading}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "nowrap",
-            // backgroundColor: "#1c222e",
-            backgroundColor:"#fff",
-            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
-            backgroundRepeat: "repeat-x",
-            height: "15rem",
-            justifyContent: "center",
-            alignItems: "left",
-          }}
-        >
-        <Flex
-          // bg={['red', 'blue']}
-          width={["97.5%", '75%', '60%']}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flexWrap: "nowrap",
-            justifyContent: "flexStart",
-            alignItems: "left",
-            alignText: "left",
-            marginLeft: "auto",
-            marginRight: "auto",  
-          }}
-        >
-        <Typography variant="display1" className={classes.display}> {itemsHeader} </Typography>
-        </Flex>    
-        </div>
+        <SEO title={SEO_Title} />
+       
+        <FullScreen
+          // Header 5rem
+          // bg='magenta'
+          minHeight={[1, 1, 1]}
+          minWidth={[1, 1, 1]}
+          flexDirection={["column", "column", "column"]}
+          flexWrap="nowrap"
+          alignSelf="center"
+          alignItems="center"
+          justifyContent="flexStart"
+          textAlign="center"
+          marginLeft="auto"
+          marginRight="auto"
+        >         
 
-        
-        <Flex
-              // className={classes.textContainer}
-              minWidth={["100%", "100%", "100%"]}
-              minHeight={["100%","100%","100%",]}
-              // Header 5rem
-              pt="5rem"
-            >         
-        
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",           
-            backgroundImage: "url(/pricing.jpg)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: 200
-          }}
-        >   
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",    
-            background: "rgba(0, 0, 0, 0.3)",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: -50
-          }}
-        > 
-        <div
-          style={{
-            minHeight: "100vh",
-            minWidth: "100%",     
-            background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            zIndex: -50
-          }}
-        > 
+      <Background1>
+        <Background2>
+          <Background3>
+       
 
-          <Flex
-              className={classes.textContainer}
-              flexDirection={["column", "column", "row"]}
-              width={["100%", "80%", "40%"]}
-              position="fixed" 
-              // Header 5rem
-              px="4rem"
-              alignSelf = "center"
-              alignItems = "center"
-              justifyContent= "flexStart"
-              textAlign="left"
-              mx="auto"
-              pt="12rem"
-        
-                 
-             
-             
-            >  
-                <div>   
+          <Box
+            flexDirection={["column", "column", "column"]}
+            // Header 5rem
+            // bg='magenta'
+            pt="6rem"
+            marginRight="auto"
+            marginLeft="auto"
+            fontSize={4}
+            width={[1, 1, 3 / 4]}
+            color="#fff"
+            justifyContent="flexStart"
+            alignItems="flexStart"
+            textAlign="flexStart"
+            alignSelf="flexStart"
+            mx="auto"
+            p={10}
+            padding="40px"
+          >
+              <div>   
                 <StyledLink to="/signupMonth">
-                <MonthIcon className={classes.largeIcon} />
-                <Typography variant="display1" className={classes.subheader}>Monatliche Zahlungsweise</Typography>
-                <Typography variant="heading">X / Monat</Typography>
+                  <MonthIcon className={classes.largeIcon} />
+                  <Typography variant="display1" className={classes.subheader}>Monatliche Zahlungsweise</Typography>
+                  <Typography variant="heading">X / Monat</Typography>
                 </StyledLink>
-                </div> 
+              </div> 
 
                <div> 
-               <StyledLink to="/signupYear">
+                <StyledLink to="/signupYear">
                   <YearIcon className={classes.largeIcon} />
                   <Typography variant="display1" className={classes.subheader}>Jährliche Zahlungsweise</Typography>
                   <Typography variant="heading">X / Jahr</Typography>
                 </StyledLink>
                 </div> 
-              
-            </Flex>  
 
-      </div>
-      </div>
-      </div>
-      </Flex>
-
-  
-                
-      </Layout>
-    
-      // class Subscribe extends Component {
-      //   render() {
-      //     const { classes } = this.props;
-      //     return (
-      //       <Layout>
-      //         <SEO title="Newsletter" />
-      //         <div
-      //           style={{
-      //             height: "100vh",
-      //             backgroundSize: "cover"
-      //           }}
-      //         >
-      //         <div>
-
-      //         </div>
-      //           <div
-      //             style={{
-      //               height: "100%",
-      //               justifyContent: "center",
-      //               alignItems: "center",
-      //               flexDirection: "column",
-      //               display: "flex",
-      //               maxWidth: "50%",
-      //               marginLeft: "auto",
-      //               marginRight: "auto"
-      //             }}
-      //             classesName={classes.container}
-      //           >
-      //           </div>
-      //         </div>
-      //       </Layout>
-      //     );
-      //   }
-      // }
+            {/* <Collapsable title={""}>
+            </Collapsable> */}
+          </Box>
+     
+     
+          </Background3>
+        </Background2>
+      </Background1> 
+    </FullScreen>
+  </Layout>
     );
   }
 }
-
-export default withStyles(styles)(Abonnement);
+export default withStyles(styles)(Anlagestrategie);

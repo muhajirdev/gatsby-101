@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Component } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
@@ -6,56 +6,68 @@ import PropTypes from "prop-types";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 
-/* Components */
-import Icon from "../components/icon";
-import LinkBrand from "../components/linkBrand";
-
 /* styled */
 import styled from "styled-components";
+
+// Expansion Panel
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/Add";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+
+// rebass
+import { Flex, Box, Text } from "rebass";
+import FullScreen from "../components/fullscreen";
 
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
+import Avatar from '@material-ui/core/Avatar';
 
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableFooter from "@material-ui/core/TableFooter";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
-import Paper from "@material-ui/core/Paper";
+/* Icons */
+import MonthIcon from "@material-ui/icons/Explore";
+import YearIcon from "@material-ui/icons/PowerSettingsNew";
 
-import { Flex } from "rebass";
 
-// <Link to="/">Go back to the homepage</Link>
+const StyledLink = styled(Link)`
+  font-size: 9;
+  text-decoration: none;
+  color: #ff8000;
+`;
+
+// 
+
+const SEO_Title = "Vision";
+const Navigation_View = "Team > Vision";
+
+const CloseIcon = ({ active }) => {
+  return (
+    <ExpandMoreIcon
+      style={{ fill: "#fff", transform: active ? "rotate(45deg)" : null }}
+    />
+  );
+};
 
 const styles = theme => ({
   heading: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    color: "#000",
-    paddingTop: "1rem",
+    color: "#fff"
   },
   display: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    color: "#000",
-    paddingTop: "1rem",
-  },  
+    color: "#fff",
+    paddingTop: "1rem"
+  },
   subheader: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    color: "#000",
-    paddingTop: "1rem",   
+    color: "#fff",
+    paddingTop: "1rem"
   },
   blocksatz: {
-    fontFamily: "Copernicus-Roman, acumin-pro, sans-serif !important",
-    color: "#000",
-    paddingTop: "1rem",
+    color: "#fff",
+    paddingTop: "1rem"
+  },
+  collapsable: {
+    color: "#fff",
+    fontFamily: "Noto Serif, serif !important",
+    paddingTop: "1rem"
   },
   copyright: {
     color: "#fff",
@@ -67,62 +79,152 @@ const styles = theme => ({
   },
   logo: {
     fontWeight: 700
+  },
+  transparent: {
+    background: "transparent",
+    boxShadow: "none"
+  },
+  noPadding: {
+    padding: 0
+  },
+  avatar: {
+    width: 65,
+    height: 65, 
+    margin: 12,
+    padding: 0,
+    // marginBottom: 0,
+    // display block  | inline-block
+    display: "block"
+  },
+  bigAvatar: {
+    width: 80,
+    height: 80,
+    margin: 12,
+    padding: 0,
   }
 });
 
+const Background1 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
+      backgroundImage: "url(/esther-tuttle.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: 0
+    }}
+  >
+    {children}
+  </div>
+);
 
-const pageHeader = "Vorteile";
+const Background2 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background:
+        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
+const Background3 = ({ children }) => (
+  <div
+    style={{
+      minHeight: "100vh",
+      minWidth: "100%",
+      background: "rgba(0, 0, 0, 0.3)",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      zIndex: -100
+    }}
+  >
+    {children}
+  </div>
+);
 
 
-class Vorteile extends Component {
+const Collapsable = withStyles(styles)(({ title, children, classes }) => {
+  const [active, setActive] = useState(false);
+  return (
+
+      <ExpansionPanel
+      onClick={() => setActive(!active)}
+      style={{ background: "transparent", boxShadow: "none" }}
+      >
+      <ExpansionPanelSummary
+        expandIcon={<CloseIcon active={active} />}
+        style={{ padding: 0 }}
+      >
+        <Typography variant="primary" className={classes.heading}>
+          {title}
+        </Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails style={{ padding: 0 }}>
+        <Typography variant="subheading" className={classes.blocksatz}>
+          {children}
+        </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
+});
+
+class Anlagestrategie extends Component {
   render() {
     const { classes } = this.props;
+    const dt = new Date();
+    const year = dt.getFullYear();
     return (
-      // backgroundColor="#fdf22f" textColor="black"
-      <Layout >
-        <SEO title={pageHeader} />
-      
-        <div 
-          style={{
-            // backgroundColor: "#1c222e",
-            backgroundColor:"#fff",
-            backgroundImage: "linear-gradient(135deg,#1b3d60,#1a3057 51.95%,#1f232f)",
-            backgroundRepeat: "repeat-x",
-            height: "15rem",
-          }} >     
-
-          <Flex 
-        // Wrapper Header
-          // className={classes.textContainer}
-          flexDirection={["row", "row", "row"]}
-          flexWrap="nowrap"
-          height= "100vh"    
-          width={["100%", '75%', '40%']}
+      <Layout>
+        <SEO title={SEO_Title} />
+       
+        <FullScreen
           // Header 5rem
-          pt="1rem"
-          mx="auto"
-          alignItems = "flexStart"
-          justifyContent= "flexStart"
-          textAlign="left"
-          >
-          <Typography variant="display1" style={{ paddingTop:"10rem"}}> {pageHeader} </Typography>     
-          </Flex>
-        </div>
-
-        <Flex
-          // className={classes.textContainer}
+          // bg='magenta'
+          minHeight={[1, 1, 1]}
+          minWidth={[1, 1, 1]}
           flexDirection={["column", "column", "column"]}
           flexWrap="nowrap"
-          height= "100vh"    
-          width={["100%", '75%', '40%']}
-          // Header 5rem
-          pt="5rem"
-          mx="auto"
-          alignItems = "flexStart"
-          justifyContent= "flexStart"
-          textAlign="left"
-          >        
-            <Typography variant="subheading" className={classes.blocksatz} >
+          alignSelf="center"
+          alignItems="center"
+          justifyContent="flexStart"
+          textAlign="center"
+          marginLeft="auto"
+          marginRight="auto"
+        >         
+
+      <Background1>
+        <Background2>
+          <Background3>
+       
+
+          <Box
+            flexDirection={["row", "row", "row"]}
+            // Header 5rem
+            // bg='magenta'
+            pt="6rem"
+            marginRight="auto"
+            marginLeft="auto"
+            fontSize={4}
+            width={[1, 1, 3 / 4]}
+            color="#fff"
+            // justifyContent="flexStart"
+            // alignItems="flexStart"
+            // textAlign="flexStart"
+            // alignSelf="flexStart"
+            mx="auto"
+            p={10}
+            padding="40px"
+          >
+          <Typography variant="subheading" className={classes.blocksatz} >
                 Die StockBoost Aktienstrategie basiert auf quantitativem Ansatz; verdichtet historische Aktienpreisentwicklung, positive Gewinnüberraschung sowie Analystendaten.
                 <br /><br />
                 Der Stock Ansatz filtert systematisch ein Aktienuniversum bestehend aus 4000 US-Amerikanischen Unternehmen mit einer Marktkapitalisierung von 500 Mio. - 10 Mrd. USD. So stehen US-Midcap-Aktien und nicht Mainstreamwerte im Fokus der Aktienstrategie bei Beachtung notwendiger Portfolio-Diversifikation.
@@ -141,11 +243,18 @@ class Vorteile extends Component {
                 <br /><br />
                 Der Aufwand für die Umsetzung von STOCKBOOST beträgt ca. 15 Minuten pro Woche.
           </Typography>
-        
-     </Flex>  
-    </Layout>
+
+            {/* <Collapsable title={""}>
+            </Collapsable> */}
+          </Box>
+     
+     
+          </Background3>
+        </Background2>
+      </Background1> 
+    </FullScreen>
+  </Layout>
     );
   }
 }
-
-export default withStyles(styles)(Vorteile);
+export default withStyles(styles)(Anlagestrategie);

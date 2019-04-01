@@ -151,7 +151,7 @@ const IndexPage = () => (
               marginRight="auto"
               marginLeft="auto"
               fontSize={40}
-              width={[1, 1, 1 / 2]}
+              width={[1, 1, 3 / 4]}
               color="#fff"
               justifyContent="center"
               alignItems="center"
@@ -193,7 +193,7 @@ const IndexPage = () => (
               // bg='magenta'
               minHeight="100%"
               fontSize={4}
-              width={[1, 1, 1 / 2]}
+              width={[1, 1, 3 / 4]}
               color="#fff"
               justifyContent="flexEnd"
               alignItems="flexEnd"

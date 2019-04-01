@@ -22,44 +22,49 @@ import FullScreen from "../components/fullscreen";
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-// import SVG from ./assets/svg/global.svg
 
-// <Link to="/">Go back to the homepage</Link>
+
+// 
+
+const SEO_Title = "Vision";
+const Navigation_View = "Team > Vision";
 
 const CloseIcon = ({ active }) => {
   return (
     <ExpandMoreIcon
-      style={{ fill: "#fff", transform: active ? "rotate(45deg)" : null }}
+      style={{ fill: "#000", transform: active ? "rotate(45deg)" : null }}
     />
   );
 };
 
 const styles = theme => ({
   heading: {
-    fontFamily: "Noto Serif, serif !important",
-    color: "#fff"
+    color: "#000"
   },
   display: {
-    fontFamily: "Noto Serif, serif !important",
-    color: "#fff",
+    color: "#000",
     paddingTop: "1rem"
   },
   subheader: {
-    fontFamily: "Noto Serif, serif !important",
-    color: "#fff",
+    color: "#000",
     paddingTop: "1rem"
   },
   blocksatz: {
-    fontFamily: "Noto Serif, serif !important",
-    color: "#fff",
+    color: "#000",
     paddingTop: "1rem"
   },
-  blocksatz2: {
-    fontFamily: "Noto Serif, serif !important",
-    paddingTop: "1rem"
+  collapsable: {
+    color: "#000",
+    fontFamily: "Times New Roman,Noto Serif, serif !important",
+    paddingTop: "1rem",
+    marginTop:"100px",
+    marginBottom:"100px",
+    marginRight:"20%",
+    marginLeft:"20%",
+    textAlign:"justify"
   },
   copyright: {
-    color: "#fff",
+    color: "#000",
     textAlign: "center"
   },
   link: {
@@ -75,6 +80,19 @@ const styles = theme => ({
   },
   noPadding: {
     padding: 0
+  },
+  avatar: {
+    width: 60,
+    height: 60, 
+    margin: 10,
+    // marginBottom: 0,
+    // display block  | inline-block
+    display: "block"
+  },
+  bigAvatar: {
+    margin: 10,
+    width: 80,
+    height: 80,
   }
 });
 
@@ -88,6 +106,7 @@ const Background1 = ({ children }) => (
       backgroundImage: "url(/rob-bates.jpg)",
       backgroundSize: "cover",
       backgroundPosition: "center center",
+      backgroundAttachment: "fixed",
       zIndex: 0
     }}
   >
@@ -125,7 +144,6 @@ const Background3 = ({ children }) => (
   </div>
 );
 
-const pageHeader = "Vision";
 
 const Collapsable = withStyles(styles)(({ title, children, classes }) => {
   const [active, setActive] = useState(false);
@@ -137,13 +155,13 @@ const Collapsable = withStyles(styles)(({ title, children, classes }) => {
       >
       <ExpansionPanelSummary
         expandIcon={<CloseIcon active={active} />}
-        style={{ padding: 0 }}
+        style={{ background: "transparent", padding: 0 }}
       >
         <Typography variant="primary" className={classes.heading}>
           {title}
         </Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails style={{ padding: 0 }}>
+      <ExpansionPanelDetails style={{ background: "white", padding: 0 }}>
         <Typography variant="subheading" className={classes.blocksatz}>
           {children}
         </Typography>
@@ -159,7 +177,7 @@ class Anlagestrategie extends Component {
     const year = dt.getFullYear();
     return (
       <Layout>
-        <SEO title={pageHeader} />
+        <SEO title={SEO_Title} />
        
         <FullScreen
           // Header 5rem
@@ -185,26 +203,24 @@ class Anlagestrategie extends Component {
             flexDirection={["row", "row", "row"]}
             // Header 5rem
             // bg='magenta'
-            pt="13.5rem"
+            pt="6rem"
             marginRight="auto"
             marginLeft="auto"
             fontSize={4}
             width={[1, 1, 1 / 2]}
-            color="#fff"
-            justifyContent="flexStart"
-            alignItems="flexStart"
-            textAlign="flexStart"
-            alignSelf="flexStart"
+            color="#000"
+            // justifyContent="flexStart"
+            // alignItems="flexStart"
+            // textAlign="flexStart"
+            // alignSelf="flexStart"
             mx="auto"
             p={10}
             padding="40px"
           >
-            <Typography variant="subheading" style={{ paddingTop: "6rem" }} />
-
             <Typography variant="subheading">
-              Team > {pageHeader}{" "}
+                <img style={{ width: "1rem", margin: 0, padding: 0, transform: "rotate(270deg)"}} src={require("../icons/muiHome.svg")}/> > {Navigation_View}
             </Typography>
-            <Typography variant="display1"> {pageHeader} </Typography>
+            <Typography variant="display1"> {SEO_Title} </Typography>
 
             <Typography className={classes.blocksatz} variant="subheading">
             Im Allgemeinen wird mit großen Gewinnen und dem schnellen Geld an der Börse geworben.
@@ -215,15 +231,11 @@ class Anlagestrategie extends Component {
               Mit StockBoost haben wir ein Projekt gestartet was diese Anforderungen umsetzt. 
             </Typography>
 
-            <Typography variant="display1" className={classes.heading}>
-              {""}
-            </Typography>
-
             <Collapsable title={"Vision"}>
       
-            <Typography variant="subheading" className={classes.blocksatz}>
+            <Typography variant="subheading" className={classes.collapsable}>
             Wir wollen mit StockBoost eine transparente Basis für einen Investment-Ansatz zeigen und das Thema finanzielle Bildung vorantreiben.
-Viele andere sind mit so einem Ansatz bisher gescheitert. Warum wir uns trotzdem auf so einen steinigen Weg machen beschreiben wir im Detail im Menu-Punkt Team.
+            Viele andere sind mit so einem Ansatz bisher gescheitert. Warum wir uns trotzdem auf so einen steinigen Weg machen beschreiben wir im Detail im Menu-Punkt Team.
             <br />
             <h4>Für wen ist dieser Informationsdienst geeignet?</h4>
             <br />
@@ -259,8 +271,16 @@ Als Marktampel wird der Gleitende Durchschnitt (GD) eines grossen US-Indexes der
             <br />
             Das Aktiendepot wird nicht gehebelt und dient den Autoren als Diversifikation zu weiteren Strategien, die sie als Vollzeithändler umsetzen.
             </Typography>
+          </Collapsable>
 
-            </Collapsable>
+          <Collapsable title={"Geschichte"}>
+            <Typography variant="subheading" className={classes.collapsable}>
+                Ich entdeckte bereits im Jahre 2001 zufällig, dass Prognoserevisionen von Analysten und Gewinnüberraschungen ein mächtiges Werkzeug sein können,  um eine systematische, nachhaltig erfolgsversprechende Anlagestrategie aufzubauen. Mit Nicolai baute ich ein Regelwerk auf und handelte die Aktienstrategie von 2001 bis 2002 in einem gemeinsamen Depot bei Interactive Brokers Ltd.. Die quantitative Aktienauswahl war ziemlich zeitaufwendig, da wir viele Daten manuell aufarbeiten mussten. Mit dem Start meines Ökonomiestudiums an der Universität Zürich stellten wir leider die Umsetzung der Strategie aus Zeitgründen und meinem Geldmangel ein. Das Ganze ging uns jedoch nicht aus dem Kopf und war auch in den Folgejahren präsent und wir verfolgten die Performance der Aktienstrategie auf der Seitenlinie. Nicolai schrieb im Jahre 2006 seine Diplomarbeit in Informatik an der Technikerschule mit dem Themenkomplex „Aufbau eines Internetauftritts und Umsetzung eines Informationsdienstes“. Auch dieses Projekt wurde von Nicolai und mir nie realisiert. Im Jahre 2008 bemühte ich mich erfolgreich darum, meine Masterthesis zum StockBoost-Thema „Die Prognosefähigkeit von Earnings Forecasts für Aktienkurse“ zu schreiben. Die Resultate der eigenen empirischen Studie mit Analystendaten aus der I/B/E/S-Datenbank, einer alternativen Datenquelle, führte ebenso zu validen, risikoadustierten Modell-Überrenditen für die Jahre 2001 bis 2007. Die Diplomarbeit von Marco findest du hier: --------- (Verlinkung). Nach dem Universitätsabschluss handelte ich die Aktienstrategie StockBoost erneut für etwa ein Jahr im eigenen Depot bis mir die manuelle Auswertung wiederum zu zeitaufwendig wurde. Ich machte mich ab 2009 als privater Vollzeit-Aktientrader selbstständig und das Projekt StockBoost lag erneut für Jahre auf Eis, aber ich verfolgte die Entwicklung auf der Seitenlinie mit grossem Interesse. Im Jahre 2018 fanden die späteren Protagonisten von StockBoost Rami, Elko und ich durch eine Weiterbildung im Börsenbereich zusammen und veranstalteten einmal im Monat einen Austausch über Skype bei dem wir über eigene Erfahrungen mit Trading und Eigenhandel diskutierten. Im Rahmen dieser Mastermind-Gespräche erwähnte ich immer wieder, dass mir seit Jahren eine Aktienstrategie mit Analystendaten und Earnings Surprises als Inputdaten im Kopf herumschwirrt, die ich im Jahre 2001 entdeckte und die mich nie mehr losgelassen hat. Rami und Elko waren von der Idee StockBoost überzeugt und wir bereiteten den Informationsdienst StockBoost über Monate im Hintergrund auf . Kernstück von StockBoost ist ein ausgereiftes, mit Echtgeld umgesetztes, transparentes Aktiendepot, das gezielt auf den Postannouncement-Drift nach Gewinnrevisionen und nach Gewinnüberraschungen setzt. Rami entwickelte ein Softwareprogramm das uns die zeitaufwendige Analysearbeit weitgehend abnimmt  und fehlerfrei arbeitet. Desweitern bereiteten wir die akademische Literatur und das genaue Regelwerk für die Kunden von StockBoost in verständlicher Form auf.  Seit März 2019  ist das Projekt StockBoost live und wir wollen den Informationsdienst für viele Jahre anbieten und selbst auf dem Echtgeld-Depot bei Interactive Brokers Ltd. transparent inklusive Track Record umsetzen. Im Depot sollen neben Steuern keine Entnahmen getätigt werden und allfällige Gewinne sollen reinvestiert werden.
+                Wie man systematisch & entspannt in Aktien investiert - StockBoost
+            </Typography>
+          </Collapsable>
+
+
           </Box>
      
      

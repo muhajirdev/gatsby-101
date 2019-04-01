@@ -207,7 +207,7 @@ const Header = props => {
             onClick={() => setSelectedDropdown("Strategie")}
           />
           <DropDown
-            title="About Us"
+            title="Team"
             list={menuAboutUS}
             isOpen={selectedDropdown === "About Us"}
             colorTitle={dropdownVisible ? "#FF8000" : "white"}
