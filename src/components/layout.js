@@ -13,9 +13,12 @@ import "./layout.css";
 import CopernicusEot from "../assets/fonts/Copernicus-Roman.eot";
 import CopernicusTTF from "../assets/fonts/Copernicus-Roman.ttf";
 import CopernicusWoff from "../assets/fonts/Copernicus-Roman.woff";
-
 import DejaVuSerif from "../assets/fonts/DejaVuSerif.ttf";
 import NotoSerifRegular from "../assets/fonts/NotoSerif-Regular.ttf";
+
+// CookieConsent 
+import CookieConsent from "react-cookie-consent";
+
 
 const styledComponentsTheme = {
   brand: "#ff8000"
@@ -160,7 +163,30 @@ const Layout = ({ children, backgroundColor, textColor }) => {
                 }}
               />
               <Footer />
-              {GDPRVisible && (
+              <CookieConsent  
+                              acceptOnScroll={true}
+                              acceptOnScrollPercentage={50}
+                              location="bottom"
+                              buttonText="Okay"
+                              cookieName="www.StockBoost.de"
+                              style={{ background: "rgba(0,0,0,0.8)" }}
+                              buttonStyle={{ color: "#4e503b", fontWeight: "bold", textAlign:"center", alignItems:"center", borderRadius:"0", fontSize: "13px", background:"transparent", color:"white" }}
+                              expires={1}
+          >              
+                  <span>
+                    Wir verwenden Cookies, um unser Angebot für Sie zu
+                    verbessern. Mehr Informationen dazu finden Sie in unserer
+                    Datenschutzerklärung.
+                  </span>
+                  <Link to="/datenschutz">
+                    <Button ml="3" borderRadius="0" bg="transparent">
+                      Mehr Infos
+                    </Button>
+                  </Link>
+               
+              </CookieConsent>
+              
+              {/* {GDPRVisible && (
                 <Flex
                   width={1}
                   justifyContent="center"
@@ -193,7 +219,7 @@ const Layout = ({ children, backgroundColor, textColor }) => {
                     </Button>
                   </Link>
                 </Flex>
-              )}
+              )} */}
             </MuiThemeProvider>
           </ThemeProvider>
         </>

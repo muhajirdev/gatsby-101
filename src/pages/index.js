@@ -29,7 +29,7 @@ const gsapStyle = {
   letterSpacing: "-0.25rem",
   whiteSpace: "nowrap",
   lineHeight: "1.85rem",
-  opacity: "0.2",
+  opacity: "0.6",
   color: "#fff"
 };
 
@@ -126,7 +126,7 @@ const Background3 = ({ children }) => (
 
 const IndexPage = () => (
   <Layout backgroundColor="" textColor="white">
-    <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="StockBoost" keywords={[`gatsby`, `application`, `react`]} />
 
     <FullScreen
       // Header 5rem

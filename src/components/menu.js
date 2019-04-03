@@ -24,14 +24,14 @@ export const menuEducation = [
 
 export const menuStrategie = [
     {
+        name: "Abonnement",
+        url: "/abonnement",
+        icon: <Circle />
+    },
+    {
         name: "Anlagestrategie",
         url: "/anlagestrategie",
         icon: <Dashboard />
-    },
-    {
-        name: "Vorteile",
-        url: "/vorteile",
-        icon: <Circle />
     },
     {
         name: "FAQ",
@@ -39,8 +39,8 @@ export const menuStrategie = [
         icon: <Circle />
     },
     {
-        name: "Abonnement",
-        url: "/abonnement",
+        name: "Vorteile",
+        url: "/vorteile",
         icon: <Circle />
     },
 ];
@@ -53,6 +53,12 @@ export const menuAboutUS = [
         icon: <PlusOne />
     },
     {
+        name: "Mastermind",
+        url: "/mastermind",
+        icon: <AttachFile />
+    }
+    ,
+    {
         name: "Vision",
         url: "/vision",
         icon: <AttachFile />
@@ -64,12 +70,12 @@ export const menuLogin = [
 
     {
         name: "Registrierung",
-        url: "/",
+        url: "/404",
         icon: <PlusOne />
     },
     {
         name: "Kundenbereich",
-        url: "/",
+        url: "/404",
         icon: <AttachFile />
     }
 ];

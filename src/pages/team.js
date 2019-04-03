@@ -1,5 +1,5 @@
 import React from "react";
-import PageLayout from "../layouts/page";
+import PageLayout from "../layouts/pagesTeam";
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
@@ -9,102 +9,170 @@ import styles from "../styles";
 
 const Content = ({ classes = styles, data }) => {
   return (
-    <PageLayout
-      seoTitle="Team"
-      anavigationView="Team"
-      backgroundGraphqlSource={graphql`
-        query {
-          desktop: file(relativePath: { eq: "bg22.jpg" }) {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 4160) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      `}
-    >
+    <PageLayout seoTitle="Team" navigationView="Team > Das StockBoost Team">
       <div>
-        <Flex alignItems="center">
-          <Box width={[0.3]}>
+        <Flex flexDirection={["column", "row", "row"]}
+              alignItems="flexStart" 
+              p={1}
+              pt="1rem"
+              mx="auto">
+          <Box
+            width={[0.3]}
+            // width="6vw"
+            // height="6vw"
+            // borderRadius="100%"
+            // justify-content="center"
+            // align-items="center"
+          >
             <Image
-              css={{ objectFit: "cover" }}
+              css={{
+                objectFit: "cover",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "10vw",
+                height: "10vw",
+                backgroundColor: "RGBA(252, 102, 32, 1)",
+                borderRadius: "100%"
+              }}
               borderRadius="100%"
-              height="300px"
-              width="300px"
-              alt="Marco Schai"
-              src="/avatar/Marco.jpg"
+              alt="Rami I. Altonji "
+              src="/avatar/Rami-Altonji-Avatar.jpg"
             />
           </Box>
-          <Box width={[0.7]}>
-            Marco absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium
-            Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer
-            Bankinstitute. Danach studierte er Wirtschaftswissenschaften mit dem
-            Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der
-            Universität Zürich mit den Master of Arts UZH und der Note "Magna
-            cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig.
-            Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er
-            lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in
-            der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er
-            alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad,
-            trainiert im Fitnesscenter oder spielt Tennis und Squash.
+
+          <Typography variant="h4" style={{ color: "#fff", padding: "1rem" }}>
+            Rami I. Altonji
+          </Typography>
+
+          <Box width={[0.8]}>
+            <Typography
+              variant="body1"
+              style={{ color: "#fff", padding: "1rem" }}
+            >
+              A 'Ghost in the Shell'
+            </Typography>
           </Box>
         </Flex>
-        <Typography
-          variant="display1"
-          style={{ color: "#fff", padding: "1rem" }}
-        >
-          Marco
-        </Typography>
-        <Typography
-          variant="subheading"
-          style={{ color: "#fff", padding: "1rem" }}
-        >
-          Marco absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium
-          Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer
-          Bankinstitute. Danach studierte er Wirtschaftswissenschaften mit dem
-          Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der
-          Universität Zürich mit den Master of Arts UZH und der Note "Magna cum
-          Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco
-          tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und
-          arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des
-          Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit
-          Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im
-          Fitnesscenter oder spielt Tennis und Squash.{" "}
-        </Typography>
       </div>
 
       <div>
-        <Typography
-          variant="display1"
-          style={{ color: "#fff", padding: "1rem" }}
-        >
-          Elko Ebert
-        </Typography>
-        <Avatar
-          alt="Elko Ebert"
-          src="/avatar/Elko-Ebert-Avatar.jpg"
-          className={classes.avatar}
-        />
-        <Typography
-          variant="subheading"
-          style={{ color: "#fff", padding: "1rem" }}
-        >
-          Elko beschäftigt sich seit seiner Jugend mit den Finanzmärkten. Diese
-          Faszination hält seit 25 Jahren immer noch an. Nach seinem Abschluss
-          als Diplom Wirtschaftsinformatiker hat er viele Jahr im Vertrieb für
-          IT-Unternehmen gearbeitet. Seit 2015 ist er privater Vollzeittrader.
-          Elko handelt in Aktien- und Rohstoffmärkten. Als häufigstes
-          Handelsinstrument setzt er Optionen ein. Er lebt mit seiner Familie in
-          Bad Honnef im Siebengebirge. Als sportlichen Ausgleich spielt er
-          Fußball und fährt Snowboard.
-        </Typography>
+        <Flex flexDirection={["column", "row", "row"]}
+              alignItems="flexStart" 
+              p={1}
+              pt="1rem"
+              mx="auto">
+          
+
+          <Typography variant="h4" style={{ color: "#fff", padding: "1rem" }}>
+            Marco Schai
+          </Typography>
+          <Box
+            width={[0.3]}
+            // width="6vw"
+            // height="6vw"
+            // borderRadius="100%"
+            // justify-content="center"
+            // align-items="center"
+          >
+            <Image
+              css={{
+                objectFit: "cover",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "10vw",
+                height: "10vw",
+                backgroundColor: "RGBA(252, 102, 32, 1)",
+                borderRadius: "100%"
+              }}
+              borderRadius="100%"
+              alt="Marco Schai"
+              src="/avatar/Marco-Schai-Avatar.jpg"
+            />
+          </Box>
+
+          <Box width={[0.8]}>
+            <Typography
+              variant="body1"
+              style={{ color: "#fff", padding: "1rem" }}
+            >
+              Marco absolvierte die Matura mit Schwerpunkt Ökonomie am Gymnasium Friedberg. Vor dem Studium arbeitete er für zwei grosse Schweizer Bankinstitute. Danach studierte er Wirtschaftswissenschaften mit dem Schwerpunkt Banking and Finance. Anfang 2009 schloss er an der Universität Zürich mit den Master of Arts UZH und der Note "Magna cum Laude" ab. Seit 2009 ist er als privater Vollzeit-Trader tätig. Marco tradet vorwiegend mit Aktien aus dem Nebenwertebereich. Er lebt und arbeitet in Herisau (Schweiz), das im Appenzellerland, in der Nähe des Bodensees liegt. Als Ausgleich zur Börse liebt er alles, was mit Bewegung zu tun hat. Er fährt gerne Rennrad, trainiert im Fitnesscenter oder spielt Tennis und Squash.
+            </Typography>
+          </Box>
+        </Flex>
       </div>
 
-      {/* <Collapsable title={""}>
-            </Collapsable> */}
+      <div>
+        <Flex flexDirection={["column", "row", "row"]}
+              alignItems="flexStart" 
+              p={1}
+              pt="1rem"
+              mx="auto">
+          <Box
+            width={[0.3]}
+            // width="6vw"
+            // height="6vw"
+            // borderRadius="100%"
+            // justify-content="center"
+            // align-items="center"
+          >
+            <Image
+              css={{
+                objectFit: "cover",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "10vw",
+                height: "10vw",
+                backgroundColor: "RGBA(252, 102, 32, 1)",
+                borderRadius: "100%"
+              }}
+              borderRadius="100%"
+              alt="Elko Ebert"
+              src="/avatar/Elko-Ebert-Avatar.jpg"
+            />
+          </Box>
+
+          <Typography variant="h4" style={{ color: "#fff", padding: "1rem" }}>
+          Elko Ebert          
+          </Typography>
+
+          <Box width={[0.8]}>
+            <Typography
+              variant="body1"
+              style={{ color: "#fff", padding: "1rem" }}
+            >
+              Elko beschäftigt sich seit seiner Jugend mit den Finanzmärkten.
+              Diese Faszination hält seit 25 Jahren immer noch an. Nach seinem
+              Abschluss als Diplom Wirtschaftsinformatiker hat er viele Jahr im
+              Vertrieb für IT-Unternehmen gearbeitet. Seit 2015 ist er privater
+              Vollzeittrader. Elko handelt in Aktien- und Rohstoffmärkten. Als
+              häufigstes Handelsinstrument setzt er Optionen ein. Er lebt mit
+              seiner Familie in Bad Honnef im Siebengebirge. Als sportlichen
+              Ausgleich spielt er Fußball und fährt Snowboard.
+            </Typography>
+          </Box>
+        </Flex>
+      </div>
+
+
+
+
+
+           
+
+     
     </PageLayout>
   );
 };
 
 export default Content;
+
+
+
+
+

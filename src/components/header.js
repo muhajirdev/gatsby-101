@@ -167,7 +167,7 @@ const Header = props => {
 
   useEffect(() => {
     window.onscroll = () => {
-      if (window.pageYOffset > 200) {
+      if (window.pageYOffset > 150) {
         setVisible(false);
       } else {
         setVisible(true);
@@ -188,7 +188,7 @@ const Header = props => {
         bg={dropdownVisible ? "white" : "transparent"}
       >
         <StyledLink to="/">
-          <CssLogo className={classes.logo}>BOOST</CssLogo>
+          <CssLogo className={classes.logo}>StockBoost</CssLogo>
         </StyledLink>
         <Hidden mdDown>
           <DropDown
@@ -221,11 +221,11 @@ const Header = props => {
             </StyledLink>
           </Flex>
           <DropDown
-            title="My Boost"
+            title="My StockBoost"
             colorTitle={dropdownVisible ? "#FF8000" : "white"}
-            isOpen={selectedDropdown === "My Boost"}
+            isOpen={selectedDropdown === "My StockBoost"}
             list={menuLogin}
-            onClick={() => setSelectedDropdown("My Boost")}
+            onClick={() => setSelectedDropdown("My StockBoost")}
           />
         </Hidden>
 

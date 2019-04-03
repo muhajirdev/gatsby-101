@@ -103,30 +103,33 @@ const DivFooterStyled = styled.div`
 
 const columns = [
   {
-    title: "Geld anlegen",
+    title: "StockBoost",
     items: [
-      { name: "Angebot", url: "/abonnement" },
-      { name: "Anlagekonzept", url: "/anlagekonzept" },
-      { name: "Kosten", url: "/abonnement" },
-      { name: "Wertentwicklung", url: "#" },
-      { name: "Sicherheit", url: "#" },
-      { name: "Wissen", url: "/vorteile" },
+      { name: "Anlagestrategie", url: "/anlagestrategie" },
+      { name: "Abonnement", url: "/abonnement" },
+      { name: "Das Team StockBoost", url: "/team" },
+      { name: "Vision", url: "/vision" },
+      { name: "Vorteile", url: "/vorteile" },
     ]
   },
   {
     title: "Service",
     items: [
-      { name: "Blog", url: "#" },
-      { name: "Presse", url: "#" },
+      { name: "FAQ", url: "#" },
       { name: "Kontakt", url: "/impressum" },
+      { name: "Kundenbereich", url: "/404" },
+      { name: "Newsletter", url: "/subscribe" },
+      { name: "Presse", url: "/404" },
+     
     ]
   },
   {
     title: "Rechtliches",
     items: [
       { name: "AGB", url: "/AGB" },
+      { name: "Datenschutz", url: "/datenschutz" },
       { name: "Impressum", url: "/impressum" },
-      { name: "FAQ", url: "#" },
+       
     ]
   },
   // {
@@ -212,12 +215,20 @@ class Footer extends Component {
                   variant="headline"
                   gutterBottom
                   className={classes.heading}
+                  style={{textAlign:"center"}}
                 >
                   <a className={classes.link} href="/subscribe" alt="Newsletter">
                     <HoverSubscribe>STOCKBOOST</HoverSubscribe>
                   </a>
-                  <StyledLink style={{ padding: "1rem" }}><h6>Säntisstrasse 6 | CH-9100 Herisau</h6></StyledLink>
+                  <StyledLink style={{ padding: "1rem" }}>
+                  <h6>Säntisstrasse 6 | CH-9100 Herisau |
+                    <br />
+                    Phone +41 71 3511 620
+                   </h6>
+                  </StyledLink>                 
                 </Typography>
+                
+               
                 {/* <a href="https://www.twitter.com" alt="Twitter"><Icon source={require("../icons/twitter.svg")} /></a> */}
                 <MailIcon className={classes.link} />
                 <Mailto className={classes.link} email="info@stockboost.de"
@@ -259,15 +270,18 @@ class Footer extends Component {
               gutterBottom
               className={classes.copyright}
             >
-              Copyright © {year} BOOST All Rights Reserved. |{" "}
-              <a className={classes.link} href="/impressum" to="/impressum">
-                Impressum{" "}
+              Copyright © {year} StockBoost All Rights Reserved. |{" "}
+              <a className={classes.link} href="/AGB" alt="AGB" to="/AGB">
+                AGB{" "}
               </a>
               |{" "}
               <a className={classes.link} href="/datenschutz" to="/datenschutz">
                 <LinkBrand>Datenschutz</LinkBrand>
               </a>{" "}
-              | Risikohinweis | Wiederrufsbelehrung
+              |{" "}
+              <a className={classes.link} href="/impressum" alt="Impressum" to="/impressum">
+                Impressum{" "}
+              </a>
           </Typography>
           </div>
       

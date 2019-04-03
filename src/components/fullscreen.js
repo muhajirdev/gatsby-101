@@ -7,6 +7,7 @@ import { Flex, Box } from "rebass";
 const FullScreen = styled(Flex)`
   min-height: 100vh;
   min-width: 100%;
+  min-width: calc( 100vw - 100% );
   margin: 0;
   padding: 0;
 `;

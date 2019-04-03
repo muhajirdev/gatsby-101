@@ -23,18 +23,18 @@ const Collapsable = withStyles(styles)(({ title, children, classes }) => {
   return (
     <ExpansionPanel
       onClick={() => setActive(!active)}
-      style={{ background: "transparent", boxShadow: "none" }}
+      style={{ paddingTop:"1rem" , background: "transparent", boxShadow: "none" }}
     >
       <ExpansionPanelSummary
         expandIcon={<CloseIcon active={active} />}
-        style={{ padding: 0 }}
+        style={{ background: "transparent", padding: 0 }}
       >
         <Typography variant="primary" className={classes.heading}>
           {title}
         </Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails style={{ padding: 0 }}>
-        <Typography variant="subheading" className={classes.blocksatz}>
+      <ExpansionPanelDetails style={{background: "white", padding: 0 }}>
+        <Typography variant="subheading" className={classes.latex}>
           {children}
         </Typography>
       </ExpansionPanelDetails>
