@@ -1,18 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-import { TweenLite, TweenMax } from "gsap";
-import { Elastic } from "gsap/EasePack";
+import { TweenMax } from "gsap";
+// import { Elastic } from "gsap/EasePack";
 import Typography from "@material-ui/core/Typography";
 
-
-
-import Layout from "../components/layout";
+import Layout from "../components/layouts/layout";
 import SEO from "../components/seo";
-import Icon from "../components/icon";
 import styled from "styled-components";
+
 // rebass
-import { Flex, Box, Text } from "rebass";
-import FullScreen from "../components/fullscreen";
+import { Box, Text } from "rebass";
+import FullScreen from "../components/layouts/fullscreen";
 
 // const FullScreen = Styled(Flex)`
 //     // ${minHeight}
@@ -28,7 +26,7 @@ const gsapStyle = {
   textAlign: "left",
   letterSpacing: "-0.25rem",
   whiteSpace: "nowrap",
-  lineHeight: "1.85rem",
+  lineHeight: "2.25rem",
   opacity: "0.6",
   color: "#fff"
 };
@@ -143,7 +141,7 @@ const IndexPage = () => (
       <Background1>
         <Background2>
           <Background3>
-            <Box 
+            <Box
               flexDirection={["row", "row", "row"]}
               // Header 5rem
               // bg='magenta'
@@ -151,7 +149,7 @@ const IndexPage = () => (
               marginRight="auto"
               marginLeft="auto"
               fontSize={40}
-              width={[1, 1, 3 / 4]}
+              width={[1, 1, 1 / 2]}
               color="#fff"
               justifyContent="center"
               alignItems="center"
@@ -161,28 +159,62 @@ const IndexPage = () => (
               p={100}
               style={{ textAlign: "center" }}
             >
-              <Text style={{ color: "#fff", fontWeight: "bold", padding: "1rem 0rem 1rem 0rem"}} fontSize={[3, 5]}>
-                Wie man systematisch & entspannt in Aktien investiert - StockBoost
+              <Text
+                style={{
+                  color: "#fff",
+                  fontWeight: "bold",
+                  lineHeight: "2.55rem",
+                  padding: "1rem 0rem 1rem 0rem"
+                }}
+                fontSize={[3, 6]}
+              >
+                Wie man systematisch & entspannt in Aktien investiert -
+                StockBoost
               </Text>
-              <Text style={{ color: "#fff", fontWeight: "normal", padding: "1rem 0rem 1rem 0rem"}} fontSize={[2, 2]}>
-                Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
-                <br />
-                Basierend auf akademischer Literatur haben wir ein Regelwerk zusammengestellt, das wir systematisch als Anlagestrategie in einem Echtgelddepot anwenden. 
-                <br />
-                Sie wollen wissen, worauf genau
-                wir uns beziehen? Kein Problem!
+              <Text
+                style={{
+                  color: "#fff",
+                  fontWeight: "normal",
+                  padding: "1rem 0rem 1rem 0rem"
+                }}
+                fontSize={[2, 4]}
+              >
+                Ein Team aus erfahrenen Händlern schlägt die Brücke in die
+                Wissenschaft! Basierend auf akademischer Literatur haben wir ein
+                Regelwerk zusammengestellt, das wir systematisch als
+                Anlagestrategie in einem Echtgelddepot anwenden. Sie wollen
+                wissen, worauf genau wir uns beziehen? Kein Problem!
               </Text>
 
-              <Text style={{ color: "#FF8000", fontWeight: "bold", padding: "1rem 0rem 1rem 0rem"}} fontSize={[2, 5]}>
-              <StyledLink to="/anlagestrategie"> Mehr erfahren</StyledLink>
+              <Text
+                style={{
+                  color: "#FF8000",
+                  fontWeight: "bold",
+                  padding: "1rem 0rem 1rem 0rem"
+                }}
+                fontSize={[2, 5]}
+              >
+                <StyledLink to="/anlagestrategie"> Mehr erfahren</StyledLink>
               </Text>
-         
+
               <StyledLink to="/anlagestrategie">
                 <div>
-                  <img
+                  <img alt="bulb.svg"
                     style={{ width: "2rem" }}
                     src={require("../icons/bulb.svg")}
                   />
+                  {/* <Text
+                    style={{
+                      color: "#fff",
+                      fontWeight: "normal",
+                      padding: "1rem 0rem 1rem 0rem"
+                    }}
+                    fontSize={[2, 4]}
+                  >
+                    Vision
+                    <br />
+                    Anlagestrategie
+                  </Text> */}
                 </div>
               </StyledLink>
             </Box>
@@ -204,9 +236,44 @@ const IndexPage = () => (
               <GreenSock />
             </Box>
 
+            {/* <Box
+              flexDirection={["row", "row", "row"]}
+              // Header 5rem
+              // bg='magenta'
+              pt="13.5rem"
+              marginRight="auto"
+              marginLeft="auto"
+              fontSize={40}
+              width={[1, 1, 3 / 4]}
+              color="#fff"
+              justifyContent="center"
+              alignItems="center"
+              textAlign="center"
+              alignSelf="center"
+              mx="auto"
+              p={100}
+              style={{ textAlign: "center" }}
+            >
+              <Text
+                style={{
+                  color: "#fff",
+                  fontWeight: "normal",
+                  padding: "1rem 0rem 1rem 0rem",
+                  textAlign:"left"
+                }}
+                fontSize={[2, 4]}
+              >
+                Wir handeln selbst seit vielen Jahren an der Börse und wollen
+                nicht die Unwissenheit anderer ausnutzen, um uns selbst zu
+                bereichern. Das geht nur über Transparenz und Offenheit. Mit
+                StockBoost haben wir ein Projekt gestartet, mit welchem wir
+                diesen Anspruch umsetzen.
+              </Text>
+            </Box> */}
+
           </Background3>
         </Background2>
-      </Background1> 
+      </Background1>
     </FullScreen>
   </Layout>
 );

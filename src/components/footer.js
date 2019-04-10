@@ -7,22 +7,20 @@ import Mailto from 'react-protected-mailto'
 
 /* Gatsby */
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
 /* styled */
 import styled from "styled-components";
+import styles from "../styles/styles";
 
+import LinkBrand from "../styles/linkBrand";
 
-import LinkBrand from "./linkBrand";
 
 /* material-ui */
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 
-import CuboIcon from "../icons/cuboIcon";
-import Icon from "../components/icon";
-import { Flex, Box } from "rebass";
-import HoverSubscribe from "./hoverSubscribe";
+import Icon from "./layouts/icon";
+import { Flex } from "rebass";
+import HoverSubscribe from "../styles/hoverSubscribe";
 
 /* Icons */
 import MailIcon from "@material-ui/icons/MailOutline";
@@ -40,85 +38,24 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const styles = {
-  heading: {
-    color: "#fff",
-    marginBottom: "1rem",
-    fontSize: "1.2857142857142856rem",
-    fontWeight: "normal"
-  },
-  copyright: {
-    color: "#fff",
-    textAlign: "center"
-  },
-  link: {
-    color: "#fff",
-    textDecoration: "none"
-  },
-  container: {
-    width: "100%",
-    display: "flex",
-    maxWidth: "75%",
-    marginLeft: "auto",
-    marginRight: "auto"
-  },
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  },
-
-  logo: {
-    fontWeight: 700
-  }
-};
-
-const FooterContainer = styled.footer`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 300px;
-  margin: auto;
-`;
-
-const DivFooterStyled = styled.div`
-  /*
-    1/3  - 3 columns per row
-    10px - spacing between columns 
-    */
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  width: 25%;
-  background: #202020;
-  padding: 10px;
-  color: #fff;
-`;
-
 const columns = [
   {
     title: "StockBoost",
     items: [
-      { name: "Anlagestrategie", url: "/anlagestrategie" },
-      { name: "Abonnement", url: "/abonnement" },
-      { name: "Das Team StockBoost", url: "/team" },
-      { name: "Vision", url: "/vision" },
-      { name: "Vorteile", url: "/vorteile" },
+      { name: "Anlagestrategie", url: "/Strategie/anlagestrategie" },
+      { name: "Abonnement", url: "/Strategie/abonnement" },
+      { name: "Das Team StockBoost", url: "/Team/team" },
+      { name: "Vision", url: "/Team/vision" },
+      { name: "Vorteile", url: "/Strategie/vorteile" },
     ]
   },
   {
     title: "Service",
     items: [
-      { name: "FAQ", url: "#" },
-      { name: "Kontakt", url: "/impressum" },
+      { name: "FAQ", url: "/Strategie/faq" },
+      { name: "Kontakt", url: "/Rechtliches/impressum" },
       { name: "Kundenbereich", url: "/404" },
-      { name: "Newsletter", url: "/subscribe" },
+      { name: "Newsletter", url: "/Finanzbildung/subscribe" },
       { name: "Presse", url: "/404" },
      
     ]
@@ -126,9 +63,9 @@ const columns = [
   {
     title: "Rechtliches",
     items: [
-      { name: "AGB", url: "/AGB" },
-      { name: "Datenschutz", url: "/datenschutz" },
-      { name: "Impressum", url: "/impressum" },
+      { name: "AGB", url: "/Rechtliches/AGB" },
+      { name: "Datenschutz", url: "/Rechtliches/datenschutz" },
+      { name: "Impressum", url: "/Rechtliches/impressum" },
        
     ]
   },
@@ -147,7 +84,7 @@ class Footer extends Component {
 
   render() {
 
-    const { classes } = this.props;
+    const { classes = styles } = this.props;
     const dt = new Date();
     const year = dt.getFullYear();
 
@@ -217,15 +154,15 @@ class Footer extends Component {
                   className={classes.heading}
                   style={{textAlign:"center"}}
                 >
-                  <a className={classes.link} href="/subscribe" alt="Newsletter">
+                  <a className={classes.link} href="/Finanzbildung/subscribe" alt="Newsletter">
                     <HoverSubscribe>STOCKBOOST</HoverSubscribe>
                   </a>
-                  <StyledLink style={{ padding: "1rem" }}>
-                  <h6>Säntisstrasse 6 | CH-9100 Herisau |
+                 
+                  <h6 style={{ padding: "1rem" }}>Säntisstrasse 6 | CH-9100 Herisau |
                     <br />
                     Phone +41 71 3511 620
                    </h6>
-                  </StyledLink>                 
+                            
                 </Typography>
                 
                
@@ -241,7 +178,7 @@ class Footer extends Component {
                 gutterBottom
                 className={classes.heading}
               >
-                <a className={classes.link} href="/subscribe" alt="Newsletter">
+                <a className={classes.link} href="/Finanzbildung/subscribe" alt="Newsletter">
                   <HoverSubscribe>Subscribe</HoverSubscribe>
                 </a>
               </Typography>
@@ -271,15 +208,15 @@ class Footer extends Component {
               className={classes.copyright}
             >
               Copyright © {year} StockBoost All Rights Reserved. |{" "}
-              <a className={classes.link} href="/AGB" alt="AGB" to="/AGB">
+              <a className={classes.link} href="/Rechtliches/AGB" alt="AGB" to="/AGB">
                 AGB{" "}
               </a>
               |{" "}
-              <a className={classes.link} href="/datenschutz" to="/datenschutz">
+              <a className={classes.link} href="/Rechtliches/datenschutz" to="/datenschutz">
                 <LinkBrand>Datenschutz</LinkBrand>
               </a>{" "}
               |{" "}
-              <a className={classes.link} href="/impressum" alt="Impressum" to="/impressum">
+              <a className={classes.link} href="/Rechtliches/impressum" alt="Impressum" to="/impressum">
                 Impressum{" "}
               </a>
           </Typography>

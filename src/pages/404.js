@@ -1,13 +1,13 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 import {Image} from "rebass";
 import Typography from "@material-ui/core/Typography";
 // rebass
-import FullScreen from "../components/fullscreen";
+import FullScreen from "../components/layouts/fullscreen";
 
 const NotFoundPage = () => (
-  <Layout backgroundColor='white' textColor='black'>
+  <Layout backgroundColor='#fff' textColor='#000'>
     <SEO title="404: Not found" />
 
     <FullScreen

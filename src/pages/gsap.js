@@ -1,4 +1,4 @@
 import React from "react";
-import Gsap from "../components/gsap-start";
+import Gsap from "../components/gsap/gsap-start";
 
 export default () => <Gsap />;
