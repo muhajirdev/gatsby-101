@@ -1,15 +1,18 @@
 import React from "react";
-import PageLayout from "../../components/layouts/pagelayouts/pagesTeam";
+import PageLayout from "../../components/layouts/pagelayouts/index";
 import Typography from "@material-ui/core/Typography";
 import Collapsable from "../../components/layouts/collapsable";
 import styles from "../../styles/styles";
+import { StaticQuery, graphql } from "gatsby";
 
+import BackgroundImage from "../../components/background-image";
 
 export default ({ classes = styles }) => (
   <PageLayout
-    textColor='black'
+    textColor="black"
     seoTitle="Anlagestrategie"
     navigationView="Strategie > Anlagestrategie"
+    Background={Background}
     // backgroundGraphqlSource={""}
   >
     <Typography
@@ -167,7 +170,9 @@ export default ({ classes = styles }) => (
           gleich gewichtet (entspricht 2,222% Gewichtung pro Aktie).
         </li>
         <li>
-          Es erfolgt ein Rebalancing der Aktien, die bereits hohe Kursgewinne aufweisen. Wir realisieren dadurch Teilgewinne und schaffen Liquidität für die nächsten Umschichtungen.
+          Es erfolgt ein Rebalancing der Aktien, die bereits hohe Kursgewinne
+          aufweisen. Wir realisieren dadurch Teilgewinne und schaffen Liquidität
+          für die nächsten Umschichtungen.
         </li>
         <li>Stock ist in jedem Marktumfeld dauernd investiert.</li>
       </ul>
@@ -224,12 +229,36 @@ export default ({ classes = styles }) => (
           unter den 200-TageGleitenden-Durchschnitt fällt.
         </li>
         <li>
-        Wenn wir bereits 15 Boost-Aktien im Depot halten, verkaufen wir diejenige Aktie die z.B. in der Nähe eines Verkaufskriteriums steht oder bereits negatives Momentum aufweist und ersetzen diese durch einen neuen Kandidaten, der stärkeres Momentum aufweist. 
+          Wenn wir bereits 15 Boost-Aktien im Depot halten, verkaufen wir
+          diejenige Aktie die z.B. in der Nähe eines Verkaufskriteriums steht
+          oder bereits negatives Momentum aufweist und ersetzen diese durch
+          einen neuen Kandidaten, der stärkeres Momentum aufweist.
         </li>
         <li>
-        Quartalsweise erfolgt ein Rebalancing der Boost-Aktien, die bereits hohe Kursgewinne aufweisen. Wir realisieren dadurch Teilgewinne und schaffen Liquidität für die nächsten Umschichtungen.
+          Quartalsweise erfolgt ein Rebalancing der Boost-Aktien, die bereits
+          hohe Kursgewinne aufweisen. Wir realisieren dadurch Teilgewinne und
+          schaffen Liquidität für die nächsten Umschichtungen.
         </li>
       </ul>
     </Collapsable>
   </PageLayout>
 );
+
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

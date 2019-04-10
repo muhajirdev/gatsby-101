@@ -123,7 +123,7 @@ const Background3 = ({ children }) => (
 );
 
 const IndexPage = () => (
-  <Layout backgroundColor="" textColor="white">
+  <Layout backgroundColor="white" textColor="white">
     <SEO title="StockBoost" keywords={[`gatsby`, `application`, `react`]} />
 
     <FullScreen

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/styles";
-import PageLayout from "../../components/layouts/pagelayouts/pagesAbo";
+import PageLayout from "../../components/layouts/pagelayouts/index.js";
 import { Box } from "rebass";
 
 export default ({ classes = styles }) => (

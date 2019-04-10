@@ -1,5 +1,5 @@
 import React from "react";
-import PageLayout from "../../components/layouts/pagelayouts/pagesTeam";
+import PageLayout from "../../components/layouts/pagelayouts/index";
 import Typography from "@material-ui/core/Typography";
 import Collapsable from "../../components/layouts/collapsable";
 import styles from "../../styles/styles";

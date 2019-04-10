@@ -5,6 +5,7 @@ import {Image} from "rebass";
 import Typography from "@material-ui/core/Typography";
 // rebass
 import FullScreen from "../components/layouts/fullscreen";
+import Image404 from "../assets/images/wallpaper/404.jpg"
 
 const NotFoundPage = () => (
   <Layout backgroundColor='#fff' textColor='#000'>
@@ -32,7 +33,7 @@ const NotFoundPage = () => (
       <Image
           width={[ 1, 1, 1/2 ]}
           // src='https://source.unsplash.com/random/1280x720'
-          src='/404.jpg'
+          src={Image404}
           borderRadius={0}
         />
 

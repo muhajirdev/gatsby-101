@@ -86,24 +86,38 @@ const SideList = props => {
   const textColor = props.textColor || "#fff";
 
   return (
-    <Flex 
-          flexDirection="column"      
-          justifyItems="flexstart"
-          alignItems="flexstart"
-          pt="5" 
-          css={{ width: 250}}>
+    <Flex
+      flexDirection="column"
+      justifyItems="flexstart"
+      alignItems="flexstart"
+      pt="5"
+      css={{ width: 250 }}
+    >
       <List>
-      <Text fontSize={0} pl={2}> 
-        Strategie
-      </Text> 
-        {menuiOS.map(link => (
-          <StyledLink to={link.url} color={textColor}>
-              <ListItem button key={link.name}>
-              <ListItemIcon>{link.icon}</ListItemIcon>
-              <ListItemText primary={link.name} />
-            </ListItem>
-          </StyledLink>
-        ))}
+        <Text fontSize={0} pl={2}>
+          Strategie
+        </Text>
+        {menuiOS.map(item =>
+          item.seperator ? (
+            <Text fontSize={0} pl={2}>
+              {item.name}
+            </Text>
+          ) : item.url ? (
+            <StyledLink to={item.url} color={textColor}>
+              <ListItem button key={item.name}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            </StyledLink>
+          ) : (
+            <span color={textColor}>
+              <ListItem button key={item.name}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            </span>
+          )
+        )}
       </List>
       <List>
         <Box>
@@ -176,8 +190,10 @@ const Header = props => {
   // In this case, if props.backgroundColor is not specified.
   // It will be transparent
   const backgroundColor = props.backgroundColor || "transparent";
-  const textColor = props.textColor || "#fff";  
-  
+  const textColor = props.textColor || "#fff";
+
+  const randomVar = "a";
+
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const dropdownVisible = selectedDropdown.length > 0;
 
@@ -189,7 +205,7 @@ const Header = props => {
         pt="4"
         style={headerStyle}
         width={1}
-        bg={dropdownVisible ? "white" : "transparent"}
+        bg={dropdownVisible ? backgroundColor : "transparent"}
       >
         <StyledLink to="/">
           <CssLogo className={classes.logo}>StockBoost</CssLogo>
@@ -199,7 +215,7 @@ const Header = props => {
             title="Finanzbildung"
             isOpen={selectedDropdown === "Finanzbildung"}
             list={menuEducation}
-            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            colorTitle={dropdownVisible ? "#FF8000" : textColor}
             onClick={() => setSelectedDropdown("Finanzbildung")}
           />
 
@@ -207,26 +223,26 @@ const Header = props => {
             title="Strategie"
             list={menuStrategie}
             isOpen={selectedDropdown === "Strategie"}
-            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            colorTitle={dropdownVisible ? "#FF8000" : textColor}
             onClick={() => setSelectedDropdown("Strategie")}
           />
           <DropDown
             title="Team"
             list={menuAboutUS}
             isOpen={selectedDropdown === "About Us"}
-            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            colorTitle={dropdownVisible ? "#FF8000" : textColor}
             onClick={() => setSelectedDropdown("About Us")}
           />
           <Flex alignItems={dropdownVisible ? null : "center"}>
             <StyledLink to="/Strategie/abonnement">
               <AttachMoney
-                style={{ color: dropdownVisible ? "#FF8000" : "white" }}
+                style={{ color: dropdownVisible ? "#FF8000" : textColor }}
               />
             </StyledLink>
           </Flex>
           <DropDown
             title="My StockBoost"
-            colorTitle={dropdownVisible ? "#FF8000" : "white"}
+            colorTitle={dropdownVisible ? "#FF8000" : textColor}
             isOpen={selectedDropdown === "My StockBoost"}
             list={menuLogin}
             onClick={() => setSelectedDropdown("My StockBoost")}
@@ -234,7 +250,11 @@ const Header = props => {
         </Hidden>
 
         <Hidden lgUp>
-          <Box bg="transparent" onClick={() => setDrawerOpen(true)}>
+          <Box
+            bg="transparent"
+            style={{ display: isDrawerOpen ? "none" : "block" }}
+            onClick={() => setDrawerOpen(true)}
+          >
             <MenuIcon />
           </Box>
         </Hidden>

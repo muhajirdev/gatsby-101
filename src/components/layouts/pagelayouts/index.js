@@ -1,70 +1,15 @@
 import React from "react";
 import { Component } from "react";
-import { StaticQuery, graphql} from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import { StaticQuery, graphql } from "gatsby";
 import { Box } from "rebass";
-import Layout from "../layout"
+import Layout from "../layout";
 import FullScreen from "../fullscreen";
 import SEO from "../../seo";
 import styles from "../../../styles/styles";
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-
-
-const Background1 = ({ children, graphqlSource }) => {
-  return (
-    
-//     // <div
-//     //   style={{
-//     //     minHeight: "100vh",
-//     //     minWidth: "100%",
-//     //     background:
-//     //       "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
-//     //     // backgroundImage: `url(/tyler-reynolds.jpg)`,
-//     //     backgroundImage: `url(${source})`,
-//     //     backgroundSize: "cover",
-//     //     backgroundPosition: "center center",
-//     // backgroundAttachment: "fixed",
-//     //     zIndex: 0
-//     //   }}
-//     // >
-//     //   {children}
-//     // </div>
-//     //
-//     // StaticQuery > src / images 
-    <StaticQuery
-      // query={graphqlSource}
-      query={graphql`
-      query {
-        desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `}
-      render={data => {
-        // Set ImageData.
-        const imageData = data.desktop.childImageSharp.fluid;
-        return (
-            <BackgroundImage
-              Tag="section"
-              fluid={imageData}
-              backgroundColor={`linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))`}
-              objectFit="cover"
-              backgroundAttachment="fixed" 
-              style={{zIndex:"0", backgroundAttachment: "fixed" }}
-            >
-              {children}
-            </BackgroundImage>
-        );
-      }}
-    />
-  );
-};
+// import globalSvg from "../../../assets/svg/global.svg";
 
 const Background2 = ({ children }) => (
   <div
@@ -104,12 +49,14 @@ class PageLayout extends Component {
       // backgroundGraphqlSource,
       graphqlSource,
       seoTitle,
-      navigationView
+      navigationView,
+      Background
     } = this.props;
-   
+
     return (
       <Layout>
         <SEO title={seoTitle} />
+        {/* <img src={globalSvg} /> */}
 
         <FullScreen
           // Header 5rem
@@ -126,7 +73,7 @@ class PageLayout extends Component {
           marginRight="auto"
         >
           {/* <Background1 graphql={backgroundGraphqlSource}> */}
-          <Background1 src={graphqlSource}>
+          <Background src={graphqlSource}>
             <Background2>
               <Background3>
                 <Box
@@ -147,8 +94,7 @@ class PageLayout extends Component {
                   p={10}
                   padding="40px"
                 >
-               
-                 <Typography variant="caption" className={classes.nav}>
+                  <Typography variant="caption" className={classes.nav}>
                     {/* <img
                       style={{
                         width: "1rem",
@@ -161,14 +107,19 @@ class PageLayout extends Component {
                     >  */}
                     {navigationView}
                   </Typography>
-                  <Typography variant="display1" className={classes.nav} style={{paddingBottom:"1rem"}}> {seoTitle}</Typography>
-                  <div style={{paddingBottom:"0rem"}}>
-                  {children}
-                  </div>
+                  <Typography
+                    variant="display1"
+                    className={classes.nav}
+                    style={{ paddingBottom: "1rem" }}
+                  >
+                    {" "}
+                    {seoTitle}
+                  </Typography>
+                  <div style={{ paddingBottom: "0rem" }}>{children}</div>
                 </Box>
               </Background3>
             </Background2>
-          </Background1>
+          </Background>
         </FullScreen>
       </Layout>
     );

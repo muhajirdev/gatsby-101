@@ -1,5 +1,5 @@
 import React from "react";
-import PageLayout from "../../components/layouts/pagelayouts/pagesTeam";
+import PageLayout from "../../components/layouts/pagelayouts/index";
 /* MUI */
 import Typography from "@material-ui/core/Typography";
 import { Box, Flex, Image } from "rebass";

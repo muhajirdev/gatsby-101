@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../styles/styles";
 import PageLayout from "../../components/layouts/pagelayouts/pagesAbo";
 import { Box } from "rebass";
+import Hidden from "@material-ui/core/Hidden";
+
+const RedirectOnSmallScreen = () => {
+  useEffect(() => {
+    window.open("https://www.google.com", "_blank");
+  });
+  return null;
+};
 
 export default ({ classes = styles }) => (
   <PageLayout
@@ -9,6 +17,9 @@ export default ({ classes = styles }) => (
     navigationView="Abonnement > Monats-Abonnement"
     // backgroundGraphqlSource={""}
   >
+    <Hidden lgUp>
+      <RedirectOnSmallScreen />
+    </Hidden>
     <Box
       //bg='magenta'
       width={[1, 1, 3 / 4]}
@@ -35,10 +46,10 @@ export default ({ classes = styles }) => (
       }}
     >
       <iframe
-        width='100%'
-        height='100%'
+        width="100%"
+        height="100%"
         title="Monatliches Abonnement"
-        src='https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0'
+        src="https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0"
         frameBorder="0"
         allowFullScreen
       />

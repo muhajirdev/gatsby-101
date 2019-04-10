@@ -19,7 +19,7 @@ export default theme => ({
   },
   blocksatz: {
     // fontFamily: "Roboto, Helvetica, Arial , sans-serif; !important",
-    color: "#fff",
+    color: "red",
     fontColor:"fff",
     fontStyle:"normal",
     fontWeight: 700,
