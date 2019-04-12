@@ -19,6 +19,10 @@ export const menuiOS = [
     icon: <Close style={{ height: "1.85rem", width: "1.85rem" }} />
   },
   {
+    name: "Strategie",
+    seperator: true
+  },
+  {
     name: "Anlagestrategie",
     url: "/Strategie/anlagestrategie",
     icon: <BarChart style={{ transform: "scaleX(-1)" }} />
@@ -29,7 +33,12 @@ export const menuiOS = [
     icon: <PlusOne />
   },
   {
-    name: "Strategie",
+    name: "FAQ",
+    url: "/Strategie/faq",
+    icon: <PieChart />
+  },
+  {
+    name: "Team",
     seperator: true
   },
   {
@@ -37,24 +46,20 @@ export const menuiOS = [
     url: "/Team/vision",
     icon: <BubbleChart />
   },
-  {
-    name: "FAQ",
-    url: "/Strategie/faq",
-    icon: <PieChart />
-  },
+  
   {
     name: "Das Team StockBoost",
     url: "/Team/team",
     icon: <Lens />
   },
   {
-    name: "Team",
-    seperator: true
-  },
-  {
     name: "Mastermind",
     url: "/Team/mastermind",
     icon: <Texture />
+  },
+  {
+    name: "Finanzbildung",
+    seperator: true
   },
   {
     name: "Newsletter",

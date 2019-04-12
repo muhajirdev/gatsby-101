@@ -46,7 +46,6 @@ class PageLayout extends Component {
     const {
       classes,
       children,
-      // backgroundGraphqlSource,
       graphqlSource,
       seoTitle,
       navigationView,
@@ -54,9 +53,10 @@ class PageLayout extends Component {
     } = this.props;
 
     return (
-      <Layout>
+      <Layout backgroundColor='white' textColor=''>
+      
         <SEO title={seoTitle} />
-        {/* <img src={globalSvg} /> */}
+   
 
         <FullScreen
           // Header 5rem
@@ -72,7 +72,6 @@ class PageLayout extends Component {
           marginLeft="auto"
           marginRight="auto"
         >
-          {/* <Background1 graphql={backgroundGraphqlSource}> */}
           <Background src={graphqlSource}>
             <Background2>
               <Background3>
@@ -95,16 +94,6 @@ class PageLayout extends Component {
                   padding="40px"
                 >
                   <Typography variant="caption" className={classes.nav}>
-                    {/* <img
-                      style={{
-                        width: "1rem",
-                        margin: 0,
-                        padding: 0,
-                        transform: "rotate(180deg)"
-                      }}
-                      src={require("../icons/muiHome.svg")}
-                    />{" "}
-                    >  */}
                     {navigationView}
                   </Typography>
                   <Typography

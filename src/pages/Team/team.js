@@ -1,14 +1,22 @@
 import React from "react";
 import PageLayout from "../../components/layouts/pagelayouts/index";
-/* MUI */
-import Typography from "@material-ui/core/Typography";
-import { Box, Flex, Image } from "rebass";
+import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
+import Typography from "@material-ui/core/Typography";
+import { StaticQuery, graphql } from "gatsby";
+import { Box, Flex, Image } from "rebass";
+
 
 
 const Content = ({ classes = styles, data }) => {
   return (
-    <PageLayout seoTitle="Team" navigationView="Team > Das StockBoost Team">
+    <PageLayout 
+      seoTitle="Team" 
+      navigationView="Team > Das StockBoost Team"
+      Background={Background}
+
+      >
+
       <div>
         <Flex flexDirection={["column", "row", "row"]}
               alignItems="flexStart" 
@@ -172,6 +180,21 @@ const Content = ({ classes = styles, data }) => {
 export default Content;
 
 
-
-
-
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

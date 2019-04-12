@@ -66,7 +66,7 @@ class Subscribe extends Component {
     const year = dt.getFullYear();
 
     return (
-      <Layout backgroundColor="white" textColor="black">
+      <Layout backgroundColor="white" textColor="white">
         <SEO title="Boost" keywords={[`gatsby`, `application`, `react`]} />
         {/* <Flex
           // className={classes.textContainer}

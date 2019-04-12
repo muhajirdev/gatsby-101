@@ -1,20 +1,23 @@
 import React from "react";
 import PageLayout from "../../components/layouts/pagelayouts/index";
-import Typography from "@material-ui/core/Typography";
-import Collapsable from "../../components/layouts/collapsable";
+import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
+import Typography from "@material-ui/core/Typography";
+import { StaticQuery, graphql } from "gatsby";
+import Collapsable from "../../components/layouts/collapsable";
 import { withStyles } from "@material-ui/core";
 
 export default withStyles(styles)(({ classes = styles }) => (
   <PageLayout
     seoTitle="Vision"
     navigationView="Team > Vision"
-    // backgroundGraphqlSource={""}
+    Background={Background}
   >
     <Typography
       className={classes.blocksatz}
       style={{ color: "#fff" }}
       variant="subtitle1"
+       Background={Background}
     >
       Im Allgemeinen wird mit großen Gewinnen und dem schnellen Geld an der
       Börse geworben. Die Wirklichkeit sieht leider anders aus. Die meisten
@@ -87,3 +90,22 @@ export default withStyles(styles)(({ classes = styles }) => (
     </Collapsable>
   </PageLayout>
 ));
+
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
+import PageLayout from "../../components/layouts/pagelayouts/index";
+import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
-import PageLayout from "../../components/layouts/pagelayouts/pagesAbo";
+import { StaticQuery, graphql } from "gatsby";
 import { Box } from "rebass";
 import Hidden from "@material-ui/core/Hidden";
 
 const RedirectOnSmallScreen = () => {
   useEffect(() => {
-    window.open("https://www.google.com", "_blank");
+    window.open("https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0", "_blank");
   });
   return null;
 };
@@ -15,7 +17,7 @@ export default ({ classes = styles }) => (
   <PageLayout
     seoTitle="Monats-Abonnement"
     navigationView="Abonnement > Monats-Abonnement"
-    // backgroundGraphqlSource={""}
+    Background={Background}
   >
     <Hidden lgUp>
       <RedirectOnSmallScreen />
@@ -56,3 +58,22 @@ export default ({ classes = styles }) => (
     </Box>
   </PageLayout>
 );
+
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/daniel-genser.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

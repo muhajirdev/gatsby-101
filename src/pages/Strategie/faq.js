@@ -1,14 +1,16 @@
 import React from "react";
 import PageLayout from "../../components/layouts/pagelayouts/index";
-import Typography from "@material-ui/core/Typography";
+import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
+import { StaticQuery, graphql } from "gatsby";
+import Typography from "@material-ui/core/Typography";
 
 export default ({ classes = styles }) => (
   <PageLayout
     seoTitle="FAQ"
     navigationView="Strategie > FAQ"
-    // Background=
-    // backgroundGraphqlSource={""}
+    Background={Background}
+    
   >
     <Typography
       className={classes.blocksatz}
@@ -161,3 +163,22 @@ export default ({ classes = styles }) => (
     </Typography>
   </PageLayout>
 );
+
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

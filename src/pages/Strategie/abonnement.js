@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
 import PageLayout from "../../components/layouts/pagelayouts/index";
-import Typography from "@material-ui/core/Typography";
+import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
+import Typography from "@material-ui/core/Typography";
 import { graphql } from "gatsby";
-
 /* Icons */
 import MonthIcon from "@material-ui/icons/Explore";
 import YearIcon from "@material-ui/icons/PowerSettingsNew";
-
 /* styled */
 import styled from "styled-components";
 import { Link, StaticQuery } from "gatsby";
-import BackgroundImage from "../../components/background-image";
-
 // rebass Flex
 import { Flex } from "rebass";
 
@@ -24,10 +21,12 @@ const StyledLink = styled(Link)`
 
 export default ({ classes = styles }) => {
   return (
+
     <PageLayout
       seoTitle="Abonnement"
       navigationView="Strategie > Abonnement"
       Background={Background}
+      
     >
       <Typography
         className={classes.blocksatz}
