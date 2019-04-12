@@ -8,7 +8,10 @@ import Hidden from "@material-ui/core/Hidden";
 
 const RedirectOnSmallScreen = () => {
   useEffect(() => {
-    window.open("https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0", "_blank");
+    window.open(
+      "https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0",
+      "_blank"
+    );
   });
   return null;
 };
@@ -48,8 +51,7 @@ export default ({ classes = styles }) => (
       }}
     >
       <iframe
-        width="100%"
-        height="100%"
+        id="iframe"
         title="Monatliches Abonnement"
         src="https://app.billwerk.com/portal/signup.html#/5ca3220e480202184c0181c0"
         frameBorder="0"

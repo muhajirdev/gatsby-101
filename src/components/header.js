@@ -76,9 +76,9 @@ const SideList = props => {
       </List>
       <List>
         <Box>
-        <Text fontSize={0} pl={2}>
-          Kauf
-        </Text>
+          <Text fontSize={0} pl={2}>
+            Kauf
+          </Text>
           <StyledLink to="/Strategie/abonnement" color={textColor}>
             <ListItem button key={"Abonnement"}>
               <ListItemIcon>
@@ -100,7 +100,11 @@ const DropDown = ({ title, list, onClick, isOpen, colorTitle = "white" }) => {
         <Box
           px="2"
           bg="transparent"
-          style={{ fontFamily: "acumin-pro", fontWeight: 700 }}
+          style={{
+            fontFamily: "acumin-pro",
+            fontWeight: 700,
+            cursor: "pointer"
+          }}
           color={colorTitle}
         >
           {title}

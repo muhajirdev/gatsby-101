@@ -63,7 +63,6 @@ class PageLayout extends Component {
           // bg='magenta'
           minHeight={[1, 1, 1]}
           minWidth={[1, 1, 1]}
-          flexDirection={["column", "column", "column"]}
           flexWrap="nowrap"
           alignSelf="center"
           alignItems="center"

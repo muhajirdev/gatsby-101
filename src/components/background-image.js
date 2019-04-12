@@ -3,7 +3,10 @@ import BackgroundImage from "gatsby-background-image";
 import styled from "styled-components";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
-  background-attachment: fixed;
+  flex: 1;
+  &::before {
+    background-attachment: fixed;
+  }
 `;
 
 export default ({ data, children }) => {
