@@ -1,6 +1,6 @@
-const dotenv = require('dotenv')
-if (process.env.NODE_ENV !== 'production') {
- dotenv.config()
+const dotenv = require("dotenv");
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
 }
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images/`
-      }         
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -46,25 +46,26 @@ module.exports = {
         icon: `src/assets/favicon/favicon.png` // This path is relative to the root of the site.
       }
     },
+    "gatsby-plugin-layout",
     {
-    // You can have multiple instances of this plugin
-    // to create pages from React components in different directories.
-    //
-    // The following sets up the pattern of having multiple
-    // "pages" directories in your project
+      // You can have multiple instances of this plugin
+      // to create pages from React components in different directories.
+      //
+      // The following sets up the pattern of having multiple
+      // "pages" directories in your project
       resolve: `gatsby-plugin-page-creator`,
       options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-            spaceId: `xy0rm86pahno`,
-            accessToken: process.env.ContentfulAccessToken,
-            downloadLocal: true
+        path: `${__dirname}/src/pages`
       }
-     },    
+    }
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //         spaceId: `xy0rm86pahno`,
+    //         accessToken: process.env.ContentfulAccessToken,
+    //         downloadLocal: true
+    //   }
+    //  },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
