@@ -1,3 +1,8 @@
+const dotenv = require('dotenv')
+if (process.env.NODE_ENV !== 'production') {
+ dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
     title: `StockBoost`,
@@ -9,6 +14,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-material-ui",
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,9 +56,15 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
       },
-    }
-
-    
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+            spaceId: `xy0rm86pahno`,
+            accessToken: process.env.ContentfulAccessToken,
+            downloadLocal: true
+      }
+     },    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

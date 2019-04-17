@@ -1,9 +1,6 @@
 import React from "react";
 /* Icons */
-import Dashboard from "@material-ui/icons/Dashboard";
-import Circle from "@material-ui/icons/CheckCircleOutline";
 import Send from "@material-ui/icons/Send";
-import AttachFile from "@material-ui/icons/AttachFile";
 import PlusOne from "@material-ui/icons/PlusOne";
 import Close from "@material-ui/icons/Close";
 import BarChart from "@material-ui/icons/BarChart";
@@ -77,11 +74,11 @@ export const menuEducation = [
 ];
 
 export const menuStrategie = [
-  {
-    name: "Abonnement",
-    url: "/Strategie/abonnement",
-    icon: ""
-  },
+  // {
+  //   name: "Abonnement",
+  //   url: "/Strategie/abonnement",
+  //   icon: ""
+  // },
   {
     name: "Anlagestrategie",
     url: "/Strategie/anlagestrategie",

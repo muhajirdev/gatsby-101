@@ -40,7 +40,7 @@ const StyledLink = styled(Link)`
 `;
 
 const SideList = props => {
-  const { classes = styles } = props;
+  // const { classes = styles } = props;
   const textColor = props.textColor || "#fff";
 
   return (
@@ -48,7 +48,7 @@ const SideList = props => {
       flexDirection="column"
       justifyItems="flexstart"
       alignItems="flexstart"
-      pt="5"
+      pt="4"
       css={{ width: 250 }}
     >
       <List>
@@ -154,8 +154,6 @@ const Header = props => {
   const backgroundColor = props.backgroundColor || "transparent";
   const textColor = props.textColor || "#fff";
 
-  const randomVar = "a";
-
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const dropdownVisible = selectedDropdown.length > 0;
 
@@ -200,6 +198,7 @@ const Header = props => {
               <AttachMoney
                 style={{ color: dropdownVisible ? "#FF8000" : textColor }}
               />
+
             </StyledLink>
           </Flex>
           <DropDown
@@ -234,7 +233,7 @@ const Header = props => {
             }}
           >
             <Box
-              css={{ backgroundColor: "rgba(0,0,0,0.6)", minHeight: "100vh" }}
+              css={{ backgroundColor: "rgba(0,0,0,0.8)", minHeight: "100vh" }}
               tabIndex={0}
               role="button"
               onClick={() => setDrawerOpen(false)}

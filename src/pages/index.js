@@ -194,10 +194,10 @@ const IndexPage = () => (
                 }}
                 fontSize={[2, 5]}
               >
-                <StyledLink to="/anlagestrategie"> Mehr erfahren</StyledLink>
+                <StyledLink to="/Strategie/anlagestrategie"> Mehr erfahren</StyledLink>
               </Text>
 
-              <StyledLink to="/anlagestrategie">
+              <StyledLink to="/Strategie/anlagestrategie">
                 <div>
                   <img alt="bulb.svg"
                     style={{ width: "2rem" }}

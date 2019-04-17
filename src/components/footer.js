@@ -19,7 +19,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Icon from "./layouts/icon";
-import { Flex } from "rebass";
+import { Flex, Box } from "rebass";
 import HoverSubscribe from "../styles/hoverSubscribe";
 
 /* Icons */
@@ -53,22 +53,22 @@ const columns = [
     title: "Service",
     items: [
       { name: "FAQ", url: "/Strategie/faq" },
-      { name: "Kontakt", url: "/Rechtliches/impressum" },
-      { name: "Kundenbereich", url: "/404" },
+      // { name: "Kontakt", url: "/Rechtliches/impressum" },
+      // { name: "Kundenbereich", url: "/404" },
       { name: "Newsletter", url: "/Finanzbildung/subscribe" },
-      { name: "Presse", url: "/404" },
+      // { name: "Presse", url: "/404" },
      
     ]
   },
-  {
-    title: "Rechtliches",
-    items: [
-      { name: "AGB", url: "/Rechtliches/AGB" },
-      { name: "Datenschutz", url: "/Rechtliches/datenschutz" },
-      { name: "Impressum", url: "/Rechtliches/impressum" },
+  // {
+  //   title: "Rechtliches",
+  //   items: [
+  //     { name: "AGB", url: "/Rechtliches/AGB" },
+  //     { name: "Datenschutz", url: "/Rechtliches/datenschutz" },
+  //     { name: "Impressum", url: "/Rechtliches/impressum" },
        
-    ]
-  },
+  //   ]
+  // },
   // {
   //   title: "Kontakt",
   //   items: [
@@ -101,15 +101,23 @@ class Footer extends Component {
         }}
       >
      
+     <Box  
+          width={["100%", "60%", "60%"]}
+          mx="auto"
+          >
+
+     
 
           <Flex flexDirection={["column", "row", "row"]}>
             {columns.map(column => (
               <Flex
                 width={["100%", "40%", "20%"]}
                 mx="auto"
-                pt="2rem"
-                flexDirection={"column"}
                 px="4"
+                pt="2rem"
+                flexDirection={"column"}               
+                alignItems="flexStart"
+                alignSelf="flexStart"
               >
                 <Typography
                   variant="headline"
@@ -170,7 +178,7 @@ class Footer extends Component {
                 <MailIcon className={classes.link} />
                 <Mailto className={classes.link} email="info@stockboost.de"
                   headers={
-                    { subject: 'NoFAQ / Kunde ist König', body: 'Sehr geehrtes StockBoost Team, ' }
+                    { subject: 'StockBoost // Kontakt - Kunde ist König', body: 'Sehr geehrtes StockBoost Team, ' }
                   } />
           
               <Typography
@@ -222,6 +230,7 @@ class Footer extends Component {
           </Typography>
           </div>
       
+          </Box>
      </div>    
   
     );

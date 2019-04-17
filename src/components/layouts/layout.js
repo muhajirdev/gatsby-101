@@ -146,13 +146,14 @@ const Layout = ({ children, backgroundColor, textColor }) => {
               />
               <Footer />
               <CookieConsent  
-                              acceptOnScroll={true}
+                              // debug={true}
+                              acceptOnScroll={false}
                               acceptOnScrollPercentage={50}
                               location="bottom"
                               buttonText="Okay"
                               cookieName="www.StockBoost.de"
                               style={{ background: "rgba(0,0,0,0.8)" }}
-                              buttonStyle={{ color: "#4e503b", fontWeight: "bold", textAlign:"center", alignItems:"center", borderRadius:"0", fontSize: "13px", background:"transparent" }}
+                              buttonStyle={{ color: "#FF8000", fontWeight: "bold", textAlign:"center", alignItems:"center", borderRadius:"0", fontSize: "20px", background:"transparent" }}
                               expires={1}
           >              
                   <span>
@@ -160,8 +161,8 @@ const Layout = ({ children, backgroundColor, textColor }) => {
                     verbessern. Mehr Informationen dazu finden Sie in unserer
                     Datenschutzerklärung.
                   </span>
-                  <Link to="/datenschutz">
-                    <Button ml="3" borderRadius="0" bg="transparent">
+                  <Link to="Rechtliches/datenschutz">
+                    <Button ml="0" borderRadius="0" bg="transparent">
                       Mehr Infos
                     </Button>
                   </Link>

@@ -1,30 +1,10 @@
 import React from 'react'
 
 export default () => (
-  
-    <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="36" 
-    height="36" 
-    viewBox="0 0 36 36" 
-    >
-
-
-
-
-    <g>
-    <rect fill='#fff' width='100%' height='1.5' x='-16' y='20%'   shape-rendering ="optimizeLegibility "></rect>;
-    <rect fill='#fff' width='100%' height='1.5' x='0' y='40%'  shape-rendering ="crispEdges "></rect>;
-    <rect fill='#fff' width='100%' height='1.5' x='16' y='60%'   shape-rendering ="crispEdges "></rect>;
-    </g>
-
-
-
-
-
-    </svg>
-
-
-
-
+    
+<svg width="160" height="140" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <line x1="100" x2="115" y1="10" y2="10" stroke="white" stroke-width="2" stroke-linecap="square"/>
+  <line x1="100" x2="130" y1="16" y2="16" stroke="white" stroke-width="2" stroke-linecap="square"/>
+  <line x1="115" x2="134" y1="22" y2="22" stroke="white" stroke-width="2" stroke-linecap="square"/>
+</svg>
 );

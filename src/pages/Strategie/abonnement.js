@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PageLayout from "../../components/layouts/pagelayouts/index";
 import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
@@ -18,6 +18,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: #ff8000;
 `;
+
 
 export default ({ classes = styles }) => {
   return (

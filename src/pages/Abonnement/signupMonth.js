@@ -6,6 +6,7 @@ import { StaticQuery, graphql } from "gatsby";
 import { Box } from "rebass";
 import Hidden from "@material-ui/core/Hidden";
 
+
 const RedirectOnSmallScreen = () => {
   useEffect(() => {
     window.open(
@@ -50,6 +51,8 @@ export default ({ classes = styles }) => (
         }
       }}
     >
+
+    
       <iframe
         id="iframe"
         title="Monatliches Abonnement"

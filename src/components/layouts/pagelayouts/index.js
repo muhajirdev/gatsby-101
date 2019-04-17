@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { StaticQuery, graphql } from "gatsby";
 import { Box } from "rebass";
 import Layout from "../layout";
 import FullScreen from "../fullscreen";
