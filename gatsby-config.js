@@ -1,7 +1,6 @@
-const dotenv = require("dotenv");
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config();
-}
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 module.exports = {
   siteMetadata: {
@@ -57,15 +56,15 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`
       }
-    }
+    },
     // {
     //   resolve: `gatsby-source-contentful`,
     //   options: {
-    //         spaceId: `xy0rm86pahno`,
-    //         accessToken: process.env.ContentfulAccessToken,
-    //         downloadLocal: true
+    //     spaceId: `xy0rm86pahno`,
+    //     accessToken: CONTENTFUL_ACCESS_TOKEN,
+    //     downloadLocal: true
     //   }
-    //  },
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

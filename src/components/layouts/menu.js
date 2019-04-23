@@ -6,6 +6,7 @@ import Close from "@material-ui/icons/Close";
 import BarChart from "@material-ui/icons/BarChart";
 import PieChart from "@material-ui/icons/PieChart";
 import BubbleChart from "@material-ui/icons/BubbleChart";
+import AttachFile from "@material-ui/icons/AttachFile";
 import Lens from "@material-ui/icons/Lens";
 import Texture from "@material-ui/icons/Texture";
 
@@ -115,14 +116,14 @@ export const menuAboutUS = [
 ];
 
 export const menuLogin = [
-  // {
-  //     name: "Registrierung",
-  //     url: "/StockBoost/registrierung",
-  //     icon: <PlusOne />
-  // },
-  // {
-  //     name: "Kundenbereich",
-  //     url: "/StockBoost/kundenbereich",
-  //     icon: <AttachFile />
-  // }
+  {
+      name: "Registrierung",
+      url: "/StockBoost/registrierung",
+      icon: <PlusOne />
+  },
+  {
+      name: "Kundenbereich",
+      url: "/StockBoost/kundenbereich",
+      icon: <AttachFile />
+  }
 ];

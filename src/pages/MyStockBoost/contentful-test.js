@@ -6,8 +6,7 @@ import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
 
 const client = createClient({
   space: "xy0rm86pahno",
-  accessToken:
-    "ACCESS_TOKEN_HERE"
+  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN
 });
 
 const options = {

@@ -23,6 +23,8 @@ const config = {
   messagingSenderId: "646496200074"
 };
 
+const AuthContext = React.createContext(null);
+
 export default ({ children }) => {
   const [authenticated, setAuthenticated] = useState();
   const [firebaseInstance, setFirebaseInstance] = useState(null);
@@ -46,7 +48,9 @@ export default ({ children }) => {
   }, []);
   return (
     <FirebaseContext.Provider value={firebaseInstance}>
-      {authenticated ? children : <SignIn />}
+      <AuthContext.Provider value={authenticated}>
+        {children}
+      </AuthContext.Provider>
     </FirebaseContext.Provider>
   );
 };
