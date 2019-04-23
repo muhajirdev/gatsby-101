@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import firebase from "firebase";
 import FirebaseContext from "../components/firebase-context";
 import { SignIn } from "../components/signin";
 
@@ -15,12 +14,12 @@ const getFirebase = firebase => {
 };
 
 const config = {
-  apiKey: "AIzaSyDjS6tGpqjAaC0aXQAGZMkjssABbZzTgSo",
-  authDomain: "awesome-bb71b.firebaseapp.com",
-  databaseURL: "https://awesome-bb71b.firebaseio.com",
-  projectId: "awesome-bb71b",
-  storageBucket: "awesome-bb71b.appspot.com",
-  messagingSenderId: "646496200074"
+  apiKey: "AIzaSyAxQqWY4jEfRH8O5tCfKZIxB1teR7YG5Eo",
+  authDomain: "squote-systems.firebaseapp.com",
+  databaseURL: "https://squote-systems.firebaseio.com",
+  projectId: "squote-systems",
+  storageBucket: "squote-systems.appspot.com",
+  messagingSenderId: "354156066906"
 };
 
 const AuthContext = React.createContext(null);
