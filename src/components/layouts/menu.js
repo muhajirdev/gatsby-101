@@ -116,14 +116,14 @@ export const menuAboutUS = [
 ];
 
 export const menuLogin = [
-  {
-      name: "Registrierung",
-      url: "/StockBoost/registrierung",
-      icon: <PlusOne />
-  },
-  {
-      name: "Kundenbereich",
-      url: "/StockBoost/kundenbereich",
-      icon: <AttachFile />
-  }
+  // {
+  //     name: "Registrierung",
+  //     url: "/StockBoost/registrierung",
+  //     icon: <PlusOne />
+  // },
+  // {
+  //     name: "Kundenbereich",
+  //     url: "/StockBoost/kundenbereich",
+  //     icon: <AttachFile />
+  // }
 ];

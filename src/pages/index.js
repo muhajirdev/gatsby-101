@@ -1,32 +1,33 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "gatsby";
-import { TweenMax } from "gsap";
-// import { Elastic } from "gsap/EasePack";
+import PageLayout from "../components/layouts/pagelayouts/index";
+import BackgroundImage from "../components/background-image";
 import Typography from "@material-ui/core/Typography";
-
-import Layout from "../components/layouts/layout";
-import SEO from "../components/seo";
+import { StaticQuery, graphql } from "gatsby";
+// gsap
+import { TweenMax } from "gsap";
+// rebass
+import { Text, Box, Flex } from "rebass";
+//
+// import styles, { StyledLink as StyledLink } from "../styles/styles";
+import styles from "../styles/styles";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
-// rebass
-import { Box, Text } from "rebass";
-import FullScreen from "../components/layouts/fullscreen";
-
-// const FullScreen = Styled(Flex)`
-//     // ${minHeight}
-//     // ${minWidth}
-//     width: 100vw;
-//     height: 100vh;
-// `
+const StyledLink = styled(Link)`
+  font-size: 15;
+  text-decoration: none;
+  color: #ff8000;
+  z-index: 0;
+`;
 
 const gsapStyle = {
   // textTransform: "uppercase",
   fontFamily: "acumin-pro, sans-serif !important",
   fontWeight: "700",
   textAlign: "left",
-  letterSpacing: "-0.25rem",
+  letterSpacing: "-0.1rem",
   whiteSpace: "nowrap",
-  lineHeight: "2.25rem",
+  lineHeight: "2.75rem",
   opacity: "0.6",
   color: "#fff"
 };
@@ -68,214 +69,102 @@ const GreenSock = () => {
   );
 };
 
-const StyledLink = styled(Link)`
-  font-size: 15;
-  text-decoration: none;
-  color: #ff8000;
-  z-index: 0;
-`;
-
-const Background1 = ({ children }) => (
-  <div
-    style={{
-      minHeight: "100vh",
-      minWidth: "100%",
-      background:
-        "linear-gradient(0deg, rgba(64, 51, 51, 0), rgba(31, 26, 26, 0.6))",
-      backgroundImage: "url(/brooklyn-bridge.jpg)",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      zIndex: 0
-    }}
+export default ({ classes = styles }) => (
+  <PageLayout
+    seoTitle="Stockboost"
+    // navigationView=""
+    Background={Background}
   >
-    {children}
-  </div>
-);
-
-const Background2 = ({ children }) => (
-  <div
-    style={{
-      minHeight: "100vh",
-      minWidth: "100%",
-      background:
-        "linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6))",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      zIndex: -100
-    }}
-  >
-    {children}
-  </div>
-);
-const Background3 = ({ children }) => (
-  <div
-    style={{
-      minHeight: "100vh",
-      minWidth: "100%",
-      background: "rgba(0, 0, 0, 0.3)",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      zIndex: -100
-    }}
-  >
-    {children}
-  </div>
-);
-
-const IndexPage = () => (
-  <Layout backgroundColor="white" textColor="white">
-    <SEO title="StockBoost" keywords={[`gatsby`, `application`, `react`]} />
-
-    <FullScreen
+    <Box
+      flexDirection={["column", "column", "column"]}
       // Header 5rem
       // bg='magenta'
-      flexDirection={["column", "column", "column"]}
-      flexWrap="nowrap"
-      alignSelf="center"
-      alignItems="center"
-      justifyContent="space-between"
-      textAlign="center"
-      marginLeft="auto"
-      marginRight="auto"
+      minHeight="100%"
+      fontSize={4}
+      width={[1, 1, 3 / 4]}
+      color="#fff"
+      justifyContent="flexEnd"
+      alignItems="flexEnd"
+      textAlign="flexEnd"
+      alignSelf="flexEnd"
+      mx="auto"
     >
-      <Background1>
-        <Background2>
-          <Background3>
-            <Box
-              flexDirection={["row", "row", "row"]}
-              // Header 5rem
-              // bg='magenta'
-              pt="13.5rem"
-              marginRight="auto"
-              marginLeft="auto"
-              fontSize={40}
-              width={[1, 1, 1 / 2]}
-              color="#fff"
-              justifyContent="center"
-              alignItems="center"
-              textAlign="center"
-              alignSelf="center"
-              mx="auto"
-              p={100}
-              style={{ textAlign: "center" }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-                  fontWeight: "bold",
-                  lineHeight: "2.55rem",
-                  padding: "1rem 0rem 1rem 0rem"
-                }}
-                fontSize={[3, 6]}
-              >
-                Wie man systematisch & entspannt in Aktien investiert -
-                StockBoost
-              </Text>
-              <Text
-                style={{
-                  color: "#fff",
-                  fontWeight: "normal",
-                  padding: "1rem 0rem 1rem 0rem"
-                }}
-                fontSize={[2, 4]}
-              >
-                Ein Team aus erfahrenen Händlern schlägt die Brücke in die
-                Wissenschaft! Basierend auf akademischer Literatur haben wir ein
-                Regelwerk zusammengestellt, das wir systematisch als
-                Anlagestrategie in einem Echtgelddepot anwenden. Sie wollen
-                wissen, worauf genau wir uns beziehen? Kein Problem!
-              </Text>
+      <GreenSock />
+    </Box>
 
-              <Text
-                style={{
-                  color: "#FF8000",
-                  fontWeight: "bold",
-                  padding: "1rem 0rem 1rem 0rem"
-                }}
-                fontSize={[2, 5]}
-              >
-                <StyledLink to="/Strategie/anlagestrategie"> Mehr erfahren</StyledLink>
-              </Text>
+    <Flex
+      flexDirection="column"
+      px={2}
+      color="white"
+      //bg='black'
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Text
+        style={{
+          color: "#fff",
+          fontWeight: "bold",
+          lineHeight: "2.55rem",
+          padding: "1rem 0rem 1rem 0rem"
+        }}
+        fontSize={[3, 6]}
+      >
+        Wie man systematisch & entspannt in Aktien investiert - StockBoost
+      </Text>
+      <Text
+        style={{
+          color: "#fff",
+          fontWeight: "normal",
+          padding: "1rem 0rem 1rem 0rem"
+        }}
+        fontSize={[2, 4]}
+      >
+        Ein Team aus erfahrenen Händlern schlägt die Brücke in die Wissenschaft!
+        Basierend auf akademischer Literatur haben wir ein Regelwerk
+        zusammengestellt, das wir systematisch als Anlagestrategie in einem
+        Echtgelddepot anwenden. Sie wollen wissen, worauf genau wir uns
+        beziehen? Kein Problem!
+      </Text>
 
-              <StyledLink to="/Strategie/anlagestrategie">
-                <div>
-                  <img alt="bulb.svg"
-                    style={{ width: "2rem" }}
-                    src={require("../icons/bulb.svg")}
-                  />
-                  {/* <Text
-                    style={{
-                      color: "#fff",
-                      fontWeight: "normal",
-                      padding: "1rem 0rem 1rem 0rem"
-                    }}
-                    fontSize={[2, 4]}
-                  >
-                    Vision
-                    <br />
-                    Anlagestrategie
-                  </Text> */}
-                </div>
-              </StyledLink>
-            </Box>
+      <Text
+        style={{
+          color: "#FF8000",
+          fontWeight: "bold",
+          padding: "1rem 0rem 1rem 0rem"
+        }}
+        fontSize={[2, 5]}
+      >
+        <StyledLink to="/Strategie/anlagestrategie"> Mehr erfahren</StyledLink>
+      </Text>
 
-            <Box
-              flexDirection={["column", "column", "column"]}
-              // Header 5rem
-              // bg='magenta'
-              minHeight="100%"
-              fontSize={4}
-              width={[1, 1, 3 / 4]}
-              color="#fff"
-              justifyContent="flexEnd"
-              alignItems="flexEnd"
-              textAlign="flexEnd"
-              alignSelf="flexEnd"
-              mx="auto"
-            >
-              <GreenSock />
-            </Box>
-
-            {/* <Box
-              flexDirection={["row", "row", "row"]}
-              // Header 5rem
-              // bg='magenta'
-              pt="13.5rem"
-              marginRight="auto"
-              marginLeft="auto"
-              fontSize={40}
-              width={[1, 1, 3 / 4]}
-              color="#fff"
-              justifyContent="center"
-              alignItems="center"
-              textAlign="center"
-              alignSelf="center"
-              mx="auto"
-              p={100}
-              style={{ textAlign: "center" }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-                  fontWeight: "normal",
-                  padding: "1rem 0rem 1rem 0rem",
-                  textAlign:"left"
-                }}
-                fontSize={[2, 4]}
-              >
-                Wir handeln selbst seit vielen Jahren an der Börse und wollen
-                nicht die Unwissenheit anderer ausnutzen, um uns selbst zu
-                bereichern. Das geht nur über Transparenz und Offenheit. Mit
-                StockBoost haben wir ein Projekt gestartet, mit welchem wir
-                diesen Anspruch umsetzen.
-              </Text>
-            </Box> */}
-
-          </Background3>
-        </Background2>
-      </Background1>
-    </FullScreen>
-  </Layout>
+      <StyledLink to="/Strategie/anlagestrategie">
+        <div>
+          <img
+            alt="bulb.svg"
+            style={{ width: "2rem" }}
+            src={require("../icons/bulb.svg")}
+          />
+        </div>
+      </StyledLink>
+    </Flex>
+  </PageLayout>
 );
 
-export default IndexPage;
+const Background = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(relativePath: { eq: "wallpaper/brooklynBridge.jpg" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      `}
+      render={data => <BackgroundImage data={data}>{children}</BackgroundImage>}
+    />
+  );
+};

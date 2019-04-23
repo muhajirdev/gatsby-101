@@ -29,7 +29,7 @@ const Background = ({ children }) => {
     <StaticQuery
       query={graphql`
         query {
-          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+          desktop: file(relativePath: { eq: "wallpaper/tylerReynolds.jpg" }) {
             childImageSharp {
               fluid(quality: 100, maxWidth: 4160) {
                 ...GatsbyImageSharpFluid_withWebp

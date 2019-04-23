@@ -166,7 +166,7 @@ class Footer extends Component {
                     <HoverSubscribe>STOCKBOOST</HoverSubscribe>
                   </a>
                  
-                  <h6 style={{ padding: "1rem" }}>Säntisstrasse 6 | CH-9100 Herisau |
+                  <h6 style={{ padding: "1rem" }}>Säntisstrasse 6 | CH-9100 Herisau 
                     <br />
                     Phone +41 71 3511 620
                    </h6>

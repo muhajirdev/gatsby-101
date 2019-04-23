@@ -1,4 +1,15 @@
+import { Link } from "gatsby";
+import styled from "styled-components";
+import { withStyles } from "@material-ui/core";
+
 //const styles = (theme) => ({
+
+const StyledLink = styled(Link)`
+  font-size: 15;
+  text-decoration: none;
+  color: #ff8000;
+  z-index: 0;
+`;
 
 export default theme => ({
   heading: {
@@ -14,14 +25,14 @@ export default theme => ({
   },
   nav: {
     color: "#fff",
-    fontStyle:"normal",
-    fontWeight: 700,
+    fontStyle: "normal",
+    fontWeight: 700
   },
   blocksatz: {
     // fontFamily: "Roboto, Helvetica, Arial , sans-serif; !important",
     color: "red",
-    fontColor:"fff",
-    fontStyle:"normal",
+    fontColor: "fff",
+    fontStyle: "normal",
     fontWeight: 700,
     paddingTop: "1rem"
   },
@@ -33,7 +44,7 @@ export default theme => ({
     marginRight: "20%",
     marginLeft: "20%",
     textAlign: "justify"
-  }, 
+  },
   copyright: {
     color: "#fff",
     textAlign: "center"
@@ -53,7 +64,7 @@ export default theme => ({
     height: "100%",
     width: "100%",
     border: "10px solid #fff",
-    boxShadow: "none",  
+    boxShadow: "none",
     overflowY: "scroll",
     overflow: "-moz-scrollbars-none",
     msOverflowStyle: "none",
@@ -62,4 +73,3 @@ export default theme => ({
 });
 
 // export default styles;
-

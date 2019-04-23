@@ -50,7 +50,7 @@ export default withStyles(styles)(({ classes = styles }) => (
         steinigen Weg machen, beschreiben wir im Detail im{" "}
         <a
           style={{ color: "#FF8000", textDecoration: "none" }}
-          href="/mastermind"
+          href="/Team/mastermind"
         >
           Menüpunkt Team / Mastermind
         </a>
@@ -96,7 +96,7 @@ const Background = ({ children }) => {
     <StaticQuery
       query={graphql`
         query {
-          desktop: file(relativePath: { eq: "wallpaper/tyler-reynolds.jpg" }) {
+          desktop: file(relativePath: { eq: "wallpaper/tylerReynolds.jpg" }) {
             childImageSharp {
               fluid(quality: 100, maxWidth: 4160) {
                 ...GatsbyImageSharpFluid_withWebp
