@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { navigate } from "@reach/router";
+import { Flex } from "rebass";
 
 // Firebase
 import { withFirebase } from "../components/firebase-context";
 import "firebase/firestore";
+import Input from "../components/subscribe/input";
 
 // const getUiConfig = firebase => ({
 //   signInFlow: "popup",
@@ -83,26 +86,74 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
   );
 });
 
-export const SignIn = withFirebase(({ firebase }) => {
+export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  if (!firebaseRoot) return null;
+
+  const { firebase } = firebaseRoot;
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    alert("login test");
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(_ => navigate('/MyStockBoost/contentful-test'))
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(error);
+        // ...
+      });
+  };
+
   if (!firebase) return null;
   return (
-    <div>
-      <form action="">
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
+    <Flex
+      py="3"
+      px="4"
+      style={{
+        border: "10px solid #fff"
+      }}
+    >
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handleSubmit}
+      >
+        <div style={{ marginBottom: "1rem", width: "100%" }}>
+          <Input
+            type="email"
+            placeholder="du@example.de"
+            value={email}
+            onChange={event => setEmail(event.target.value)}
+            style={{ width: "100%" }}
+          />
+        </div>
+        <div style={{ marginBottom: "1rem", width: "100%" }}>
+          <Input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
+        <button
+          style={{
+            border: "3px solid #fff",
+            backgroundColor: "transparent",
+            color: "#fff",
+            margin: ".75rem",
+            padding: "0.4rem"
+          }}
+          type="submit"
+        >
+          SUBMIT
+        </button>
       </form>
-    </div>
+    </Flex>
   );
 });
 

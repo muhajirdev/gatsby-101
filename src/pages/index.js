@@ -9,16 +9,9 @@ import { TweenMax } from "gsap";
 import { Text, Box, Flex } from "rebass";
 //
 // import styles, { StyledLink as StyledLink } from "../styles/styles";
-import styles from "../styles/styles";
+import styles, { StyledLink } from "../styles/styles";
 import { Link } from "gatsby";
 import styled from "styled-components";
-
-const StyledLink = styled(Link)`
-  font-size: 15;
-  text-decoration: none;
-  color: #ff8000;
-  z-index: 0;
-`;
 
 const gsapStyle = {
   // textTransform: "uppercase",

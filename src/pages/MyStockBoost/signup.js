@@ -19,8 +19,6 @@ export default () => (
       pt="6"
     >
       <SignUp />
-      <SignIn />
-      <SignOut />
     </Flex>
   </PageLayout>
 );

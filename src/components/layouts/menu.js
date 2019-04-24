@@ -121,9 +121,9 @@ export const menuLogin = [
   //     url: "/StockBoost/registrierung",
   //     icon: <PlusOne />
   // },
-  // {
-  //     name: "Kundenbereich",
-  //     url: "/StockBoost/kundenbereich",
-  //     icon: <AttachFile />
-  // }
+  {
+      name: "Kundenbereich",
+      url: "/MyStockBoost/kundenbereich",
+      icon: <AttachFile />
+  }
 ];

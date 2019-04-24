@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core";
 
 //const styles = (theme) => ({
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   font-size: 15;
   text-decoration: none;
   color: #ff8000;

@@ -3,6 +3,7 @@ import { createClient } from "contentful";
 import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
+import ReactMarkdown from "react-markdown";
 
 const client = createClient({
   space: "xy0rm86pahno",
@@ -15,38 +16,32 @@ const options = {
       console.log(data);
       const { file } = data.target.fields;
       return <img src={file.url} />;
-    }
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: () => <div>a table</div>
   }
 };
 
 export default () => {
-  const [content, setContent] = useState();
+  const [content, setContent] = useState("");
+  const [list, setList] = useState([]);
   useEffect(() => {
     client.getEntries().then(async data => {
-      console.log(data);
       //   const contentfulContent =
-      const contentfulContent = await richTextFromMarkdown(
-        data.items[1].fields.md,
-        node => {
-          console.log("node", node);
-          return {
-            nodeType: "embedded-asset-block",
-            content: [],
-            data: {
-              target: {
-                fields: {
-                  file: {
-                    url: node.url
-                  }
-                }
-              }
-            }
-          };
-        }
-      );
-      console.log(contentfulContent);
-      setContent(contentfulContent);
+
+      setContent(data.items[0].fields.md);
+      console.log(data.items);
+      setList(data.items);
     });
   }, []);
-  return documentToReactComponents(content, options);
+  return (
+    <div>
+      {list.map(item => (
+        <div key={item.fields.title}>
+          <div>{item.fields.title}</div>
+          <ReactMarkdown source={item.fields.md} />
+        </div>
+      ))}
+      <hr />
+    </div>
+  );
 };
