@@ -79,7 +79,7 @@ class Subscribe extends Component {
             style={{
               minHeight: "100vh",
               minWidth: "100%",
-              backgroundImage: "url(/daniela-cuevas.jpg)",
+              backgroundImage: "url(/danielaCuevas.jpg)",
               width: "100%",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",

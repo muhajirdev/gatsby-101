@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `StockBoost`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Wie man systematisch & entspannt in Aktien investiert - StockBoost.de // Sie wollen wissen, worauf genau wir uns beziehen? Kein Problem!`,
     author: `@gatsbyjs`
   },
   plugins: [

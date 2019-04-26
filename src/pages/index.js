@@ -80,7 +80,7 @@ export default ({ classes = styles }) => (
       alignItems="flexEnd"
       textAlign="flexEnd"
       alignSelf="flexEnd"
-      mx="auto"
+      // mx="auto"
     >
       <GreenSock />
     </Box>
