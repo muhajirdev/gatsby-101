@@ -22,7 +22,7 @@ const config = {
   messagingSenderId: "354156066906"
 };
 
-const AuthContext = React.createContext(null);
+export const AuthContext = React.createContext(null);
 
 export default ({ children }) => {
   const [authenticated, setAuthenticated] = useState();

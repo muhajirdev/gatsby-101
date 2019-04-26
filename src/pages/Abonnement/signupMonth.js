@@ -17,6 +17,7 @@ const RedirectOnSmallScreen = () => {
   return null;
 };
 
+
 export default ({ classes = styles }) => (
   <PageLayout
     seoTitle="Monats-Abonnement"

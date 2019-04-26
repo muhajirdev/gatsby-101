@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import SEO from "../../seo";
 import Layout from "../layout";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "../../../styles/styles";
 
 import Header from "../../../components/header";
 
-const BlogLayout = ({ children }) => (
+const BlogLayout = ({ children, seoTitle }) => (
   <Layout backgroundColor="white" textColor="black">
-    <Header siteTitle={"test"} />
+    <SEO title={seoTitle} />
     <div
       style={{
         margin: `0 auto`,
@@ -17,11 +20,6 @@ const BlogLayout = ({ children }) => (
       }}
     >
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </div>
   </Layout>
 );
@@ -30,4 +28,4 @@ BlogLayout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default BlogLayout;
+export default withStyles(styles)(BlogLayout);

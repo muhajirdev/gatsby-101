@@ -127,11 +127,9 @@ class Footer extends Component {
                   {column.title}
                 </Typography>
                 {column.items.map(item => (
-                  <h6>
-                    <StyledLink className={classes.link} href={item.url} to={item.url}>
-                      {item.name}
-                    </StyledLink>
-                  </h6>
+                  <StyledLink href={item.url} to={item.url}>
+                    {item.name}
+                  </StyledLink>
                 ))}
               </Flex>
             ))}
@@ -157,7 +155,7 @@ class Footer extends Component {
               }}
               >
                 <Typography
-                  variant="headline"
+                  variant="display1"
                   gutterBottom
                   className={classes.heading}
                   style={{textAlign:"center"}}
@@ -166,10 +164,10 @@ class Footer extends Component {
                     <HoverSubscribe>STOCKBOOST</HoverSubscribe>
                   </a>
                  
-                  <h6 style={{ padding: "1rem" }}>Säntisstrasse 6 | CH-9100 Herisau 
+                  <span style={{ padding: "1rem" }}>Säntisstrasse 6 | CH-9100 Herisau 
                     <br />
                     Phone +41 71 3511 620
-                   </h6>
+                   </span>
                             
                 </Typography>
                 
