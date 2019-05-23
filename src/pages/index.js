@@ -64,7 +64,7 @@ const GreenSock = () => {
 
 export default ({ classes = styles }) => (
   <PageLayout
-    seoTitle="Stockboost"
+    seoTitle="StockBoost"
     // navigationView=""
     Background={Background}
   >
@@ -102,7 +102,19 @@ export default ({ classes = styles }) => (
         }}
         fontSize={[3, 6]}
       >
-        Wie man systematisch & entspannt in Aktien investiert - StockBoost
+        Wie man systematisch & entspannt in Aktien investiert -&nbsp;
+        <a
+          style={{ color: "#FF8000", textDecoration: "none" }}
+          href="https://youtu.be/TWmlTKxKNRI"
+          alt="Portfolio Umschichtung - Das Video"
+        >
+          StockBoost
+          <img
+            alt="video.svg"
+            style={{ width: "2rem" }}
+            src={require("../icons/video.svg")}
+          />
+        </a>
       </Text>
       <Text
         style={{

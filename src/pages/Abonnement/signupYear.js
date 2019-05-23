@@ -3,7 +3,7 @@ import PageLayout from "../../components/layouts/pagelayouts/index";
 import BackgroundImage from "../../components/background-image";
 import styles from "../../styles/styles";
 import { StaticQuery, graphql } from "gatsby";
-import { Box } from "rebass";
+import { Box,Text } from "rebass";
 import Hidden from "@material-ui/core/Hidden";
 
 
@@ -21,6 +21,21 @@ export default ({ classes = styles }) => (
     navigationView="Abonnement > Jah­res­-Abon­ne­ment"
     Background={Background}
   >
+  <Text  
+  fontSize={[ 1, 1, 2 ]}
+  fontWeight='normal'
+  mx="auto"
+  pb="2"
+  > 
+  Dieses Produkt beinhaltet eine kostenlose Testphase von 14 Tagen, d.h. der eigentliche zahlungspflichtige Vertrag beginnt bei einer Bestellung am heutigen Tag in 14 Tagen. 
+  <br />
+  Sie können Ihr Abonnement jederzeit während dieser Testphase kostenlos kündigen!
+  <br/> 
+  Da die Abrechnung immer zum nächsten Monatsbeginn durchgeführt wird, zahlen sie in diesem Monat das Abonnement nur anteilig.
+  {/* Einzige Ausnahme, das Abonnement startet nach der 14-tägigen Testphase direkt am Monatsersten. */}
+  <br/> 
+  Der für diesen Monat verbleibende Gesamtbetrag wird angezeigt.
+</Text>
     <Hidden lgUp>
       <RedirectOnSmallScreen />
     </Hidden>

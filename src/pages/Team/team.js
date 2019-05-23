@@ -58,7 +58,12 @@ const Content = ({ classes = styles, data }) => {
               variant="body1"
               style={{ color: "#fff", padding: "1rem" }}
             >
-              A 'Ghost in the Shell'
+              Rami Altonji studierte Volkswirtschaftslehre an der Universität Bonn. Bereits seit Anfang des Studium handelt Herr Altonji aktiv an der Börse. 2013 schloss er sein Studium mit einer Arbeit zum Thema "Momentum auf dem Composite Dax? Eine empirische Analyse" ab. 
+              Ein großes Anliegen von Herrn Altonji ist es erworbenes Wissen weiterzugeben um so die Finanzbildung zu verbessern. Verschiedene Vorträge sowie eine aktive Mitarbeit im Kölner Börsenverein zeugen von diesem Interesse.
+               <br/> 
+              Als Investor sieht Herr Altonji fundamentale Daten als Treiber und entscheidende Entscheidungsgrundlage für eine Investition, wenngleich er das Timing der Investition eher als technischer Natur sieht. 
+              Als Spekulant - wie er selbst mit mit Blick auf kurzfristiges Marktengagement sagt - hat sich Herr Altonji auf Volatilität in Aktien (Europa / USA / Japan) spezialisiert. Hier vertraut er auf die Seriosität der Unternehmen in Kombination  mit den dortigen strengen Auflagen. 
+              Kurz über sich sagt Herr Altonji: "Mein Denkweise deckt sich mir der von AQR: An innovative approach to systematic investing backed by research insight and economic intuition."
             </Typography>
           </Box>
         </Flex>
