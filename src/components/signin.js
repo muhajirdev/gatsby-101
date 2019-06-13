@@ -46,7 +46,7 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
       });
 
     if (!allowed) {
-      alert("ops not, not allowed");
+      navigate("/contact-rami");
       return;
     }
 
@@ -64,7 +64,7 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
         // ...
       });
 
-    alert("registered");
+    navigate("/welcome-subscriber");
   };
 
   return (
@@ -101,7 +101,7 @@ export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(_ => navigate('/MyStockBoost/contentful-test'))
+      .then(_ => navigate("/MyStockBoost/airbnb-test"))
       .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -175,3 +175,46 @@ export const SignOut = () => (
     Sign Out
   </button>
 );
+
+export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
+  const [email, setEmail] = useState("");
+
+  if (!firebaseRoot) return null;
+
+  const { firebase } = firebaseRoot;
+
+  const handleResetPassword = e => {
+    e.preventDefault();
+    resetPassword();
+  };
+
+  const resetPassword = async () => {
+    const db = firebase.firestore();
+
+    firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(data => {
+        console.log("succeed");
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleResetPassword}>
+        <input
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+});

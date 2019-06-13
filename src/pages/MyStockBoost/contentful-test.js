@@ -25,13 +25,19 @@ export default () => {
   const [content, setContent] = useState("");
   const [list, setList] = useState([]);
   useEffect(() => {
-    client.getEntries().then(async data => {
-      //   const contentfulContent =
+    client
+      .getEntries({
+        content_type: "stockboost",
+        "fields.month": "jan",
+        "fields.year": "2019"
+      })
+      .then(async data => {
+        //   const contentfulContent =
 
-      setContent(data.items[0].fields.md);
-      console.log(data.items);
-      setList(data.items);
-    });
+        setContent(data.items[0].fields.md);
+        console.log(data.items);
+        setList(data.items);
+      });
   }, []);
   return (
     <div>

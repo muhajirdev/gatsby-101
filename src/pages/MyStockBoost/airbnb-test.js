@@ -4,6 +4,7 @@ import { useStaticQuery, StaticQuery, graphql, navigate } from "gatsby";
 import { Box } from "rebass";
 import BackgroundImage from "../../components/background-image";
 import { AuthContext } from "../../layouts/index";
+import { createClient } from "contentful";
 
 import PageLayout from "../../components/layouts/bloglayouts";
 
@@ -66,13 +67,13 @@ const defaultPosts = [
   {
     img:
       "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "Halo",
-    author: "jamie"
+    title: "01",
+    author: "jamie test"
   },
   {
     img:
       "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "dfa",
+    title: "sdfa",
     author: "jamie"
   },
   {
@@ -137,13 +138,40 @@ const defaultPosts = [
   }
 ];
 
+const client = createClient({
+  space: "xy0rm86pahno",
+  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN
+});
+
 const IndexPage = () => {
   const [posts, setPosts] = useState(defaultPosts);
   const [featuredImage, setFeaturedImage] = useState("");
 
   const authenticated = useContext(AuthContext);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    client
+      .getEntries({
+        content_type: "stockboost",
+        "fields.month": "jan",
+        "fields.year": "2019"
+      })
+      .then(data => {
+        const items = data.items.map(i => ({
+          img:
+            "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
+          title: i.fields.title,
+          author: i.fields.author
+        }));
+        setPosts(items);
+      });
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
     unsplash.collections
       .getCollectionPhotos(1111678, 1, 13, "popular")
       .then(toJson)
@@ -163,8 +191,12 @@ const IndexPage = () => {
       });
   }, []);
 
-  if (!authenticated) {
-    navigate("/404");
+  if (loading) {
+    return <div>loading</div>;
+  }
+
+  if (!loading && !authenticated) {
+    navigate("/contact-rami");
   }
 
   return (
