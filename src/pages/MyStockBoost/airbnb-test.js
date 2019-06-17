@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import Unsplash, { toJson } from "unsplash-js";
 import { useStaticQuery, StaticQuery, graphql, navigate } from "gatsby";
+import { Link } from "@reach/router";
 import { Box } from "rebass";
 import BackgroundImage from "../../components/background-image";
 import { AuthContext } from "../../layouts/index";
-import { createClient } from "contentful";
 
 import PageLayout from "../../components/layouts/bloglayouts";
 
@@ -58,7 +58,7 @@ const Card = props => {
         }}
       />
       <h4>{props.title}</h4>
-      <h5 style={{ color: "grey" }}>by {props.author}</h5>
+      {/* <h5 style={{ color: "grey" }}>by {props.author}</h5> */}
     </div>
   );
 };
@@ -66,13 +66,14 @@ const Card = props => {
 const defaultPosts = [
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "01",
-    author: "jamie test"
+      "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+    title: "Jan",
+    author: "jamie test",
+    url: "StockBoost/Portfolio/2019/01"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
+      "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     title: "sdfa",
     author: "jamie"
   },
@@ -138,57 +139,41 @@ const defaultPosts = [
   }
 ];
 
-const client = createClient({
-  space: "xy0rm86pahno",
-  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN
-});
-
 const IndexPage = () => {
   const [posts, setPosts] = useState(defaultPosts);
-  const [featuredImage, setFeaturedImage] = useState("");
+  const [featuredImage, setFeaturedImage] = useState(
+    "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+  );
+
+  const [year, setYear] = useState(2019);
 
   const authenticated = useContext(AuthContext);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    client
-      .getEntries({
-        content_type: "stockboost",
-        "fields.month": "jan",
-        "fields.year": "2019"
-      })
-      .then(data => {
-        const items = data.items.map(i => ({
-          img:
-            "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-          title: i.fields.title,
-          author: i.fields.author
-        }));
-        setPosts(items);
-      });
+    setPosts(defaultPosts);
 
     setTimeout(() => {
       setLoading(false);
     }, 1000);
 
-    unsplash.collections
-      .getCollectionPhotos(1111678, 1, 13, "popular")
-      .then(toJson)
-      .then(data => {
-        console.log(data);
-        return data;
-      })
-      .then(json => json.map(item => item.urls.regular))
-      .then(images => {
-        console.log("test");
-        const newPosts = posts.map((post, index) => ({
-          ...post,
-          img: images[index]
-        }));
-        setPosts(newPosts);
-        setFeaturedImage(images[12]);
-      });
+    // unsplash.collections
+    //   .getCollectionPhotos(1111678, 1, 13, "popular")
+    //   .then(toJson)
+    //   .then(data => {
+    //     console.log(data);
+    //     return data;
+    //   })
+    //   .then(json => json.map(item => item.urls.regular))
+    //   .then(images => {
+    //     const newPosts = posts.map((post, index) => ({
+    //       ...post,
+    //       img: images[index]
+    //     }));
+    //     setPosts(newPosts);
+    //     setFeaturedImage(images[12]);
+    //   });
   }, []);
 
   if (loading) {
@@ -211,6 +196,7 @@ const IndexPage = () => {
       <div>
         <Card big src={featuredImage} />
       </div>
+      <div style={{ padding: "1rem 0" }}>{year}</div>
       <div
         style={{
           display: "flex",
@@ -228,7 +214,9 @@ const IndexPage = () => {
               paddingRight: 20
             }}
           >
-            <Card src={post.img} title={post.title} author={post.author} />
+            <Link to={post.url ? post.url : "/"}>
+              <Card src={post.img} title={post.title} author={post.author} />
+            </Link>
           </div>
         ))}
       </div>

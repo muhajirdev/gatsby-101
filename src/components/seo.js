@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, keywords, title }) {
   return (
@@ -9,101 +9,97 @@ function SEO({ description, lang, meta, keywords, title }) {
       query={detailsQuery}
       render={data => {
         const metaDescription =
-          description || data.site.siteMetadata.description
+          description || data.site.siteMetadata.description;
         return (
           <Helmet
             htmlAttributes={{
-              lang,
+              lang
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             link={[
-              { 
+              {
                 rel: "stylesheet",
                 href: "https://use.typekit.net/kyz6byc.css"
               },
               {
                 rel: "stylesheet",
-                href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+                href:
+                  "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
               },
-              { rel: "stylesheet",
-                href:"js/TimelineMax.min.js>" 
-              }, 
-              { rel: "stylesheet",
-              href:"js/TweenLite.min.js" 
-              }, 
-              { rel: "stylesheet",
-              href:"js/EasePack.min.js" 
-              }, 
-              { rel: "stylesheet",
-              href:"js/rAF.js" 
-              }, 
-              { rel: "stylesheet",
-              href:"js/demo-1.js" 
-              }
+              {
+                rel: "stylesheet",
+                href:
+                  "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+              },
+              { rel: "stylesheet", href: "js/TimelineMax.min.js>" },
+              { rel: "stylesheet", href: "js/TweenLite.min.js" },
+              { rel: "stylesheet", href: "js/EasePack.min.js" },
+              { rel: "stylesheet", href: "js/rAF.js" },
+              { rel: "stylesheet", href: "js/demo-1.js" }
             ]}
             meta={[
               {
                 name: `description`,
-                content: metaDescription,
+                content: metaDescription
               },
               {
                 property: `og:title`,
-                content: title,
+                content: title
               },
               {
                 property: `og:description`,
-                content: metaDescription,
+                content: metaDescription
               },
               {
                 property: `og:type`,
-                content: `website`,
+                content: `website`
               },
               {
                 name: `twitter:card`,
-                content: `summary`,
+                content: `summary`
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: data.site.siteMetadata.author
               },
               {
                 name: `twitter:title`,
-                content: title,
+                content: title
               },
               {
                 name: `twitter:description`,
-                content: metaDescription,
-              },
+                content: metaDescription
+              }
             ]
               .concat(
                 keywords.length > 0
                   ? {
                       name: `keywords`,
-                      content: keywords.join(`, `),
+                      content: keywords.join(`, `)
                     }
                   : []
               )
               .concat(meta)}
           />
-        )
+        );
       }}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  keywords: [],
-}
+  keywords: []
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default SEO;
@@ -118,4 +114,4 @@ const detailsQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,0 +1,91 @@
+import React, { useEffect, useState } from "react";
+import { MARKS, BLOCKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
+import { Match, Router } from "@reach/router";
+import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
+
+import PageLayout from "../../components/layouts/bloglayouts";
+import { createClient } from "contentful";
+import { Box } from "rebass";
+
+const client = createClient({
+  space: "xy0rm86pahno",
+  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN
+});
+
+const monthNumberToName = {
+  "01": "Jan",
+  "02": "Feb"
+};
+
+const getMonthNumberToName = month => monthNumberToName[month];
+
+const options = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
+      console.log(data);
+      const { file } = data.target.fields;
+      return <img src={file.url} />;
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: () => <div>a table</div>
+  }
+};
+
+const P = ({ children }) => <p>{children}</p>;
+const Table = ({ children }) => (
+  <table className="table is-bordered">{children}</table>
+);
+const Heading = ({ children }) => children;
+
+const Posts = ({ year, month }) => {
+  const [posts, setPosts] = useState([]);
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "stockboost",
+        "fields.month": getMonthNumberToName(month),
+        "fields.year": year.toString()
+      })
+      .then(data => {
+        setContent(data.items[0].fields.md);
+        console.log(data.items);
+        setPosts(data.items);
+      });
+  }, []);
+
+  return (
+    <PageLayout seoTitle="airbnb">
+      <Box pt="8">
+        {getMonthNumberToName(month)}, {month}
+        {posts.map(item => (
+          <div key={item.fields.title}>
+            <div>{item.fields.title}</div>
+            <ReactMarkdown
+              className="content"
+              renderers={{ paragraph: P, table: Table }}
+              source={item.fields.md}
+            />
+          </div>
+        ))}
+      </Box>
+    </PageLayout>
+  );
+};
+
+export default () => {
+  return (
+    <Match path="/StockBoost/Portfolio/:year/:month">
+      {props =>
+        props.match ? (
+          <Posts year={props.match.year} month={props.match.month} />
+        ) : (
+          <div>Not matched</div>
+        )
+      }
+    </Match>
+  );
+};
