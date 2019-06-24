@@ -1,8 +1,7 @@
 import axios from "axios";
+import * as functions from "firebase-functions";
 
-// TODO: Update access token. And remove this from repo
-const AUTH =
-  "Bearer 2S-6yPtyC6FsBgv9Aq8BzueidtF5VElZU97r0qAYZuWo5EBrxgcPTi5UqYkF6zQkn72a1yME6DTtVozltr9yMg==";
+const AUTH = functions.config().billwerk.auth;
 
 export const getContract = (contractId: string) =>
   axios
