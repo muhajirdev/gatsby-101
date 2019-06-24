@@ -5,7 +5,7 @@ const AUTH = functions.config().billwerk.auth;
 
 export const getContract = (contractId: string) =>
   axios
-    .get(`https://sandbox.billwerk.com/api/v1/Contracts/${contractId}`, {
+    .get(`https://app.billwerk.com/api/v1/Contracts/${contractId}`, {
       headers: {
         Authorization: AUTH
       }
@@ -15,7 +15,7 @@ export const getContract = (contractId: string) =>
 
 export const getCostumer = (customerId: string) =>
   axios
-    .get(`https://sandbox.billwerk.com/api/v1/Customers/${customerId}`, {
+    .get(`https://app.billwerk.com/api/v1/Customers/${customerId}`, {
       headers: {
         Authorization: AUTH
       }
