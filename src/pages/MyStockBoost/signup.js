@@ -9,9 +9,7 @@ import PageLayout from "../../components/layouts/pagelayouts/index";
 // Firebase
 
 export default () => (
-  <PageLayout
-    Background={Background}
-  >
+  <PageLayout Background={Background}>
     <Flex
       justifyContent="center"
       flexDirection="column"

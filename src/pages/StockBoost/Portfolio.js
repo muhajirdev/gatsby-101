@@ -9,6 +9,7 @@ import styled from "styled-components";
 import PageLayout from "../../components/layouts/bloglayouts";
 import { createClient } from "contentful";
 import { Box } from "rebass";
+import { withFirebase } from "../../components/firebase-context";
 
 const client = createClient({
   space: "xy0rm86pahno",
@@ -39,23 +40,32 @@ const Table = ({ children }) => (
 );
 const Heading = ({ children }) => children;
 
-const Posts = ({ year, month }) => {
+const Posts = withFirebase(({ year, month, firebase: firebaseRoot }) => {
   const [posts, setPosts] = useState([]);
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    client
-      .getEntries({
-        content_type: "stockboost",
-        "fields.month": getMonthNumberToName(month),
-        "fields.year": year.toString()
-      })
-      .then(data => {
-        setContent(data.items[0].fields.md);
-        console.log(data.items);
-        setPosts(data.items);
-      });
-  }, []);
+    firebaseRoot &&
+      firebase
+        .functions()
+        .httpsCallable("getContentfulData")()
+        // client
+        //   .getEntries({
+        //     content_type: "stockboost",
+        //     "fields.month": getMonthNumberToName(month),
+        //     "fields.year": year.toString()
+        //   })
+        .then(({ data }) => {
+          console.log(data);
+          setContent(data.items[0].fields.md);
+          console.log(data.items);
+          setPosts(data.items);
+        });
+  }, [firebaseRoot]);
+  if (!firebaseRoot) {
+    return null;
+  }
+  const { firebase } = firebaseRoot;
 
   return (
     <PageLayout seoTitle="airbnb">
@@ -74,7 +84,7 @@ const Posts = ({ year, month }) => {
       </Box>
     </PageLayout>
   );
-};
+});
 
 export default () => {
   return (

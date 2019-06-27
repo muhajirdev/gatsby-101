@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
-import { Flex } from "rebass";
+import { Flex, Box } from "rebass";
+import { parse } from "query-string";
 
 // Firebase
 import { withFirebase } from "../components/firebase-context";
@@ -15,9 +16,30 @@ import Input from "../components/subscribe/input";
 //   ]
 // });
 
+const getEmailQuery = () => {
+  if (typeof window === "undefined") {
+    return "";
+  }
+  const email = parse(window.location.search).email;
+
+  if (!email) {
+    return "";
+  }
+
+  return email;
+};
+
 export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(getEmailQuery());
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    firebaseRoot &&
+      firebase
+        .functions()
+        .httpsCallable("getContentfulData")()
+        .then(console.log);
+  }, [firebaseRoot]);
 
   if (!firebaseRoot) return null;
 
@@ -69,19 +91,49 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
 
   return (
     <div>
-      <form onSubmit={handleSignUp}>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <Flex
+        py="3"
+        px="4"
+        style={{
+          border: "10px solid #fff"
+        }}
+      >
+        <form
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={handleSignUp}
+        >
+          <div style={{ marginBottom: "1rem", width: "100%" }}>
+            <Input
+              type="email"
+              style={{ width: "100%" }}
+              placeholder="du@example.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+          <div style={{ marginBottom: "1rem", width: "100%" }}>
+            <Input
+              type="password"
+              style={{ width: "100%" }}
+              placeholder="Passwort"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            style={{
+              border: "0px solid #fff",
+              backgroundColor: "transparent",
+              color: "#fff",
+              margin: ".75rem",
+              padding: "0.4rem"
+            }}
+          >
+            Senden
+          </button>
+        </form>
+      </Flex>
     </div>
   );
 });
@@ -136,13 +188,14 @@ export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
         <div style={{ marginBottom: "1rem", width: "100%" }}>
           <Input
             type="password"
+            placeholder="Passwort"
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
         </div>
         <button
           style={{
-            border: "3px solid #fff",
+            border: "0px solid #fff",
             backgroundColor: "transparent",
             color: "#fff",
             margin: ".75rem",
@@ -150,7 +203,7 @@ export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
           }}
           type="submit"
         >
-          SUBMIT
+          Anmelden
         </button>
       </form>
     </Flex>
@@ -186,6 +239,7 @@ export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
   const handleResetPassword = e => {
     e.preventDefault();
     resetPassword();
+    navigate("/");
   };
 
   const resetPassword = async () => {
@@ -208,12 +262,25 @@ export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
   return (
     <div>
       <form onSubmit={handleResetPassword}>
-        <input
+        <Input
           type="email"
+          placeholder="du@example.de"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          style={{
+            border: "0px solid #fff",
+            backgroundColor: "transparent",
+            color: "#fff",
+            margin: ".75rem",
+            padding: "0.4rem",
+            cursor: "pointer"
+          }}
+        >
+          PASSWORT ZURÜCKSETZEN
+        </button>
       </form>
     </div>
   );
