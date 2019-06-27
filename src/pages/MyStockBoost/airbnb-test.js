@@ -99,6 +99,7 @@ const defaultPosts = [
     img:
       "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
     title: "Halo",
+    url: "StockBoost/Portfolio/2019/06",
     author: "jamie"
   },
   {

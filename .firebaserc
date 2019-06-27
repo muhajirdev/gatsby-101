@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "squote-systems"
+    "default": "squote-systems",
+    "sandbox": "squote-systems"
   }
 }

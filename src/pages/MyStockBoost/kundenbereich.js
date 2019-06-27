@@ -1,38 +1,76 @@
-import React from "react";
-import { Flex } from "rebass";
+import React, { useContext } from "react";
+import { Flex, Box } from "rebass";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
+import { navigate } from "@reach/router";
 import { SignIn, SignOut, SignUp } from "../../components/signin";
 import BackgroundImage from "../../components/background-image";
 import PageLayout from "../../components/layouts/pagelayouts/index";
 import { StyledLink } from "../../styles/styles";
+/* material-ui */
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+/* Mailto */
+import Mailto from "react-protected-mailto";
 
-  // sendpasswordReset = e => {
-  //   firebase
-  //     .auth()
-  //     .sendPasswordResetEmail(email)
-  //     .then(() => {
-  //       alert("test alert succeed reset");
-  //     })
-  //     .catch(() => {
-  //       alert("not succeed reset");
-  //     });
-  // };
-export default () => (
-  <PageLayout Background={Background}>
-    <Flex
-      justifyContent="center"
-      flexDirection="column"
-      alignItems="center"
-      pt="6"
+/* Contexts */
+import { AuthContext } from "../../layouts/index";
+
+export default () => {
+  const authenticated = useContext(AuthContext);
+
+  if (authenticated) {
+    navigate("/MyStockBoost/airbnb-test");
+    return null;
+  }
+
+  return (
+    <PageLayout
+      Background={Background}
+      seoTitle="Kundenbereich"
+      navigationView="ANMELDUNG"
     >
-      <SignIn />
-      <StyledLink to="/MyStockBoost/signup">Signup</StyledLink>
-      <StyledLink to="/MyStockBoost/reset-password">Reset Password</StyledLink>
-    </Flex>
-  </PageLayout>
-);
+      <Flex
+        justifyContent="center"
+        flexDirection="column"
+        alignItems="center"
+        pt="6"
+      >
+        <Box>
+          <SignIn />
+        </Box>
+        <Box pt="1rem" px="1rem">
+          <StyledLink to="/Strategie/abonnement">
+            Noch kein Abonnement? Let's do it!
+          </StyledLink>
+        </Box>
+        <Box pt="0.5rem" px="1rem">
+          <StyledLink to="/MyStockBoost/reset-password">
+            Passwort vergessen?
+          </StyledLink>
+        </Box>
+      </Flex>
+      <div>
+        <Flex mx="auto" justifyContent="center">
+          <Typography variant="heading">
+            need help?&nbsp;
+            <Mailto
+              obfuscate={false}
+              style={{ color: "#FF8000", textDecoration: "none" }}
+              email="info@stockboost.de"
+              headers={{
+                subject: "Kundenbereich / Kunde ist König",
+                body: "Sehr geehrtes StockBoost Team, "
+              }}
+            />
+          </Typography>
 
+          {/* </Flex> */}
+        </Flex>
+      </div>
+    </PageLayout>
+  );
+};
 const Background = ({ children }) => {
   return (
     <StaticQuery

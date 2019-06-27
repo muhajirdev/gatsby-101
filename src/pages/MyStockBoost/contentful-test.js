@@ -28,7 +28,7 @@ export default () => {
     client
       .getEntries({
         content_type: "stockboost",
-        "fields.month": "jan",
+        "fields.month": "June",
         "fields.year": "2019"
       })
       .then(async data => {

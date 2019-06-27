@@ -9,7 +9,9 @@ import PageLayout from "../../components/layouts/pagelayouts/index";
 // Firebase
 
 export default () => (
-  <PageLayout Background={Background}>
+  <PageLayout Background={Background}
+              seoTitle="Kundenbereich"
+              navigationView="Passwort vergessen?">
     <Flex
       justifyContent="center"
       flexDirection="column"

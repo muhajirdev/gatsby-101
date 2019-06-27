@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FirebaseContext from "../components/firebase-context";
 import { SignIn } from "../components/signin";
+import { functions } from "firebase";
 
 let firebaseCache;
 const getFirebase = firebase => {
@@ -31,8 +32,9 @@ export default ({ children }) => {
     const app = import("firebase/app");
     const auth = import("firebase/auth");
     const database = import("firebase/database");
+    const functions = import("firebase/functions");
 
-    Promise.all([app, auth, database]).then(values => {
+    Promise.all([app, auth, database, functions]).then(values => {
       const firebase = getFirebase(values[0]);
       setFirebaseInstance({ firebase });
 

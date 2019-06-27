@@ -12,13 +12,14 @@ const styles = theme => ({
 });
 
 export default withStyles(styles)(
-  ({ type, placeholder, value, onChange, classes, error }) => {
+  ({ type, placeholder, value, onChange, classes, error, defaultValue }) => {
     return (
       <TextField
         error={error}
         id="input-with-icon-textfield"
         placeholder={placeholder}
         style={{ marginBottom: "1.5rem", width: "100%", color: "white" }}
+        defaultValue={defaultValue}
         type={type}
         value={value}
         onChange={onChange}
