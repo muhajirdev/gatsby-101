@@ -7,14 +7,8 @@ import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 import PageLayout from "../../components/layouts/bloglayouts";
-import { createClient } from "contentful";
 import { Box } from "rebass";
 import { withFirebase } from "../../components/firebase-context";
-
-const client = createClient({
-  space: "xy0rm86pahno",
-  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN
-});
 
 const monthNumberToName = {
   "01": "Jan",
@@ -49,12 +43,6 @@ const Posts = withFirebase(({ year, month, firebase: firebaseRoot }) => {
       firebase
         .functions()
         .httpsCallable("getContentfulData")()
-        // client
-        //   .getEntries({
-        //     content_type: "stockboost",
-        //     "fields.month": getMonthNumberToName(month),
-        //     "fields.year": year.toString()
-        //   })
         .then(({ data }) => {
           console.log(data);
           setContent(data.items[0].fields.md);
