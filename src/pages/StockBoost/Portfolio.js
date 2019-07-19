@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { BLOCKS } from "@contentful/rich-text-types";
 import ReactMarkdown from "react-markdown";
 import PageLayout from "../../components/layouts/bloglayouts";
 import { Box } from "rebass";
 import { withFirebase } from "../../components/firebase-context";
 import { Match } from "@reach/router";
+
+import "../../styles/content.css";
+
 const monthNumberToName = {
   "01": "Jan",
   "02": "Feb"
@@ -12,26 +14,13 @@ const monthNumberToName = {
 
 const getMonthNumberToName = month => monthNumberToName[month];
 
-const options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
-      console.log(data);
-      const { file } = data.target.fields;
-      return <img alt="" src={file.url} />;
-    },
-    [BLOCKS.EMBEDDED_ENTRY]: () => <div>a table</div>
-  }
-};
-
 const P = ({ children }) => <p>{children}</p>;
 const Table = ({ children }) => (
   <table className="table is-bordered">{children}</table>
 );
-const Heading = ({ children }) => children;
 
 const Posts = withFirebase(({ year, month, firebase: firebaseRoot }) => {
   const [posts, setPosts] = useState([]);
-  const [content, setContent] = useState("");
 
   useEffect(() => {
     firebaseRoot &&
@@ -39,9 +28,6 @@ const Posts = withFirebase(({ year, month, firebase: firebaseRoot }) => {
         .functions()
         .httpsCallable("getContentfulData")()
         .then(({ data }) => {
-          console.log(data);
-          setContent(data.items[0].fields.md);
-          console.log(data.items);
           setPosts(data.items);
         });
   }, [firebaseRoot]);

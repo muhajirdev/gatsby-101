@@ -16,6 +16,18 @@ import Input from "../components/subscribe/input";
 //   ]
 // });
 
+const getErrorMessage = errorCode => {
+  switch (errorCode) {
+    case "auth/wrong-password":
+      return "Some german language";
+    case "auth/user-not-found":
+      return "Something";
+
+    default:
+      return "something went wrong";
+  }
+};
+
 const getEmailQuery = () => {
   if (typeof window === "undefined") {
     return "";
@@ -32,6 +44,7 @@ const getEmailQuery = () => {
 export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
   const [email, setEmail] = useState(getEmailQuery());
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     firebaseRoot &&
@@ -44,8 +57,6 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
   if (!firebaseRoot) return null;
 
   const { firebase } = firebaseRoot;
-
-  const allowedToSignUp = email => false;
 
   const handleSignUp = e => {
     e.preventDefault();
@@ -80,9 +91,7 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
         console.log("succeed");
       })
       .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        setError(getErrorMessage(error.code));
         // ...
       });
 
@@ -132,6 +141,7 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
           >
             Senden
           </button>
+          {error}
         </form>
       </Flex>
     </div>
@@ -141,6 +151,7 @@ export const SignUp = withFirebase(({ firebase: firebaseRoot }) => {
 export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   if (!firebaseRoot) return null;
 
@@ -148,16 +159,15 @@ export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert("login test");
 
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(_ => navigate("/MyStockBoost/airbnb-test"))
+      .then(_ => navigate("/MyStockBoost/overview"))
       .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
-        var errorMessage = error.message;
+        setError(getErrorMessage(errorCode));
         console.log(error);
         // ...
       });
@@ -205,32 +215,39 @@ export const SignIn = withFirebase(({ firebase: firebaseRoot }) => {
         >
           Anmelden
         </button>
+        <div>{error}</div>
       </form>
     </Flex>
   );
 });
 
-export const SignOut = () => (
-  <button
-    onClick={() => {
-      alert("logout");
-    }}
-    style={{
-      marginLeft: 10,
-      borderRadius: "0.5rem",
-      backgroundColor: "#fff",
-      border: "2px solid #ffa400",
-      fontFamily: "sans-serif",
-      padding: "0.5rem 0.5rem",
-      color: "#0f0f0f"
-    }}
-  >
-    Sign Out
-  </button>
-);
+export const SignOut = withFirebase(({ firebase: firebaseRoot }) => {
+  if (!firebaseRoot) return null;
+  const { firebase } = firebaseRoot;
+
+  return (
+    <button
+      onClick={() => {
+        firebase.auth().signOut();
+      }}
+      style={{
+        marginLeft: 10,
+        borderRadius: "0.5rem",
+        backgroundColor: "#fff",
+        border: "0px solid #ffa400",
+        fontFamily: "sans-serif",
+        padding: "0.5rem 0.5rem",
+        color: "#0f0f0f"
+      }}
+    >
+      Sign Out
+    </button>
+  );
+});
 
 export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState(null);
 
   if (!firebaseRoot) return null;
 
@@ -243,8 +260,6 @@ export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
   };
 
   const resetPassword = async () => {
-    const db = firebase.firestore();
-
     firebase
       .auth()
       .sendPasswordResetEmail(email)
@@ -252,10 +267,9 @@ export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
         console.log("succeed");
       })
       .catch(function(error) {
-        // Handle Errors here.
         var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
+        const errorMessage = getErrorMessage(errorCode);
+        setError(errorMessage);
       });
   };
 
@@ -282,6 +296,7 @@ export const ResetPassword = withFirebase(({ firebase: firebaseRoot }) => {
           PASSWORT ZURÜCKSETZEN
         </button>
       </form>
+      {error}
     </div>
   );
 });

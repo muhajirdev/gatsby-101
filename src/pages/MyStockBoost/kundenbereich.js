@@ -18,7 +18,7 @@ export default () => {
   const authenticated = useContext(AuthContext);
 
   if (authenticated) {
-    navigate("/MyStockBoost/airbnb-test");
+    navigate("/MyStockBoost/overview");
     return null;
   }
 

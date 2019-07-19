@@ -3,14 +3,10 @@ import { navigate } from "gatsby";
 import { Link } from "@reach/router";
 import { Box } from "rebass";
 import { AuthContext } from "../../layouts/index";
-import Unsplash from 'unsplash-js';
 
 import PageLayout from "../../components/layouts/bloglayouts";
 
-import styled from "styled-components";
-// import PageLayout from "../../components/layouts/pagelayouts/index";
-// import PageLayout from "../../components/layouts/layout";
-
+import { SignOut } from "../../components/signin";
 
 const Card = props => {
   const imageUrl = `url(${props.src})`;
@@ -32,76 +28,64 @@ const Card = props => {
 
 const defaultPosts = [
   {
-    img:
-      "https://images.unsplash.com/photo-1561266436-1e251a1f8285",
+    img: "https://images.unsplash.com/photo-1561266436-1e251a1f8285",
     title: "Januar",
     author: "StockBoost ESA test",
     url: "StockBoost/Portfolio/2019/01"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "Februar",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "März",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "April",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "Mai",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "Juni",
     url: "StockBoost/Portfolio/2019/06",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "July",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "August",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "September",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "Oktober",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "November",
     author: "StockBoost ESA"
   },
   {
-    img:
-      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    img: "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
     title: "Dezember",
     author: "StockBoost ESA"
   }
@@ -155,12 +139,9 @@ const IndexPage = () => {
   return (
     <PageLayout seoTitle="airbnb">
       <Box pt="5" px="4">
-        <h1> Liebe Investorin,
-            Lieber Investor,
-</h1>
-        <h4>
-          Das Portfolio und nachfolgende Transaktionen.... 
-        </h4>
+        <h1> Liebe Investorin, Lieber Investor,</h1>
+        <h4>Das Portfolio und nachfolgende Transaktionen....</h4>
+        <SignOut />
       </Box>
       <div>
         <Card big src={featuredImage} />
