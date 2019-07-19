@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import { Flex, Box } from "rebass";
-import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { navigate } from "@reach/router";
-import { SignIn, SignOut, SignUp } from "../../components/signin";
+import { SignIn} from "../../components/signin";
 import BackgroundImage from "../../components/background-image";
 import PageLayout from "../../components/layouts/pagelayouts/index";
 import { StyledLink } from "../../styles/styles";
 /* material-ui */
-import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 /* Mailto */
 import Mailto from "react-protected-mailto";

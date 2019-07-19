@@ -1,10 +1,9 @@
 import React from "react";
 import { Flex } from "rebass";
 import { StaticQuery, graphql } from "gatsby";
-import { SignIn, SignOut, SignUp } from "../../components/signin";
 import BackgroundImage from "../../components/background-image";
 import PageLayout from "../../components/layouts/pagelayouts/index";
-
+import { SignUp } from "../../components/signin";
 //
 // Firebase
 

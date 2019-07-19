@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { MARKS, BLOCKS } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { richTextFromMarkdown } from "@contentful/rich-text-from-markdown";
-import { Match, Router } from "@reach/router";
+import { BLOCKS } from "@contentful/rich-text-types";
 import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
-
 import PageLayout from "../../components/layouts/bloglayouts";
 import { Box } from "rebass";
 import { withFirebase } from "../../components/firebase-context";
-
+import { Match } from "@reach/router";
 const monthNumberToName = {
   "01": "Jan",
   "02": "Feb"
@@ -22,7 +17,7 @@ const options = {
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       console.log(data);
       const { file } = data.target.fields;
-      return <img src={file.url} />;
+      return <img alt="" src={file.url} />;
     },
     [BLOCKS.EMBEDDED_ENTRY]: () => <div>a table</div>
   }

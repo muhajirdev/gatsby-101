@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import Unsplash, { toJson } from "unsplash-js";
-import { useStaticQuery, StaticQuery, graphql, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import { Link } from "@reach/router";
 import { Box } from "rebass";
-import BackgroundImage from "../../components/background-image";
 import { AuthContext } from "../../layouts/index";
+import Unsplash from 'unsplash-js';
 
 import PageLayout from "../../components/layouts/bloglayouts";
 
@@ -12,38 +11,6 @@ import styled from "styled-components";
 // import PageLayout from "../../components/layouts/pagelayouts/index";
 // import PageLayout from "../../components/layouts/layout";
 
-const unsplash = new Unsplash({
-  applicationId:
-    "e7baecf493e9353387464b4f7e234e6050d056dba22ce99caf8e35246402de47",
-  secret: "c73ea273b6f891a36e06cb54b09b572849927909df8a566572a4681ac735d79f"
-});
-
-const BigButton = styled.button`
-  background-color: red;
-  height: 50px;
-  width: 500px;
-  padding: 5px;
-`;
-
-const redBoxStyle = {
-  backgroundColor: "red",
-  width: 50,
-  height: 50
-};
-
-const RedBox = props => (
-  <div style={redBoxStyle}>
-    <h1>{props.text}</h1>
-  </div>
-);
-
-function BlueBox(props) {
-  return (
-    <div style={{ backgroundColor: "blue", width: 50, height: 50 }}>
-      <h1>{props.text}</h1>
-    </div>
-  );
-}
 
 const Card = props => {
   const imageUrl = `url(${props.src})`;
@@ -66,84 +33,84 @@ const Card = props => {
 const defaultPosts = [
   {
     img:
-      "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    title: "Jan",
-    author: "jamie test",
+      "https://images.unsplash.com/photo-1561266436-1e251a1f8285",
+    title: "Januar",
+    author: "StockBoost ESA test",
     url: "StockBoost/Portfolio/2019/01"
   },
   {
     img:
-      "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    title: "sdfa",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "Februar",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "März",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "April",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "Mai",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "Halo",
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "Juni",
     url: "StockBoost/Portfolio/2019/06",
-    author: "jamie"
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "dfa",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "July",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "August",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "September",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "Oktober",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "November",
+    author: "StockBoost ESA"
   },
   {
     img:
-      "https://cdn-images-1.medium.com/max/1490/1*lh5qywjj8llll-g_pona-q.jpeg",
-    title: "abcdef",
-    author: "jamie"
+      "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    title: "Dezember",
+    author: "StockBoost ESA"
   }
 ];
 
 const IndexPage = () => {
   const [posts, setPosts] = useState(defaultPosts);
   const [featuredImage, setFeaturedImage] = useState(
-    "https://images.unsplash.com/photo-1560567322-911e17465686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+    "https://images.unsplash.com/photo-1560567322-911e17465686"
   );
 
   const [year, setYear] = useState(2019);
@@ -188,10 +155,11 @@ const IndexPage = () => {
   return (
     <PageLayout seoTitle="airbnb">
       <Box pt="5" px="4">
-        <h1>Airbnb Engineering & Data Science</h1>
+        <h1> Liebe Investorin,
+            Lieber Investor,
+</h1>
         <h4>
-          Creative engineers and data scientists building a world where you can
-          belong anywhere
+          Das Portfolio und nachfolgende Transaktionen.... 
         </h4>
       </Box>
       <div>

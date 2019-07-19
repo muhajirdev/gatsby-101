@@ -10,8 +10,6 @@ import { Text, Box, Flex } from "rebass";
 //
 // import styles, { StyledLink as StyledLink } from "../styles/styles";
 import styles, { StyledLink } from "../styles/styles";
-import { Link } from "gatsby";
-import styled from "styled-components";
 
 const gsapStyle = {
   // textTransform: "uppercase",

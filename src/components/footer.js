@@ -19,7 +19,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Icon from "./layouts/icon";
-import { Flex, Box } from "rebass";
+import { Flex } from "rebass";
 import HoverSubscribe from "../styles/hoverSubscribe";
 
 /* Icons */
@@ -180,9 +180,9 @@ class Footer extends Component {
                 gutterBottom
                 className={classes.heading}
               >
-                <a className={classes.link} href="/Finanzbildung/subscribe" alt="Newsletter">
+                <Link className={classes.link} to="/Finanzbildung/subscribe" alt="Newsletter">
                   <HoverSubscribe>Subscribe</HoverSubscribe>
-                </a>
+                </Link>
               </Typography>
               <a href="https://www.twitter.com" alt="Twitter"><Icon source={require("../icons/twitter.svg")} /></a>
               <a href="https://www.facebook.com" alt="Facebook"><Icon source={require("../icons/facebook.svg")} /></a>

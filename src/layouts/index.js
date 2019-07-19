@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import FirebaseContext from "../components/firebase-context";
-import { SignIn } from "../components/signin";
-import { functions } from "firebase";
 
 let firebaseCache;
 const getFirebase = firebase => {

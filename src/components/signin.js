@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
-import { Flex, Box } from "rebass";
+import { Flex } from "rebass";
 import { parse } from "query-string";
 
 // Firebase

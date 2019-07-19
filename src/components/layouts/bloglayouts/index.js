@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
 import SEO from "../../seo";
 import Layout from "../layout";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../../../styles/styles";
 
-import Header from "../../../components/header";
 
 const BlogLayout = ({ children, seoTitle }) => (
   <Layout backgroundColor="white" textColor="black">
